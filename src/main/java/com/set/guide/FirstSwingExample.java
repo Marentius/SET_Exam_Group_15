@@ -5,7 +5,7 @@ public class FirstSwingExample {
     public static void main(String[] args) {
         JFrame f=new JFrame();//creating instance of JFrame
 
-        JButton b=new JButton("Click here");//creating instance of JButton
+        JButton b=new JButton("Logg inn");//creating instance of JButton
         b.setBounds(100,100,100, 80);//x axis, y axis, width, height
 
         f.add(b);//adding button in JFrame
