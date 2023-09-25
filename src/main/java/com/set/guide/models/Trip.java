@@ -1,4 +1,4 @@
-package com.set.guide;
+package com.set.guide.models;
 
 public class Trip {
 
