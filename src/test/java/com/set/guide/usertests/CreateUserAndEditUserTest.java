@@ -1,4 +1,4 @@
-package com.set.guide;
+package com.set.guide.usertests;
 
 import com.set.guide.models.User;
 import org.junit.jupiter.api.Test;
