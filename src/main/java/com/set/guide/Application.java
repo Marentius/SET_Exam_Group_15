@@ -5,66 +5,66 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 public class Application {
     public static void main(String[] args) {
-        JFrame loggInn = new JFrame("Logg inn/ Registrer bruker");
-        loggInn.setSize(500, 500);
+        JFrame loggIn = new JFrame("Logg in/ Register user");
+        loggIn.setSize(500, 500);
 
-        loggInn.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        loggInn.setLayout(null);
+        loggIn.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        loggIn.setLayout(null);
 
-        //---------^^ basic kode for logg inn vinduet^^------------------------
+        //---------^^ basic code for logg in window^^------------------------
 
-        JTextField brukernavn = new JTextField();
-        brukernavn.setBounds(50, 50, 200, 30);
+        JTextField username = new JTextField();
+        username.setBounds(50, 50, 200, 30);
 
-        JTextField passord = new JTextField();
-        passord.setBounds(50, 100, 200, 30);
+        JTextField password = new JTextField();
+        password.setBounds(50, 100, 200, 30);
 
-        loggInn.add(brukernavn);
-        loggInn.add(passord);
+        loggIn.add(username);
+        loggIn.add(password);
 //-------------^^ lagd to tekstfelt for brukernavn og passord, og la de til loggInn siden ----------------------------
 
-        brukernavn.addActionListener(new ActionListener() {
+        username.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String brukerNavnTekst = brukernavn.getText();
-                String passordTekst = passord.getText();
+                String usernameText = username.getText();
+                String passwordText = password.getText();
 
-                JOptionPane.showMessageDialog(null, "Brukernavnet ditt: " + brukerNavnTekst + " " + ", Passordet ditt: " + passordTekst);
+                JOptionPane.showMessageDialog(null, "Brukernavnet ditt: " + usernameText + " " + ", Passordet ditt: " + passwordText);
             }
         });
 
 
 
 
-        passord.addActionListener(new ActionListener() {
+        password.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String brukerNavnTekst = brukernavn.getText();
-                String passordTekst = passord.getText();
-                JOptionPane.showMessageDialog(null, "Brukernavnet ditt: " + brukerNavnTekst + " " + ", Passordet ditt: " + passordTekst);
+                String usernameText = username.getText();
+                String passwordText = password.getText();
+                JOptionPane.showMessageDialog(null, "Brukernavnet ditt: " + usernameText + " " + ", Passordet ditt: " + passwordText);
             }
         });
 
         //---------------^^Lagde to actionlisteners, som leser ut brukernavnet og passordet som er skrevet inn i tekstfeltet^^-----------------
 
-        JButton loggInnKnapp = new JButton("Logg inn");
-        loggInn.add(loggInnKnapp);
-        loggInnKnapp.setBounds(50, 300, 200, 30);
+        JButton logInButton = new JButton("Logg inn");
+        loggIn.add(logInButton);
+        logInButton.setBounds(50, 300, 200, 30);
 
 
-        JFrame hovedSide = new JFrame();
-        hovedSide.setSize(500, 500);
-        hovedSide.setLayout(null);
+        JFrame mainSite = new JFrame();
+        mainSite.setSize(500, 500);
+        mainSite.setLayout(null);
 
-        JLabel hovedsideBrukernavn = new JLabel("");
-        hovedsideBrukernavn.setBounds(50, 50, 150, 50);
-        hovedSide.add(hovedsideBrukernavn);
+        JLabel mainSiteUsername = new JLabel("");
+        mainSiteUsername.setBounds(50, 50, 150, 50);
+        mainSite.add(mainSiteUsername);
 //--------------^^ Forsøker og lage en label som viser brukernavnet som er skrevet inn i tekstfeltet på logg inn siden, ikke funksjonell enda.----------
-        loggInnKnapp.addActionListener(new ActionListener() {
+        logInButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                hovedSide.setVisible(true);
-                loggInn.setVisible(false);
+                mainSite.setVisible(true);
+                loggIn.setVisible(false);
             }
         });
 
@@ -76,6 +76,6 @@ public class Application {
 
 //---------------^^Lagd ny logg inn knapp og en ny side som blir synlig når man trykker på loggin inn knappen^^-------
 
-        loggInn.setVisible(true);
+        loggIn.setVisible(true);
     }
 }
