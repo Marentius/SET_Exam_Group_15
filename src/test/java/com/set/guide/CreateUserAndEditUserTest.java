@@ -7,13 +7,13 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class CreateUserAndEditUserTest {
     @Test
-    public void user_can_create_user_test(){
+    public void user_can_create_user(){
         //assertTrue(isUserCreated());
         fail("Method not implemented");
     }
 
     @Test
-    public void userCanEditUserInfo() {
+    public void user_can_edit_user_info() {
 
         //User user = new User("originalFirstname", "originalLastname", "originalEmail", 1);
 
@@ -26,6 +26,10 @@ public class CreateUserAndEditUserTest {
         fail("Method not implemented");
     }
 
+    @Test
+    public void user_can_change_passoword(){
+        fail("Method not implemented yet");
+    }
 
 
 }
