@@ -8,6 +8,8 @@ public class Application {
         JButton b = new JButton("Logg inn");
         b.setBounds(100,100,100, 80);
 
+        //Tester push
+
         f.add(b);
 
         f.setSize(800,900);
