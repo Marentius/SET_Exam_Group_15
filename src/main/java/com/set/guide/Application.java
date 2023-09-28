@@ -5,9 +5,6 @@ import com.set.guide.forms.LogIn;
 import com.set.guide.models.Trip;
 import com.set.guide.models.User;
 
-import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 public class Application {
     public static void main(String[] args) {
         Trip oslo = new Trip("Oslo", 100);
@@ -24,7 +21,7 @@ public class Application {
         System.out.println(tripList);
 
 
-        HomePage.createHomePage();
+        LogIn.createLogInWindow();
     }
 }
 

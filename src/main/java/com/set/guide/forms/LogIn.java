@@ -5,14 +5,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class LogIn {
-    public static void createLogIn(){
-        JFrame logIn = new JFrame("Log in/Register User");
-        logIn.setSize(500, 500);
-        logIn.setSize(500, 500);
+    public static void createLogInWindow(){
+        JFrame logInWindow = new JFrame("Log in/Register User");
+        logInWindow.setSize(500, 700);
 
-        logIn.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        logIn.setLayout(null);
-        logIn.setVisible(true);
+
+        logInWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        logInWindow.setLayout(null);
+        logInWindow.setVisible(true);
         //---------^^ basic code for logg in window^^------------------------
         JTextField username = new JTextField();
         username.setBounds(50, 50, 200, 30);
@@ -20,31 +20,29 @@ public class LogIn {
         JTextField password = new JTextField();
         password.setBounds(50, 100, 200, 30);
 
-        logIn.add(username);
-        logIn.add(password);
+        logInWindow.add(username);
+        logInWindow.add(password);
         username.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String usernameText = username.getText();
-                String passwordText = password.getText();
 
-                JOptionPane.showMessageDialog(null, "Brukernavnet ditt: " + usernameText + " " + ", Passordet ditt: " + passwordText);
+                JOptionPane.showMessageDialog(null, "Brukernavnet ditt: " + usernameText);
             }
         });
 
         password.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String usernameText = username.getText();
                 String passwordText = password.getText();
-                JOptionPane.showMessageDialog(null, "Brukernavnet ditt: " + usernameText + " " + ", Passordet ditt: " + passwordText);
+                JOptionPane.showMessageDialog(null,  "Passordet ditt: " + passwordText);
             }
         });
 
         //---------------^^Lagde to actionlisteners, som leser ut brukernavnet og passordet som er skrevet inn i tekstfeltet^^-----------------
 
         JButton logInButton = new JButton("Logg inn");
-        logIn.add(logInButton);
+        logInWindow.add(logInButton);
         logInButton.setBounds(50, 300, 200, 30);
 
         logInButton.addActionListener(new ActionListener() {
@@ -56,8 +54,8 @@ public class LogIn {
                     JOptionPane.showMessageDialog(null, "Skriv inn brukernavn og passord for å gå videre.");
                 }
                 else {
-                    HomePage.createHomePage();
-                    logIn.setVisible(false);
+                    HomePage.createHomePageWindow();
+                    logInWindow.setVisible(false);
                 }
             }
         });
