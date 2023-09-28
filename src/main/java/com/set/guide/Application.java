@@ -7,20 +7,6 @@ import com.set.guide.models.User;
 
 public class Application {
     public static void main(String[] args) {
-        Trip oslo = new Trip("Oslo", 100);
-        Trip sarp = new Trip("Sarpsborg", 200);
-        User tripList = new User("Test", "Test", "Test", 1);
-
-        tripList.addTrip(oslo);
-        tripList.addTrip(sarp);
-
-        System.out.println(tripList);
-
-        tripList.deleteTrip(oslo);
-
-        System.out.println(tripList);
-
-
         LogIn.createLogInWindow();
     }
 }
