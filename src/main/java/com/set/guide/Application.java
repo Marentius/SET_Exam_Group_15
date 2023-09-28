@@ -8,6 +8,7 @@ import com.set.guide.models.User;
 public class Application {
     public static void main(String[] args) {
         LogIn.createLogInWindow();
+
     }
 }
 
