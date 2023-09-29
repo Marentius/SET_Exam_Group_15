@@ -22,6 +22,9 @@ public class LogIn {
 
         logInWindow.add(username);
         logInWindow.add(password);
+
+       username.requestFocus();
+       password.requestFocus();
         username.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
