@@ -22,19 +22,19 @@ public class LogIn extends InitGui{
         logInAsUserButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new_window(new LogIn("Log in"), new HomePage("Home Page"));
+                new_window(LogIn.this, new MainPageUser("Main page"));
             }
         });
         logInAsGuideButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new_window(new LogIn("Log in"), new HomePage("Home Page"));
+                new_window(LogIn.this, new MainPageGuide("Main Page"));
             }
         });
         logInAsAdminButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new_window(new LogIn("Log in"), new HomePage("Home Page"));
+                new_window(LogIn.this, new MainPageAdmin("Main page"));
             }
         });
     }

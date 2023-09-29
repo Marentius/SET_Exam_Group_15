@@ -1,7 +1,8 @@
 package com.set.guide.forms;
 
+import com.sun.tools.javac.Main;
+
 import javax.swing.*;
-import java.awt.*;
 
 public class InitGui extends JFrame {
     public InitGui(String title) {
@@ -16,8 +17,33 @@ public class InitGui extends JFrame {
         setTitle("Log in");
     }
 
-    public void new_window(LogIn login, HomePage homepage){
-        login.setVisible(false);
-        homepage.setVisible(true);
+    public void new_window(LogIn old, MainPageUser neww){
+        old.setVisible(false);
+        neww.setVisible(true);
+    }
+
+    public void new_window(LogIn old, MainPageGuide neww){
+        old.setVisible(false);
+        neww.setVisible(true);
+    }
+
+    public void new_window(LogIn old, MainPageAdmin neww){
+        old.setVisible(false);
+        neww.setVisible(true);
+    }
+
+    public void new_window(MainPageUser old, LogIn neww){
+        old.setVisible(false);
+        neww.setVisible(true);
+    }
+
+    public void new_window(MainPageGuide old, LogIn neww){
+        old.setVisible(false);
+        neww.setVisible(true);
+    }
+
+    public void new_window(MainPageAdmin old, LogIn neww){
+        old.setVisible(false);
+        neww.setVisible(true);
     }
 }
