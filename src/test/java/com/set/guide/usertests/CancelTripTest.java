@@ -1,4 +1,4 @@
-package com.set.guide;
+package com.set.guide.usertests;
 
 import com.set.guide.models.Trip;
 import com.set.guide.models.User;
