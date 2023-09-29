@@ -1,17 +1,12 @@
 package com.set.guide;
 
+import com.set.guide.forms.LogIn;
+
 import javax.swing.*;
+
 public class Application {
     public static void main(String[] args) {
-        JFrame f = new JFrame();
-
-        JButton b = new JButton("Logg inn");
-        b.setBounds(100,100,100, 80);
-
-        f.add(b);
-
-        f.setSize(800,900);
-        f.setLayout(null);
-        f.setVisible(true);
+        LogIn logIn = new LogIn("Log in");
     }
 }
+

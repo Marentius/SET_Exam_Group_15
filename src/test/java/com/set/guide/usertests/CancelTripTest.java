@@ -1,4 +1,4 @@
-package com.set.guide;
+package com.set.guide.usertests;
 
 import com.set.guide.models.Trip;
 import com.set.guide.models.User;
@@ -6,7 +6,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class CancelTripTest {
     final User userList = new User("Test", "Test", "Test", 1);
