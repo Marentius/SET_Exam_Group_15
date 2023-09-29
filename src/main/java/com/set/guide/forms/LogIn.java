@@ -3,10 +3,13 @@ package com.set.guide.forms;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.*;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 
 public class LogIn {
     public static void createLogInWindow(){
-        JFrame logInWindow = new JFrame("Log in/Register User");
+        JFrame logInWindow = new JFrame("Login/Register User");
         logInWindow.setSize(500, 700);
 
 
@@ -20,11 +23,30 @@ public class LogIn {
         JTextField password = new JTextField();
         password.setBounds(50, 100, 200, 30);
 
+
+        username.addFocusListener(new FocusListener() {
+            @Override
+            public void focusGained(FocusEvent e) {
+                if (username.getText().equals("Skriv inn brukernavn...")){
+                    username.setText("");
+                    username.setForeground(Color.BLACK);
+                }
+            }
+
+            @Override
+            public void focusLost(FocusEvent e) {
+                if (username.getText().isEmpty()){
+                    username.setForeground(Color.BLACK);
+                    username.setText("Skriv inn brukernavn...");
+                }
+            }
+        });
+
+
+
+
         logInWindow.add(username);
         logInWindow.add(password);
-
-       username.requestFocus();
-       password.requestFocus();
         username.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -62,6 +84,8 @@ public class LogIn {
                 }
             }
         });
+        username.requestFocus();
+        password.requestFocus();
 
     }
 }
