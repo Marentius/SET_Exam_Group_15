@@ -4,7 +4,6 @@ import com.set.guide.models.Trip;
 import com.set.guide.models.User;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.RepeatedTest;
-import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -25,11 +24,11 @@ public class CancelTripTest {
         userList.addTrip(oslo);
         userList.addTrip(sarpsborg);
 
-        int originalTriplist = userList.getUserTrip().size();
+        int originalTriplist = userList.getTrips().size();
 
         userList.deleteTrip(oslo);
 
-        int changedTriplist = userList.getUserTrip().size();
+        int changedTriplist = userList.getTrips().size();
 
         assertTrue(originalTriplist > changedTriplist);
     }
@@ -43,14 +42,14 @@ public class CancelTripTest {
         userList.addTrip(sarpsborg);
         userList.addTrip(sarpsborg);
 
-        int originalTripList = userList.getUserTrip().size();
+        int originalTripList = userList.getTrips().size();
 
         userList.deleteTrip(oslo);
         userList.deleteTrip(oslo);
         userList.deleteTrip(sarpsborg);
         userList.deleteTrip(sarpsborg);
 
-        int changedTripList = userList.getUserTrip().size();
+        int changedTripList = userList.getTrips().size();
 
         assertTrue(originalTripList > changedTripList);
     }
