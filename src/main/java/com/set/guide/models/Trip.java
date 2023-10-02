@@ -14,6 +14,9 @@ public class Trip {
     private LocalDate date;
     private ArrayList<String> reviews;
 
+    public Trip() {
+    }
+
     public Trip(String location, int price) {
         this.location = location;
         this.price = price;
@@ -123,6 +126,6 @@ public class Trip {
 
     @Override
     public String toString() {
-        return "(Location: " + location + ", Price: " + price + "kr)";
+        return "Location: " + location + ", Price: " + price + "kr, Description: " + description + ", Rating: " + rating + ", Guide: " + guide + ", Booked Spots: " + bookedSpots;
     }
 }

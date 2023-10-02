@@ -14,12 +14,12 @@ public class InitApp extends JFrame {
         super(title);
     }
 
-    public void start_gui(JPanel mainPanel){
+    public void start_gui(JPanel mainPanel, int width, int height){
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(800, 400);
+        setSize(width, height);
         setContentPane(mainPanel);
         setVisible(true);
-        setTitle("Log in");
+        setTitle("SET MVP");
     }
 
     public void new_panel(LogIn old, MainPageUser neww){
