@@ -15,7 +15,7 @@ public class MainPageUser extends InitApp {
 
     public MainPageUser(String title) {
         super(title);
-        start_gui(mainPanel);
+        start_gui(mainPanel, 800, 400);
 
         logOutButton.addActionListener(new ActionListener() {
             @Override
