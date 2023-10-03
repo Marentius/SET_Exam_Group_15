@@ -6,24 +6,24 @@ import java.util.ArrayList;
 public class User {
 
     private String firstname, lastname, email, phoneNumber, address, username, password;
-    private int userId;
+    private int profileId;
     private LocalDate birthDate, registeredDate;
     private ArrayList<Trip> trips = new ArrayList<>();
 
-    public User(String firstname, String lastname, String email, int userId) {
+    public User(String firstname, String lastname, String email, int profileId) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.email = email;
-        this.userId = userId;
+        this.profileId = profileId;
     }
 
-    public User(String username, String password, String firstname, String lastname, String email, String phoneNumber, String address, int userId, LocalDate birthDate, LocalDate registeredDate, ArrayList<Trip> trips) {
+    public User(String username, String password, String firstname, String lastname, String email, String phoneNumber, String address, int profileId, LocalDate birthDate, LocalDate registeredDate, ArrayList<Trip> trips) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.address = address;
-        this.userId = userId;
+        this.profileId = profileId;
         this.birthDate = birthDate;
         this.registeredDate = registeredDate;
         this.trips = trips;
@@ -70,12 +70,12 @@ public class User {
         this.email = email;
     }
 
-    public int getUserId() {
-        return userId;
+    public int getProfileId() {
+        return profileId;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setProfileId(int profileId) {
+        this.profileId = profileId;
     }
 
     public String getPhoneNumber() {
