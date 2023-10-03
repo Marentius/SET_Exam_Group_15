@@ -18,4 +18,5 @@ public class Guide {
 
     //public void createTrip(Trip guideTrip) {}
     //public void deleteTrip(Trip guideTrip) {trips.remove(guideTrip);}
+    //t
 }
