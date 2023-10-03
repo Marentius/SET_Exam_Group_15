@@ -4,18 +4,34 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Guide extends User {
-    private String firstname, lastname, email, phoneNumber, address, username, password;
-    private int profileId;
-    private LocalDate birthDate, registeredDate;
-    private ArrayList<Trip> guideTrips = new ArrayList<>();
 
-    public Guide(String firstname, String lastname, String email, int profileId, String firstname1) {
+    public Guide(String firstname, String lastname, String email, int profileId) {
         super(firstname, lastname, email, profileId);
-        this.firstname = firstname1;
     }
 
-    public void createTrip(Trip guideTrip) {}
-    public void deleteTrip(Trip guideTrip) {
-        getTrips().remove(guideTrip);}
+    public Guide(String username, String password, String firstname, String lastname, String email, String phoneNumber, String address, int profileId, LocalDate birthDate, LocalDate registeredDate, ArrayList<Trip> trips) {
+        super(username, password, firstname, lastname, email, phoneNumber, address, profileId, birthDate, registeredDate, trips);
+    }
 
+    public void createTrip(Trip trip) {}
+
+    public void deleteTrip(Trip trip) {
+        getTrips().remove(trip);}
+
+
+    public void editTrip(Trip trip) {}
+    public void cancelTrip(Trip trip){}
+    public void contactCustomerSupport() {}
+    public void reportUserAccount(User profileId){}
+
+
+
+
+    /*
+
+    @Override
+    public String toString() {
+        return "Triplist: " + getTrips();
+    }
+    */
 }
