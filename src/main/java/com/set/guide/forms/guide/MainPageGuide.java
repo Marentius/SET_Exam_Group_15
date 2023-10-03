@@ -16,7 +16,7 @@ public class MainPageGuide extends InitApp {
 
     public MainPageGuide(String title) {
         super(title);
-        start_gui(mainPanel);
+        start_gui(mainPanel, 800, 400);
         logOutButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

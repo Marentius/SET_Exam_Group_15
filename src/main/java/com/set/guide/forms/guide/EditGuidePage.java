@@ -20,7 +20,7 @@ public class EditGuidePage extends InitApp {
 
     public EditGuidePage(String title) {
         super(title);
-        start_gui(mainPanel);
+        start_gui(mainPanel, 800, 400);
         homeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

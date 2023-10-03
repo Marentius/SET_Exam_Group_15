@@ -20,7 +20,7 @@ public class LogIn extends InitApp {
 
     public LogIn(String title) {
         super(title);
-        start_gui(mainPanel);
+        start_gui(mainPanel, 800, 400);
 
         logInAsUserButton.addActionListener(new ActionListener() {
             @Override
