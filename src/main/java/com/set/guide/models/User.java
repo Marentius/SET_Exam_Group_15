@@ -17,7 +17,11 @@ public class User {
         this.profileId = profileId;
     }
 
-    public User(String username, String password, String firstname, String lastname, String email, String phoneNumber, String address, int profileId, LocalDate birthDate, LocalDate registeredDate, ArrayList<Trip> trips) {
+    public User(){}
+
+    public User(String username, String password, String firstname, String lastname, String email,
+                String phoneNumber, String address, int profileId, LocalDate birthDate,
+                LocalDate registeredDate, ArrayList<Trip> trips) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.email = email;
@@ -128,7 +132,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "Triplist: " + trips;
+        return "Username: " + username + ", First Name: " + firstname + ", Last name: " + lastname;
     }
 
 }

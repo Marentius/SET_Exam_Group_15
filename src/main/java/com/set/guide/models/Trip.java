@@ -36,6 +36,14 @@ public class Trip {
         this.reviews = reviews;
     }
 
+    /*public ArrayList<Trip> getTrips(){
+        ArrayList<Trip> trips = new ArrayList<>();
+        for (Trip trips1 : JOSNFile) {
+            trips.add(trips1)
+        }
+        return trips;
+    }*/
+
     public String getLocation() {
         return location;
     }

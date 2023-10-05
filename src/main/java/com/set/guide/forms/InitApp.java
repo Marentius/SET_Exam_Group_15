@@ -1,9 +1,11 @@
 package com.set.guide.forms;
 
 import com.set.guide.forms.admin.MainPageAdmin;
+import com.set.guide.forms.admin.ViewUsersAdmin;
 import com.set.guide.forms.guide.EditGuidePage;
 import com.set.guide.forms.guide.MainPageGuide;
 import com.set.guide.forms.user.BookTripUser;
+import com.set.guide.forms.user.CreateUser;
 import com.set.guide.forms.user.EditUserPage;
 import com.set.guide.forms.user.MainPageUser;
 
@@ -85,6 +87,30 @@ public class InitApp extends JFrame {
         neww.setVisible(true);
     }
     public void new_panel(EditGuidePage old, LogIn neww){
+        old.setVisible(false);
+        neww.setVisible(true);
+    }
+    public void new_panel(LogIn old, CreateUser neww){
+        old.setVisible(false);
+        neww.setVisible(true);
+    }
+    public void new_panel(CreateUser old, MainPageUser neww){
+        old.setVisible(false);
+        neww.setVisible(true);
+    }
+    public void new_panel(CreateUser old, LogIn neww){
+        old.setVisible(false);
+        neww.setVisible(true);
+    }
+    public void new_panel(MainPageAdmin old, ViewUsersAdmin neww){
+        old.setVisible(false);
+        neww.setVisible(true);
+    }
+    public void new_panel(ViewUsersAdmin old, MainPageAdmin neww){
+        old.setVisible(false);
+        neww.setVisible(true);
+    }
+    public void new_panel(ViewUsersAdmin old, LogIn neww){
         old.setVisible(false);
         neww.setVisible(true);
     }

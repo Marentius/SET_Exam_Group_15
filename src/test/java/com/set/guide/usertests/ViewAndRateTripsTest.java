@@ -1,5 +1,6 @@
 package com.set.guide.usertests;
 
+import com.set.guide.models.Trip;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.fail;
@@ -14,4 +15,5 @@ public class ViewAndRateTripsTest {
     public void user_can_rate_trips(){
         fail("Method not implemented yet");
     }
+
 }

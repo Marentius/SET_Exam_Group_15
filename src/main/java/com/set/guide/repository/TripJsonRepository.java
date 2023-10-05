@@ -47,7 +47,4 @@ public class TripJsonRepository implements TripRepository {
         support.addPropertyChangeListener(pcl);
     }
 
-    public void removePropertyChangeListener(PropertyChangeListener pcl) {
-        support.removePropertyChangeListener(pcl);
-    }
 }
