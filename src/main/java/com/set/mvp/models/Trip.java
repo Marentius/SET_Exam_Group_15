@@ -5,8 +5,9 @@ import java.util.ArrayList;
 
 public class Trip {
 
-
-    private String title, tripId, location, description, guide;
+    //Flytter guide fra string variable til sin egen instansvaribel
+    private Guide guide;
+    private String title, tripId, location, description;
     private double price, rating;
     private int duration, bookedSpots;
     private LocalDate date;
@@ -20,7 +21,7 @@ public class Trip {
         this.price = price;
     }
 
-    public Trip(String tripId, String title, String location, String description, String guide, double price, double rating, int duration, int bookedSpots, LocalDate date, ArrayList<String> reviews) {
+    public Trip(String tripId, String title, String location, String description, Guide guide, double price, double rating, int duration, int bookedSpots, LocalDate date, ArrayList<String> reviews) {
         this.tripId = tripId;
         this.title = title;
         this.location = location;
@@ -62,11 +63,11 @@ public class Trip {
         this.description = description;
     }
 
-    public String getGuide() {
+    public Guide getGuide() {
         return guide;
     }
 
-    public void setGuide(String guide) {
+    public void setGuide(Guide guide) {
         this.guide = guide;
     }
 

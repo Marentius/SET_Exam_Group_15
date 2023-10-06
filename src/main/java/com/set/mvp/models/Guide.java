@@ -13,6 +13,9 @@ public class Guide extends User {
         super(username, password, firstname, lastname, email, phoneNumber, address, profileId, birthDate, registeredDate, trips);
     }
 
+    public Guide(){}
+
+    public void createGuideUser(User guide) {}
     public void createTrip(Trip trip) {}
 
     public void deleteTrip(Trip trip) {
