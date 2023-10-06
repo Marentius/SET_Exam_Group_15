@@ -4,7 +4,12 @@
     "title": "Fantastisk fjelltur",
     "location": "Tromsø",
     "description": "Opplev de majestetiske fjellene i Tromsø.",
-    "guide": "Ola Nordmann",
+    "guide" : {
+      "firstname": "Per",
+      "lastname": "Hansen",
+      "email": "Per@hansen.no",
+      "profileId": 1500
+    },
     "price": 500,
     "rating": 4.5,
     "duration": 3,
@@ -17,7 +22,12 @@
     "title": "Midnattssol cruise",
     "location": "Lofoten",
     "description": "Se midnattssolen fra en luksuscruise i Lofoten.",
-    "guide": "Kari Nordmann",
+    "guide" : {
+      "firstname": "Per",
+      "lastname": "Hansen",
+      "email": "Per@hansen.no",
+      "profileId": 1500
+    },
     "price": 1200,
     "rating": 4.7,
     "duration": 2,
@@ -30,7 +40,12 @@
     "title": "Fantastiske Bergen",
     "location": "Bergen",
     "description": "Utforsk den vakre byen Bergen.",
-    "guide": "Erik Erikson",
+    "guide" : {
+      "firstname": "Per",
+      "lastname": "Hansen",
+      "email": "Per@hansen.no",
+      "profileId": 1500
+    },
     "price": 300,
     "rating": 4.2,
     "duration": 1,
@@ -43,7 +58,12 @@
     "title": "Gåtur i norsk fjell",
     "location": "Geilo",
     "description": "Utforsk den norske naturen til fots.",
-    "guide": "Anna Olsen",
+    "guide" : {
+      "firstname": "Per",
+      "lastname": "Hansen",
+      "email": "Per@hansen.no",
+      "profileId": 1500
+    },
     "price": 600,
     "rating": 4.8,
     "duration": 4,
@@ -56,7 +76,12 @@
     "title": "Spektakulært nordlys",
     "location": "Alta",
     "description": "Opplev det spektakulære nordlyset i Alta.",
-    "guide": "Lars Larsen",
+    "guide" : {
+      "firstname": "Per",
+      "lastname": "Hansen",
+      "email": "Per@hansen.no",
+      "profileId": 1500
+    },
     "price": 800,
     "rating": 4.9,
     "duration": 2,
@@ -69,7 +94,12 @@
     "title": "Fjelltur i Jotunheimen",
     "location": "Jotunheimen",
     "description": "En flott fjelltur i Jotunheimen.",
-    "guide": "Per Hansen",
+    "guide" : {
+      "firstname": "Per",
+      "lastname": "Hansen",
+      "email": "Per@hansen.no",
+      "profileId": 1500
+    },
     "price": 500,
     "rating": 4.5,
     "duration": 3,
@@ -85,7 +115,12 @@
     "title": "Skitur i Hemsedal",
     "location": "Hemsedal",
     "description": "En herlig skitur i Hemsedal.",
-    "guide": "Pål Hansen",
+    "guide" : {
+      "firstname": "Per",
+      "lastname": "Hansen",
+      "email": "Per@hansen.no",
+      "profileId": 1500
+    },
     "price": 600,
     "rating": 4.8,
     "duration": 2,
@@ -101,7 +136,12 @@
     "title": "Båttur i Lofoten",
     "location": "Lofoten",
     "description": "En fantastisk båttur rundt de vakre øyene i Lofoten.",
-    "guide": "Erik Svendsen",
+    "guide" : {
+      "firstname": "Per",
+      "lastname": "Hansen",
+      "email": "Per@hansen.no",
+      "profileId": 1500
+    },
     "price": 700,
     "rating": 4.7,
     "duration": 4,
@@ -117,7 +157,12 @@
     "title": "Sykkeltur i Geiranger",
     "location": "Geiranger",
     "description": "En uforglemmelig sykkeltur gjennom den storslåtte naturen i Geiranger.",
-    "guide": "Anita Nilsen",
+    "guide" : {
+      "firstname": "Per",
+      "lastname": "Hansen",
+      "email": "Per@hansen.no",
+      "profileId": 1500
+    },
     "price": 400,
     "rating": 4.9,
     "duration": 1,

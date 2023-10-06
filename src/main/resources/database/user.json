@@ -14,7 +14,12 @@
     "tripId" : "6",
     "location" : "Jotunheimen",
     "description" : "En flott fjelltur i Jotunheimen.",
-    "guide" : "Per Hansen",
+    "guide" : {
+      "firstname": "Per",
+      "lastname": "Hansen",
+      "email": "Per@hansen.no",
+      "profileId": 1500
+    },
     "price" : 500.0,
     "rating" : 4.5,
     "duration" : 3,
@@ -38,7 +43,12 @@
     "tripId" : "7",
     "location" : "Hemsedal",
     "description" : "En herlig skitur i Hemsedal.",
-    "guide" : "Pål Hansen",
+    "guide" : {
+      "firstname": "Per",
+      "lastname": "Hansen",
+      "email": "Per@hansen.no",
+      "profileId": 1501
+    },
     "price" : 600.0,
     "rating" : 4.8,
     "duration" : 2,
@@ -62,7 +72,12 @@
     "tripId" : "8",
     "location" : "Lofoten",
     "description" : "En fantastisk båttur rundt de vakre øyene i Lofoten.",
-    "guide" : "Erik Svendsen",
+    "guide" : {
+      "firstname": "Per",
+      "lastname": "Hansen",
+      "email": "Per@hansen.no",
+      "profileId": 1502
+    },
     "price" : 700.0,
     "rating" : 4.7,
     "duration" : 4,
@@ -86,7 +101,12 @@
     "tripId" : "9",
     "location" : "Geiranger",
     "description" : "En uforglemmelig sykkeltur gjennom den storslåtte naturen i Geiranger.",
-    "guide" : "Anita Nilsen",
+    "guide" : {
+      "firstname": "Per",
+      "lastname": "Hansen",
+      "email": "Per@hansen.no",
+      "profileId": 1503
+    },
     "price" : 400.0,
     "rating" : 4.9,
     "duration" : 1,
@@ -115,18 +135,6 @@
   "username" : "gfd",
   "password" : "fdg",
   "profileId" : 6,
-  "birthDate" : [ 2023, 10, 5 ],
-  "registeredDate" : [ 2023, 10, 5 ],
-  "trips" : [ ]
-}, {
-  "firstname" : "Test",
-  "lastname" : "Test",
-  "email" : "Test",
-  "phoneNumber" : "Test",
-  "address" : "Test",
-  "username" : "Test",
-  "password" : "Test",
-  "profileId" : 7,
   "birthDate" : [ 2023, 10, 5 ],
   "registeredDate" : [ 2023, 10, 5 ],
   "trips" : [ ]
