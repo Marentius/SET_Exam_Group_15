@@ -14,9 +14,22 @@ public class Admin {
 
     }
 
-    //public void checkUser(User profileId) {}
-    //public void executeBackup(JSON ???) {}
-    //public void verifyGuideProfile(User profileId)
+    public String viewUserInfo(User user) {
+        String userInfo = "Username: " + user.getUsername() + "\n"
+                + "First name: " + user.getFirstname() + "\n"
+                + "Last name: " + user.getLastname() + "\n"
+                + "Email: " + user.getEmail() + "\n"
+                + "Phonenumber: " + user.getPhoneNumber() + "\n"
+                + "Adress: " + user.getAddress() + "\n"
+                + "Profil-ID: " + user.getProfileId() + "\n"
+                + "Birthdate: " + user.getBirthDate() + "\n"
+                + "Registered date: " + user.getRegisteredDate() + "\n";
+
+        // userInfo += "Trips: " + user.getTrips() + "\n";
+
+        return userInfo;
+    }
+
 
 
 
