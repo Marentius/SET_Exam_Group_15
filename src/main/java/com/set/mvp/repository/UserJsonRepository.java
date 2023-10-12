@@ -46,15 +46,15 @@ public class UserJsonRepository implements UserRepository{
     }
 
     @Override
-    public User createUser(String username, String password, String firstname, String lastname, String email, String phoneNumber, String address, ArrayList<Trip> trips) {
-        User newUser = new User(username, password, firstname, lastname, email, phoneNumber, address, userArrayList.size() +1, LocalDate.now(), LocalDate.now(), trips);
+    public User createUser(String username, String password, String firstname, String lastname, String email, ArrayList<Trip> trips) {
+        User newUser = new User(username, password, firstname, lastname, email, generateUnicProfileId(), trips);
 
         userArrayList.add(newUser);
         support.firePropertyChange("userArrayList", null, userArrayList);
 
         writeToJsonFile("/src/main/resources/database/user.json");
 
-        System.out.println("User sucsessfully created");
+        System.out.println("User successfully created");
 
         return newUser;
     }
@@ -70,10 +70,10 @@ public class UserJsonRepository implements UserRepository{
             }
         }
 
-
         if (userToDelete != null) {
             userArrayList.remove(userToDelete);
             writeToJsonFile("/src/main/resources/database/user.json");
+            System.out.println("User with ID " + profileId + " was successfully deleted");
         } else {
             System.out.println("User with ID " + profileId + " not found.");
         }
@@ -93,5 +93,40 @@ public class UserJsonRepository implements UserRepository{
     public void addPropertyChangeListener(PropertyChangeListener pcl) {
         support.addPropertyChangeListener(pcl);
     }
+
+    public int generateUnicProfileId() {
+        int newID = 0;
+        for (User user : userArrayList) {
+            if (user.getProfileId() > newID) {
+                newID = user.getProfileId();
+            }
+        }
+
+        newID++;
+
+        while (idExists(newID)){
+            newID++;
+        }
+        return newID;
+    }
+
+    private boolean idExists(int id) {
+        for (User user : userArrayList) {
+            if (user.getProfileId() == id) {
+                return true;
+            }
+        }
+        return false;
+    }
+    public int checkUserExistans(String username) {
+        for (User user : userArrayList) {
+            if (user.getUsername().equals(username)){
+                return user.getProfileId();
+            }
+        }
+        System.out.println("User don't exists");
+        return 0;
+    }
+
 
 }

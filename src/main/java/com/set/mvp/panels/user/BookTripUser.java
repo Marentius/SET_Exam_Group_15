@@ -1,5 +1,6 @@
 package com.set.mvp.panels.user;
 
+import com.set.mvp.models.LoggedInUser;
 import com.set.mvp.panels.InitApp;
 import com.set.mvp.panels.StartPanelLogIn;
 import com.set.mvp.models.Trip;
@@ -22,6 +23,9 @@ public class BookTripUser extends InitApp {
     public BookTripUser(String title) {
         super(title);
         start_gui(mainPanel, 1500, 400);
+        if (LoggedInUser.getInstance().isLoggedIn()) {
+            System.out.println("User is logged in");
+        }
 
         tripJsonRepository = new TripJsonRepository("/database/trip.json");
 

@@ -28,5 +28,11 @@ public class MainPageGuide extends InitApp {
                 new_panel(MainPageGuide.this, new EditGuidePage("Edit User"));
             }
         });
+        addTripButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new_panel(MainPageGuide.this, new AddTripPage("Add Trip Page"));
+            }
+        });
     }
 }
