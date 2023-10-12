@@ -1,6 +1,6 @@
 [
   {
-    "tripId": "1",
+    "tripId": 1,
     "title": "Fantastisk fjelltur",
     "location": "Tromsø",
     "description": "Opplev de majestetiske fjellene i Tromsø.",
@@ -11,14 +11,12 @@
       "profileId": 1500
     },
     "price": 500,
-    "rating": 4.5,
     "duration": 3,
-    "bookedSpots": 10,
     "date": [2023, 6, 15],
     "reviews": ["Fantastisk tur!", "Vil dra igjen."]
   },
   {
-    "tripId": "2",
+    "tripId": 2,
     "title": "Midnattssol cruise",
     "location": "Lofoten",
     "description": "Se midnattssolen fra en luksuscruise i Lofoten.",
@@ -29,14 +27,12 @@
       "profileId": 1500
     },
     "price": 1200,
-    "rating": 4.7,
     "duration": 2,
-    "bookedSpots": 20,
     "date": [2023, 7, 10],
     "reviews": ["Utrolig vakkert!", "Anbefales!"]
   },
   {
-    "tripId": "3",
+    "tripId": 3,
     "title": "Fantastiske Bergen",
     "location": "Bergen",
     "description": "Utforsk den vakre byen Bergen.",
@@ -47,14 +43,12 @@
       "profileId": 1500
     },
     "price": 300,
-    "rating": 4.2,
     "duration": 1,
-    "bookedSpots": 15,
     "date": [2023, 5, 20],
     "reviews": ["Nydelig by!", "Fin tur."]
   },
   {
-    "tripId": "4",
+    "tripId": 4,
     "title": "Gåtur i norsk fjell",
     "location": "Geilo",
     "description": "Utforsk den norske naturen til fots.",
@@ -65,14 +59,12 @@
       "profileId": 1500
     },
     "price": 600,
-    "rating": 4.8,
     "duration": 4,
-    "bookedSpots": 5,
     "date": [2023, 8, 12],
     "reviews": ["Flinke guider!", "Utrolig natur."]
   },
   {
-    "tripId": "5",
+    "tripId": 5,
     "title": "Spektakulært nordlys",
     "location": "Alta",
     "description": "Opplev det spektakulære nordlyset i Alta.",
@@ -83,14 +75,12 @@
       "profileId": 1500
     },
     "price": 800,
-    "rating": 4.9,
     "duration": 2,
-    "bookedSpots": 8,
     "date": [2023, 11, 25],
     "reviews": ["Magisk!", "Enestående opplevelse."]
   },
   {
-    "tripId": "6",
+    "tripId": 6,
     "title": "Fjelltur i Jotunheimen",
     "location": "Jotunheimen",
     "description": "En flott fjelltur i Jotunheimen.",
@@ -101,9 +91,7 @@
       "profileId": 1500
     },
     "price": 500,
-    "rating": 4.5,
     "duration": 3,
-    "bookedSpots": 10,
     "date": [2023, 6, 15],
     "reviews": [
       "Fantastisk tur!",
@@ -111,7 +99,7 @@
     ]
   },
   {
-    "tripId": "7",
+    "tripId": 7,
     "title": "Skitur i Hemsedal",
     "location": "Hemsedal",
     "description": "En herlig skitur i Hemsedal.",
@@ -122,9 +110,7 @@
       "profileId": 1500
     },
     "price": 600,
-    "rating": 4.8,
     "duration": 2,
-    "bookedSpots": 8,
     "date": [2023, 2, 15],
     "reviews": [
       "Utrolig gøy!",
@@ -132,7 +118,7 @@
     ]
   },
   {
-    "tripId": "8",
+    "tripId": 8,
     "title": "Båttur i Lofoten",
     "location": "Lofoten",
     "description": "En fantastisk båttur rundt de vakre øyene i Lofoten.",
@@ -143,9 +129,7 @@
       "profileId": 1500
     },
     "price": 700,
-    "rating": 4.7,
     "duration": 4,
-    "bookedSpots": 12,
     "date": [2023, 7, 10],
     "reviews": [
       "Fantastisk opplevelse!",
@@ -153,7 +137,7 @@
     ]
   },
   {
-    "tripId": "9",
+    "tripId": 9,
     "title": "Sykkeltur i Geiranger",
     "location": "Geiranger",
     "description": "En uforglemmelig sykkeltur gjennom den storslåtte naturen i Geiranger.",
@@ -164,9 +148,7 @@
       "profileId": 1500
     },
     "price": 400,
-    "rating": 4.9,
     "duration": 1,
-    "bookedSpots": 15,
     "date": [2023, 5, 20],
     "reviews": [
       "Sykkelturen var en drøm!",

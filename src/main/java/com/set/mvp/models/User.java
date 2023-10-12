@@ -1,36 +1,31 @@
 package com.set.mvp.models;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class User {
 
-    private String firstname, lastname, email, phoneNumber, address, username, password;
+    private String firstname, lastname, email,username, password;
     private int profileId;
-    private LocalDate birthDate, registeredDate;
     private ArrayList<Trip> trips = new ArrayList<>();
-
-    public User(String firstname, String lastname, String email, int profileId) {
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.email = email;
-        this.profileId = profileId;
-    }
 
     public User(){}
 
-    public User(String username, String password, String firstname, String lastname, String email,
-                String phoneNumber, String address, int profileId, LocalDate birthDate,
-                LocalDate registeredDate, ArrayList<Trip> trips) {
+    public User(String username, String password, String firstname, String lastname, String email, int profileId, ArrayList<Trip> trips) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.email = email;
-        this.phoneNumber = phoneNumber;
-        this.address = address;
         this.profileId = profileId;
-        this.birthDate = birthDate;
-        this.registeredDate = registeredDate;
         this.trips = trips;
+        this.username = username;
+        this.password = password;
+        new ArrayList<Trip>();
+    }
+
+    public User(String username, String password, String firstname, String lastname, String email, int profileId) {
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.email = email;
+        this.profileId = profileId;
         this.username = username;
         this.password = password;
     }
@@ -80,38 +75,6 @@ public class User {
 
     public void setProfileId(int profileId) {
         this.profileId = profileId;
-    }
-
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public LocalDate getBirthDate() {
-        return birthDate;
-    }
-
-    public void setBirthDate(LocalDate birthDate) {
-        this.birthDate = birthDate;
-    }
-
-    public LocalDate getRegisteredDate() {
-        return registeredDate;
-    }
-
-    public void setRegisteredDate(LocalDate registeredDate) {
-        this.registeredDate = registeredDate;
     }
 
     public String getUsername() {

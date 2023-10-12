@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class BookTripTest {
 
-    final User userList = new User("Test", "Test", "Test", 1);
+    final User userList = new User("Default", "Default", "Default", "Default", "Default", 1234);
     private Trip oslo;
 
     @BeforeEach

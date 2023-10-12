@@ -8,7 +8,7 @@ import org.junit.jupiter.api.RepeatedTest;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class CancelTripTest {
-    final User userList = new User("Test", "Test", "Test", 1);
+    final User userList = new User("Default", "Default", "Default", "Default", "Default", 1234);
     private Trip oslo;
     private Trip sarpsborg;
 
