@@ -38,4 +38,12 @@
   "password" : "hei",
   "profileId" : 4,
   "trips" : [ ]
+}, {
+  "firstname" : "dsf",
+  "lastname" : "dsf",
+  "email" : "sdf",
+  "username" : "fdsaf",
+  "password" : "dsf",
+  "profileId" : 5,
+  "trips" : [ ]
 } ]

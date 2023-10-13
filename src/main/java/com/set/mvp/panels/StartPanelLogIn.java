@@ -12,7 +12,6 @@ import com.set.mvp.repository.UserJsonRepository;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
 
 public class StartPanelLogIn extends InitApp {
     private JPanel mainPanel;
@@ -38,7 +37,7 @@ public class StartPanelLogIn extends InitApp {
             public void actionPerformed(ActionEvent e) {
                 int userId = userJsonRepository.checkUserExistans(txtUsername.getText());
                 if (userId != 0) {
-                    LoggedInUser.getInstance().logIn(userId);
+                    LoggedInUser.getUser().logIn(userId);
                     new_panel(StartPanelLogIn.this, new MainPageUser("Main page User"));
                 } else {
                     JOptionPane.showMessageDialog(StartPanelLogIn.this, "LogIn Failed. Try Again or create user");
@@ -50,7 +49,7 @@ public class StartPanelLogIn extends InitApp {
             public void actionPerformed(ActionEvent e) {
                 int userId = guideJsonRepository.checkGuideExistans(txtUsername.getText());
                 if (userId != 0) {
-                    LoggedInUser.getInstance().logIn(userId);
+                    LoggedInUser.getUser().logIn(userId);
                     new_panel(StartPanelLogIn.this, new MainPageGuide("Main Page Guide"));
                 } else {
                     JOptionPane.showMessageDialog(StartPanelLogIn.this, "LogIn Failed. Try Again or create guide");

@@ -110,4 +110,36 @@
   "password" : "Test1",
   "profileId" : 6,
   "trips" : [ ]
+}, {
+  "firstname" : "Vetle Marentius",
+  "lastname" : "Nilsen",
+  "email" : "Vetle@email.com",
+  "username" : "Marentius",
+  "password" : "maren",
+  "profileId" : 7,
+  "trips" : [ ]
+}, {
+  "firstname" : "Robin",
+  "lastname" : "Robin",
+  "email" : "Robin",
+  "username" : "Robin",
+  "password" : "RobinRobin",
+  "profileId" : 8,
+  "trips" : [ ]
+}, {
+  "firstname" : "Test",
+  "lastname" : "Test",
+  "email" : "Test",
+  "username" : "Test",
+  "password" : "Test",
+  "profileId" : 9,
+  "trips" : [ ]
+}, {
+  "firstname" : "TestTest",
+  "lastname" : "TestTest",
+  "email" : "TestTest",
+  "username" : "TestTest",
+  "password" : "TestTest",
+  "profileId" : 10,
+  "trips" : [ ]
 } ]

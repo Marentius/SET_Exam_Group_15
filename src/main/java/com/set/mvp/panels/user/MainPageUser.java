@@ -17,7 +17,7 @@ public class MainPageUser extends InitApp {
     public MainPageUser(String title) {
         super(title);
         start_gui(mainPanel, 800, 400);
-        if (LoggedInUser.getInstance().isLoggedIn()) {
+        if (LoggedInUser.getUser().isLoggedIn()) {
             System.out.println("User is logged in");
         }
 
@@ -25,12 +25,14 @@ public class MainPageUser extends InitApp {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new_panel(MainPageUser.this, new StartPanelLogIn("Log in"));
+                if (LoggedInUser.getUser().isLoggedIn()) {
+                    LoggedInUser.getUser().logOut();
+                }
             }
         });
         bookTripButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
                 new_panel(MainPageUser.this, new BookTripUser("Book Trip User"));
             }
         });

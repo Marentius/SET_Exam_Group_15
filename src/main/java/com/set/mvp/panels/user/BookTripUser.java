@@ -23,7 +23,7 @@ public class BookTripUser extends InitApp {
     public BookTripUser(String title) {
         super(title);
         start_gui(mainPanel, 1500, 400);
-        if (LoggedInUser.getInstance().isLoggedIn()) {
+        if (LoggedInUser.getUser().isLoggedIn()) {
             System.out.println("User is logged in");
         }
 
@@ -32,11 +32,12 @@ public class BookTripUser extends InitApp {
         listModel = new DefaultListModel<>();
         tripJlist.setModel(listModel);
 
-        tripJsonRepository.addPropertyChangeListener(evt -> {
+        /*tripJsonRepository.addPropertyChangeListener(evt -> {
             updateTripList();
-        });
+        });*/
 
         updateTripList();
+        System.out.println(LoggedInUser.getUser().getLoggedInUserId());
 
         logOutButton.addActionListener(new ActionListener() {
             @Override
@@ -48,6 +49,12 @@ public class BookTripUser extends InitApp {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new_panel(BookTripUser.this, new MainPageUser("Main Page User"));
+            }
+        });
+        bookTripButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println(LoggedInUser.getUser().getLoggedInUserId());
             }
         });
     }

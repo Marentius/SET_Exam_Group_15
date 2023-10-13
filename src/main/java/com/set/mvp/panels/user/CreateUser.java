@@ -1,5 +1,6 @@
 package com.set.mvp.panels.user;
 
+import com.set.mvp.models.LoggedInUser;
 import com.set.mvp.panels.InitApp;
 import com.set.mvp.panels.StartPanelLogIn;
 import com.set.mvp.repository.UserJsonRepository;
@@ -30,6 +31,8 @@ public class CreateUser extends InitApp {
             @Override
             public void actionPerformed(ActionEvent e) {
                 userJsonRepository.createUser(txtUsername.getText(), txtPassword.getText(), txtFirstname.getText(), txtLastname.getText(), txtEmail.getText(), new ArrayList<>());
+                int userId = userJsonRepository.checkUserExistans(txtUsername.getText());
+                LoggedInUser.getUser().logIn(userId);
                 new_panel(CreateUser.this, new MainPageUser("Main Page"));
             }
         });
