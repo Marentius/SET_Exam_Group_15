@@ -2,6 +2,7 @@ package com.set.mvp.usertests;
 
 import com.set.mvp.models.User;
 import com.set.mvp.repository.UserJsonRepository;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -9,21 +10,27 @@ import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class CreateUserAndEditUserTest {
-    UserJsonRepository userJsonRepository = new UserJsonRepository("database/user.json");
-    ArrayList<User> users = userJsonRepository.getUsers();
+    private UserJsonRepository userJsonRepository;
+
+    @BeforeEach
+    public void init(){
+        userJsonRepository = new UserJsonRepository("/database/user.json");
+    }
+
     @Test
     public void user_can_create_user(){
-        User createdUser = new User("Robene", "123", "Robin", "Enerhaugen",
-                "Robin.enerhaugen@hotmail.com", 100, null);
+        User createdUser = userJsonRepository.createUser("Robene", "123", "Robin", "Enerhaugen", "Robin.enerhaugen@hotmail.com", new ArrayList<>());
+
         boolean isProfileIdInList = false;
-        for (User user : users){
-            if (user.getProfileId() == 100){
+        for (User user : userJsonRepository.getUsers()){
+            if (user.getProfileId() == createdUser.getProfileId()){
                 isProfileIdInList = true;
                 break;
             }
         }
         assertTrue(isProfileIdInList);
 
+        userJsonRepository.deleteUser(createdUser.getProfileId());
     }
 
     @Test
