@@ -1,14 +1,29 @@
 package com.set.mvp.usertests;
 
+import com.set.mvp.models.User;
+import com.set.mvp.repository.UserJsonRepository;
 import org.junit.jupiter.api.Test;
+
+import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class CreateUserAndEditUserTest {
+    UserJsonRepository userJsonRepository = new UserJsonRepository("database/user.json");
+    ArrayList<User> users = userJsonRepository.getUsers();
     @Test
     public void user_can_create_user(){
-        //assertTrue(isUserCreated());
-        fail("Method not implemented");
+        User createdUser = new User("Robene", "123", "Robin", "Enerhaugen",
+                "Robin.enerhaugen@hotmail.com", 100, null);
+        boolean isProfileIdInList = false;
+        for (User user : users){
+            if (user.getProfileId() == 100){
+                isProfileIdInList = true;
+                break;
+            }
+        }
+        assertTrue(isProfileIdInList);
+
     }
 
     @Test
