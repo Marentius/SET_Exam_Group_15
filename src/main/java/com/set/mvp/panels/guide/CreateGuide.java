@@ -3,6 +3,7 @@ package com.set.mvp.panels.guide;
 import com.set.mvp.models.Guide;
 import com.set.mvp.panels.InitApp;
 import com.set.mvp.panels.StartPanelLogIn;
+import com.set.mvp.panels.admin.MainPageAdmin;
 import com.set.mvp.repository.GuideJsonRepository;
 
 import javax.swing.*;
@@ -31,6 +32,7 @@ public class CreateGuide extends InitApp {
             @Override
             public void actionPerformed(ActionEvent e) {
                 guideJsonRepository.createGuide(txtUsername.getText(), txtPassword.getText(), txtFirstName.getText(), txtLastName.getText(), txtEmail.getText(), new ArrayList<>());
+                new_panel(CreateGuide.this, new MainPageGuide("Main Page Guide"));
             }
         });
         logOutButton.addActionListener(new ActionListener() {

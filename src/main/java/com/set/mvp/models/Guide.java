@@ -17,10 +17,4 @@ public class Guide extends User {
     public void deleteTrip(Trip trip) {
         getTrips().remove(trip);}
 
-
-    public void editTrip(Trip trip) {
-    }
-
-    public void contactCustomerSupport() {}
-    public void reportUserAccount(User profileId){}
 }

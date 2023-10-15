@@ -21,16 +21,12 @@ public class ViewUsersAdmin extends InitApp {
 
     public ViewUsersAdmin(String title) {
         super(title);
-        start_gui(mainPanel, 1500, 400);
+        start_gui(mainPanel, 800, 400);
 
         userJsonRepository = new UserJsonRepository("/database/user.json");
 
         listModel = new DefaultListModel<>();
         userJList.setModel(listModel);
-
-        /*userJsonRepository.addPropertyChangeListener(evt -> {
-            updateUserList();
-        });*/
 
         updateUserList();
 

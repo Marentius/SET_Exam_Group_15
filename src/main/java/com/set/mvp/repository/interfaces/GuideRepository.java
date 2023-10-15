@@ -1,4 +1,4 @@
-package com.set.mvp.repository;
+package com.set.mvp.repository.interfaces;
 
 import com.set.mvp.models.Guide;
 import com.set.mvp.models.Trip;

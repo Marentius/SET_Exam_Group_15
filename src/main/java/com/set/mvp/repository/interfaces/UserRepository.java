@@ -1,4 +1,4 @@
-package com.set.mvp.repository;
+package com.set.mvp.repository.interfaces;
 
 import com.set.mvp.models.Trip;
 import com.set.mvp.models.User;
@@ -9,4 +9,6 @@ public interface UserRepository {
     ArrayList<User> getUsers();
     User createUser(String username, String password, String firstname, String lastname, String email, ArrayList<Trip> trips);
     void deleteUser(int profileId);
+    void editUserInfo(String username, String password, String firstname, String lastname, String email);
+    void bookTrip(Trip trip);
 }

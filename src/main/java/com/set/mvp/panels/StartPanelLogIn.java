@@ -1,6 +1,6 @@
 package com.set.mvp.panels;
 
-import com.set.mvp.models.LoggedInUser;
+import com.set.mvp.models.LoggedInProfile;
 import com.set.mvp.panels.admin.MainPageAdmin;
 import com.set.mvp.panels.guide.CreateGuide;
 import com.set.mvp.panels.guide.MainPageGuide;
@@ -37,7 +37,7 @@ public class StartPanelLogIn extends InitApp {
             public void actionPerformed(ActionEvent e) {
                 int userId = userJsonRepository.checkUserExistans(txtUsername.getText());
                 if (userId != 0) {
-                    LoggedInUser.getUser().logIn(userId);
+                    LoggedInProfile.getProfile().logIn(userId);
                     new_panel(StartPanelLogIn.this, new MainPageUser("Main page User"));
                 } else {
                     JOptionPane.showMessageDialog(StartPanelLogIn.this, "LogIn Failed. Try Again or create user");
@@ -49,7 +49,7 @@ public class StartPanelLogIn extends InitApp {
             public void actionPerformed(ActionEvent e) {
                 int userId = guideJsonRepository.checkGuideExistans(txtUsername.getText());
                 if (userId != 0) {
-                    LoggedInUser.getUser().logIn(userId);
+                    LoggedInProfile.getProfile().logIn(userId);
                     new_panel(StartPanelLogIn.this, new MainPageGuide("Main Page Guide"));
                 } else {
                     JOptionPane.showMessageDialog(StartPanelLogIn.this, "LogIn Failed. Try Again or create guide");

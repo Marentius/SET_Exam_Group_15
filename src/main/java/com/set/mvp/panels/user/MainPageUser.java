@@ -1,6 +1,6 @@
 package com.set.mvp.panels.user;
 
-import com.set.mvp.models.LoggedInUser;
+import com.set.mvp.models.LoggedInProfile;
 import com.set.mvp.panels.InitApp;
 import com.set.mvp.panels.StartPanelLogIn;
 
@@ -17,7 +17,7 @@ public class MainPageUser extends InitApp {
     public MainPageUser(String title) {
         super(title);
         start_gui(mainPanel, 800, 400);
-        if (LoggedInUser.getUser().isLoggedIn()) {
+        if (LoggedInProfile.getProfile().isLoggedIn()) {
             System.out.println("User is logged in");
         }
 
@@ -25,8 +25,8 @@ public class MainPageUser extends InitApp {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new_panel(MainPageUser.this, new StartPanelLogIn("Log in"));
-                if (LoggedInUser.getUser().isLoggedIn()) {
-                    LoggedInUser.getUser().logOut();
+                if (LoggedInProfile.getProfile().isLoggedIn()) {
+                    LoggedInProfile.getProfile().logOut();
                 }
             }
         });

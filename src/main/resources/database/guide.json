@@ -31,19 +31,19 @@
   "profileId" : 3,
   "trips" : [ ]
 }, {
-  "firstname" : "hei",
-  "lastname" : "hei",
-  "email" : "hei",
-  "username" : "hei",
-  "password" : "hei",
+  "firstname" : "Guide",
+  "lastname" : "Guide",
+  "email" : "Guide",
+  "username" : "Guide",
+  "password" : "Guide",
   "profileId" : 4,
   "trips" : [ ]
 }, {
-  "firstname" : "dsf",
-  "lastname" : "dsf",
-  "email" : "sdf",
-  "username" : "fdsaf",
-  "password" : "dsf",
+  "firstname" : "Guide",
+  "lastname" : "Guide",
+  "email" : "Guide",
+  "username" : "Guide",
+  "password" : "Guide",
   "profileId" : 5,
   "trips" : [ ]
 } ]
