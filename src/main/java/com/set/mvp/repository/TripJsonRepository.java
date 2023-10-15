@@ -45,7 +45,7 @@ public class TripJsonRepository implements TripRepository {
     }
 
     @Override
-    public Trip addTrip(int tripId, String title, String location, String description, Guide guide, double price, int duration, LocalDate date, ArrayList<String> reviews) {
+    public Trip addTrip(String title, String location, String description, Guide guide, double price, int duration, LocalDate date, ArrayList<String> reviews) {
         Trip newTrip = new Trip(generateUnicTripId(), title, location, description, guide, price, duration, date, reviews);
 
         tripArrayList.add(newTrip);

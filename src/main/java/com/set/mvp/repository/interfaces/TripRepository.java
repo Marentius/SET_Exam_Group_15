@@ -8,5 +8,5 @@ import java.util.ArrayList;
 
 public interface TripRepository {
     ArrayList<Trip> getTrips();
-    Trip addTrip(int tripId, String title, String location, String description, Guide guide, double price, int duration, LocalDate date, ArrayList<String> reviews);
+    Trip addTrip(String title, String location, String description, Guide guide, double price, int duration, LocalDate date, ArrayList<String> reviews);
 }

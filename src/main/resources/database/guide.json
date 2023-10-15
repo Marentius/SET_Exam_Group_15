@@ -46,4 +46,12 @@
   "password" : "Guide",
   "profileId" : 5,
   "trips" : [ ]
+}, {
+  "firstname" : "dwa",
+  "lastname" : "daw",
+  "email" : "daw",
+  "username" : "dwa",
+  "password" : "dwa",
+  "profileId" : 6,
+  "trips" : [ ]
 } ]
