@@ -28,9 +28,9 @@ public class ViewUsersAdmin extends InitApp {
         listModel = new DefaultListModel<>();
         userJList.setModel(listModel);
 
-        userJsonRepository.addPropertyChangeListener(evt -> {
+        /*userJsonRepository.addPropertyChangeListener(evt -> {
             updateUserList();
-        });
+        });*/
 
         updateUserList();
 

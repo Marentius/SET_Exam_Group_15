@@ -1,16 +1,16 @@
 package com.set.mvp.models;
 
 public class LoggedInUser {
-    private static LoggedInUser instance;
-    private int LoggedInUserId = -1; //-1 = no user logged in
+    private static LoggedInUser user;
+    private int LoggedInUserId = -1;
 
     private LoggedInUser() {}
 
-    public static LoggedInUser getInstance() {
-        if (instance == null) {
-            instance = new LoggedInUser();
+    public static LoggedInUser getUser() {
+        if (user == null) {
+            user = new LoggedInUser();
         }
-        return instance;
+        return user;
     }
 
     public void logIn(int userId) {

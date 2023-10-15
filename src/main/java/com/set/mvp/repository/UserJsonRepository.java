@@ -18,7 +18,7 @@ import java.util.Arrays;
 public class UserJsonRepository implements UserRepository{
 
     private ArrayList<User> userArrayList = new ArrayList<>();
-    private final PropertyChangeSupport support = new PropertyChangeSupport(this);
+    //private final PropertyChangeSupport support = new PropertyChangeSupport(this);
 
     public UserJsonRepository(String filename) {
         readFromJsonFile(filename);
@@ -33,7 +33,7 @@ public class UserJsonRepository implements UserRepository{
             }
             User[] userArray = objectMapper.readValue(input, User[].class);
             userArrayList.addAll(Arrays.asList(userArray));
-            support.firePropertyChange("userArrayList", null, userArrayList);
+            //support.firePropertyChange("userArrayList", null, userArrayList);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -50,7 +50,7 @@ public class UserJsonRepository implements UserRepository{
         User newUser = new User(username, password, firstname, lastname, email, generateUnicProfileId(), trips);
 
         userArrayList.add(newUser);
-        support.firePropertyChange("userArrayList", null, userArrayList);
+        //support.firePropertyChange("userArrayList", null, userArrayList);
 
         writeToJsonFile("/src/main/resources/database/user.json");
 
@@ -90,9 +90,9 @@ public class UserJsonRepository implements UserRepository{
             e.printStackTrace();
         }
     }
-    public void addPropertyChangeListener(PropertyChangeListener pcl) {
+   /* public void addPropertyChangeListener(PropertyChangeListener pcl) {
         support.addPropertyChangeListener(pcl);
-    }
+    }*/
 
     public int generateUnicProfileId() {
         int newID = 0;
@@ -127,6 +127,8 @@ public class UserJsonRepository implements UserRepository{
         System.out.println("User don't exists");
         return 0;
     }
+
+
 
 
 }
