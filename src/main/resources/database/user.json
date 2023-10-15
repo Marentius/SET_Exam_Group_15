@@ -142,4 +142,20 @@
   "password" : "TestTest",
   "profileId" : 10,
   "trips" : [ ]
+}, {
+  "firstname" : "MathiasMathias",
+  "lastname" : "Mathias",
+  "email" : "Mathias",
+  "username" : "Mathias",
+  "password" : "Mathias",
+  "profileId" : 11,
+  "trips" : [ ]
+}, {
+  "firstname" : "Robin",
+  "lastname" : "Enerhaugen",
+  "email" : "Robin.enerhaugen@hotmail.com",
+  "username" : "Robene",
+  "password" : "123",
+  "profileId" : 12,
+  "trips" : [ ]
 } ]

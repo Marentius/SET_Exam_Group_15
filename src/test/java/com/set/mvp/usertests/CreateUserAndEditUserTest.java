@@ -6,6 +6,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -19,6 +20,7 @@ public class CreateUserAndEditUserTest {
 
     @Test
     public void user_can_create_user(){
+        ArrayList<User> usersOriginal = userJsonRepository.getUsers();
         User createdUser = userJsonRepository.createUser("Robene", "123", "Robin", "Enerhaugen", "Robin.enerhaugen@hotmail.com", new ArrayList<>());
 
         boolean isProfileIdInList = false;
@@ -29,6 +31,7 @@ public class CreateUserAndEditUserTest {
             }
         }
         assertTrue(isProfileIdInList);
+        assertFalse(Arrays.equals(userJsonRepository.getUsers().toArray(), usersOriginal.toArray()));
 
         userJsonRepository.deleteUser(createdUser.getProfileId());
     }
