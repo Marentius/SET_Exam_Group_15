@@ -1,158 +1,199 @@
-[
-  {
-    "tripId": 1,
-    "title": "Fantastisk fjelltur",
-    "location": "Tromsø",
-    "description": "Opplev de majestetiske fjellene i Tromsø.",
-    "guide" : {
-      "firstname": "Per",
-      "lastname": "Hansen",
-      "email": "Per@hansen.no",
-      "profileId": 1500
-    },
-    "price": 500,
-    "duration": 3,
-    "date": [2023, 6, 15],
-    "reviews": ["Fantastisk tur!", "Vil dra igjen."]
+[ {
+  "guide" : {
+    "firstname" : "Per",
+    "lastname" : "Hansen",
+    "email" : "Per@hansen.no",
+    "username" : null,
+    "password" : null,
+    "profileId" : 1500,
+    "trips" : [ ]
   },
-  {
-    "tripId": 2,
-    "title": "Midnattssol cruise",
-    "location": "Lofoten",
-    "description": "Se midnattssolen fra en luksuscruise i Lofoten.",
-    "guide" : {
-      "firstname": "Per",
-      "lastname": "Hansen",
-      "email": "Per@hansen.no",
-      "profileId": 1500
-    },
-    "price": 1200,
-    "duration": 2,
-    "date": [2023, 7, 10],
-    "reviews": ["Utrolig vakkert!", "Anbefales!"]
+  "title" : "Fantastisk fjelltur",
+  "location" : "Tromsø",
+  "description" : "Opplev de majestetiske fjellene i Tromsø.",
+  "price" : 500.0,
+  "duration" : 3,
+  "tripId" : 1,
+  "date" : [ 2023, 6, 15 ],
+  "reviews" : [ "Fantastisk tur!", "Vil dra igjen." ]
+}, {
+  "guide" : {
+    "firstname" : "Per",
+    "lastname" : "Hansen",
+    "email" : "Per@hansen.no",
+    "username" : null,
+    "password" : null,
+    "profileId" : 1500,
+    "trips" : [ ]
   },
-  {
-    "tripId": 3,
-    "title": "Fantastiske Bergen",
-    "location": "Bergen",
-    "description": "Utforsk den vakre byen Bergen.",
-    "guide" : {
-      "firstname": "Per",
-      "lastname": "Hansen",
-      "email": "Per@hansen.no",
-      "profileId": 1500
-    },
-    "price": 300,
-    "duration": 1,
-    "date": [2023, 5, 20],
-    "reviews": ["Nydelig by!", "Fin tur."]
+  "title" : "Midnattssol cruise",
+  "location" : "Lofoten",
+  "description" : "Se midnattssolen fra en luksuscruise i Lofoten.",
+  "price" : 1200.0,
+  "duration" : 2,
+  "tripId" : 2,
+  "date" : [ 2023, 7, 10 ],
+  "reviews" : [ "Utrolig vakkert!", "Anbefales!" ]
+}, {
+  "guide" : {
+    "firstname" : "Per",
+    "lastname" : "Hansen",
+    "email" : "Per@hansen.no",
+    "username" : null,
+    "password" : null,
+    "profileId" : 1500,
+    "trips" : [ ]
   },
-  {
-    "tripId": 4,
-    "title": "Gåtur i norsk fjell",
-    "location": "Geilo",
-    "description": "Utforsk den norske naturen til fots.",
-    "guide" : {
-      "firstname": "Per",
-      "lastname": "Hansen",
-      "email": "Per@hansen.no",
-      "profileId": 1500
-    },
-    "price": 600,
-    "duration": 4,
-    "date": [2023, 8, 12],
-    "reviews": ["Flinke guider!", "Utrolig natur."]
+  "title" : "Fantastiske Bergen",
+  "location" : "Bergen",
+  "description" : "Utforsk den vakre byen Bergen.",
+  "price" : 300.0,
+  "duration" : 1,
+  "tripId" : 3,
+  "date" : [ 2023, 5, 20 ],
+  "reviews" : [ "Nydelig by!", "Fin tur." ]
+}, {
+  "guide" : {
+    "firstname" : "Per",
+    "lastname" : "Hansen",
+    "email" : "Per@hansen.no",
+    "username" : null,
+    "password" : null,
+    "profileId" : 1500,
+    "trips" : [ ]
   },
-  {
-    "tripId": 5,
-    "title": "Spektakulært nordlys",
-    "location": "Alta",
-    "description": "Opplev det spektakulære nordlyset i Alta.",
-    "guide" : {
-      "firstname": "Per",
-      "lastname": "Hansen",
-      "email": "Per@hansen.no",
-      "profileId": 1500
-    },
-    "price": 800,
-    "duration": 2,
-    "date": [2023, 11, 25],
-    "reviews": ["Magisk!", "Enestående opplevelse."]
+  "title" : "Gåtur i norsk fjell",
+  "location" : "Geilo",
+  "description" : "Utforsk den norske naturen til fots.",
+  "price" : 600.0,
+  "duration" : 4,
+  "tripId" : 4,
+  "date" : [ 2023, 8, 12 ],
+  "reviews" : [ "Flinke guider!", "Utrolig natur." ]
+}, {
+  "guide" : {
+    "firstname" : "Per",
+    "lastname" : "Hansen",
+    "email" : "Per@hansen.no",
+    "username" : null,
+    "password" : null,
+    "profileId" : 1500,
+    "trips" : [ ]
   },
-  {
-    "tripId": 6,
-    "title": "Fjelltur i Jotunheimen",
-    "location": "Jotunheimen",
-    "description": "En flott fjelltur i Jotunheimen.",
-    "guide" : {
-      "firstname": "Per",
-      "lastname": "Hansen",
-      "email": "Per@hansen.no",
-      "profileId": 1500
-    },
-    "price": 500,
-    "duration": 3,
-    "date": [2023, 6, 15],
-    "reviews": [
-      "Fantastisk tur!",
-      "Anbefales!"
-    ]
+  "title" : "Spektakulært nordlys",
+  "location" : "Alta",
+  "description" : "Opplev det spektakulære nordlyset i Alta.",
+  "price" : 800.0,
+  "duration" : 2,
+  "tripId" : 5,
+  "date" : [ 2023, 11, 25 ],
+  "reviews" : [ "Magisk!", "Enestående opplevelse." ]
+}, {
+  "guide" : {
+    "firstname" : "Per",
+    "lastname" : "Hansen",
+    "email" : "Per@hansen.no",
+    "username" : null,
+    "password" : null,
+    "profileId" : 1500,
+    "trips" : [ ]
   },
-  {
-    "tripId": 7,
-    "title": "Skitur i Hemsedal",
-    "location": "Hemsedal",
-    "description": "En herlig skitur i Hemsedal.",
-    "guide" : {
-      "firstname": "Per",
-      "lastname": "Hansen",
-      "email": "Per@hansen.no",
-      "profileId": 1500
-    },
-    "price": 600,
-    "duration": 2,
-    "date": [2023, 2, 15],
-    "reviews": [
-      "Utrolig gøy!",
-      "Skal definitivt tilbake neste år."
-    ]
+  "title" : "Fjelltur i Jotunheimen",
+  "location" : "Jotunheimen",
+  "description" : "En flott fjelltur i Jotunheimen.",
+  "price" : 500.0,
+  "duration" : 3,
+  "tripId" : 6,
+  "date" : [ 2023, 6, 15 ],
+  "reviews" : [ "Fantastisk tur!", "Anbefales!" ]
+}, {
+  "guide" : {
+    "firstname" : "Per",
+    "lastname" : "Hansen",
+    "email" : "Per@hansen.no",
+    "username" : null,
+    "password" : null,
+    "profileId" : 1500,
+    "trips" : [ ]
   },
-  {
-    "tripId": 8,
-    "title": "Båttur i Lofoten",
-    "location": "Lofoten",
-    "description": "En fantastisk båttur rundt de vakre øyene i Lofoten.",
-    "guide" : {
-      "firstname": "Per",
-      "lastname": "Hansen",
-      "email": "Per@hansen.no",
-      "profileId": 1500
-    },
-    "price": 700,
-    "duration": 4,
-    "date": [2023, 7, 10],
-    "reviews": [
-      "Fantastisk opplevelse!",
-      "Lofoten er utrolig vakkert."
-    ]
+  "title" : "Skitur i Hemsedal",
+  "location" : "Hemsedal",
+  "description" : "En herlig skitur i Hemsedal.",
+  "price" : 600.0,
+  "duration" : 2,
+  "tripId" : 7,
+  "date" : [ 2023, 2, 15 ],
+  "reviews" : [ "Utrolig gøy!", "Skal definitivt tilbake neste år." ]
+}, {
+  "guide" : {
+    "firstname" : "Per",
+    "lastname" : "Hansen",
+    "email" : "Per@hansen.no",
+    "username" : null,
+    "password" : null,
+    "profileId" : 1500,
+    "trips" : [ ]
   },
-  {
-    "tripId": 9,
-    "title": "Sykkeltur i Geiranger",
-    "location": "Geiranger",
-    "description": "En uforglemmelig sykkeltur gjennom den storslåtte naturen i Geiranger.",
-    "guide" : {
-      "firstname": "Per",
-      "lastname": "Hansen",
-      "email": "Per@hansen.no",
-      "profileId": 1500
-    },
-    "price": 400,
-    "duration": 1,
-    "date": [2023, 5, 20],
-    "reviews": [
-      "Sykkelturen var en drøm!",
-      "Kan ikke vente med å gjøre dette igjen."
-    ]
-  }
-]
+  "title" : "Båttur i Lofoten",
+  "location" : "Lofoten",
+  "description" : "En fantastisk båttur rundt de vakre øyene i Lofoten.",
+  "price" : 700.0,
+  "duration" : 4,
+  "tripId" : 8,
+  "date" : [ 2023, 7, 10 ],
+  "reviews" : [ "Fantastisk opplevelse!", "Lofoten er utrolig vakkert." ]
+}, {
+  "guide" : {
+    "firstname" : "Per",
+    "lastname" : "Hansen",
+    "email" : "Per@hansen.no",
+    "username" : null,
+    "password" : null,
+    "profileId" : 1500,
+    "trips" : [ ]
+  },
+  "title" : "Sykkeltur i Geiranger",
+  "location" : "Geiranger",
+  "description" : "En uforglemmelig sykkeltur gjennom den storslåtte naturen i Geiranger.",
+  "price" : 400.0,
+  "duration" : 1,
+  "tripId" : 9,
+  "date" : [ 2023, 5, 20 ],
+  "reviews" : [ "Sykkelturen var en drøm!", "Kan ikke vente med å gjøre dette igjen." ]
+}, {
+  "guide" : {
+    "firstname" : "Erik",
+    "lastname" : "Larsen",
+    "email" : "erik.larsen@example.com",
+    "username" : "guide789",
+    "password" : "mySecret789",
+    "profileId" : 3,
+    "trips" : [ ]
+  },
+  "title" : "Skitur i Alpene",
+  "location" : "Alpene",
+  "description" : "En fantastisk tur",
+  "price" : 1000.0,
+  "duration" : 1000,
+  "tripId" : 10,
+  "date" : [ 2023, 11, 27 ],
+  "reviews" : [ ]
+}, {
+  "guide" : {
+    "firstname" : "Test",
+    "lastname" : "Test",
+    "email" : "Test@example.com",
+    "username" : "Test",
+    "password" : "Test",
+    "profileId" : 3,
+    "trips" : [ ]
+  },
+  "title" : "Skitur i Alpene",
+  "location" : "Alpene",
+  "description" : "En fantastisk tur",
+  "price" : 1000.0,
+  "duration" : 1000,
+  "tripId" : 11,
+  "date" : [ 2023, 11, 27 ],
+  "reviews" : [ ]
+} ]

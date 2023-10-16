@@ -1,10 +1,11 @@
 package com.set.mvp.panels.user;
 
-import com.set.mvp.models.LoggedInUser;
+import com.set.mvp.models.LoggedInProfile;
 import com.set.mvp.panels.InitApp;
 import com.set.mvp.panels.StartPanelLogIn;
 import com.set.mvp.models.Trip;
 import com.set.mvp.repository.TripJsonRepository;
+import com.set.mvp.repository.UserJsonRepository;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -19,25 +20,23 @@ public class BookTripUser extends InitApp {
     private JButton logOutButton;
     private DefaultListModel<Trip> listModel;
     private TripJsonRepository tripJsonRepository;
+    private UserJsonRepository userJsonRepository;
 
     public BookTripUser(String title) {
         super(title);
         start_gui(mainPanel, 1500, 400);
-        if (LoggedInUser.getUser().isLoggedIn()) {
+        if (LoggedInProfile.getProfile().isLoggedIn()) {
             System.out.println("User is logged in");
         }
 
         tripJsonRepository = new TripJsonRepository("/database/trip.json");
+        userJsonRepository = new UserJsonRepository("/database/user.json");
 
         listModel = new DefaultListModel<>();
         tripJlist.setModel(listModel);
 
-        /*tripJsonRepository.addPropertyChangeListener(evt -> {
-            updateTripList();
-        });*/
-
         updateTripList();
-        System.out.println(LoggedInUser.getUser().getLoggedInUserId());
+        System.out.println(LoggedInProfile.getProfile().getLoggedInProfileId());
 
         logOutButton.addActionListener(new ActionListener() {
             @Override
@@ -54,7 +53,7 @@ public class BookTripUser extends InitApp {
         bookTripButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println(LoggedInUser.getUser().getLoggedInUserId());
+                userJsonRepository.bookTrip(tripJlist.getSelectedValue());
             }
         });
     }

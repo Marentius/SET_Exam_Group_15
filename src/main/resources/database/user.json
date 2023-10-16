@@ -113,11 +113,29 @@
 }, {
   "firstname" : "Vetle Marentius",
   "lastname" : "Nilsen",
-  "email" : "Vetle@email.com",
-  "username" : "Marentius",
-  "password" : "maren",
+  "email" : "Vetlenilseen@hotmail.com",
+  "username" : "Vetle",
+  "password" : "hei",
   "profileId" : 7,
-  "trips" : [ ]
+  "trips" : [ {
+    "guide" : {
+      "firstname" : "Per",
+      "lastname" : "Hansen",
+      "email" : "Per@hansen.no",
+      "username" : null,
+      "password" : null,
+      "profileId" : 1500,
+      "trips" : [ ]
+    },
+    "title" : "Skitur i Hemsedal",
+    "location" : "Hemsedal",
+    "description" : "En herlig skitur i Hemsedal.",
+    "price" : 600.0,
+    "duration" : 2,
+    "tripId" : 7,
+    "date" : [ 2023, 2, 15 ],
+    "reviews" : [ "Utrolig gøy!", "Skal definitivt tilbake neste år." ]
+  } ]
 }, {
   "firstname" : "Robin",
   "lastname" : "Robin",

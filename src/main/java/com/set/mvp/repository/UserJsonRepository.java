@@ -2,43 +2,26 @@ package com.set.mvp.repository;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import com.set.mvp.models.LoggedInProfile;
 import com.set.mvp.models.Trip;
 import com.set.mvp.models.User;
+import com.set.mvp.repository.interfaces.UserRepository;
 
-import java.beans.PropertyChangeListener;
-import java.beans.PropertyChangeSupport;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class UserJsonRepository implements UserRepository{
+public class UserJsonRepository implements UserRepository {
 
     private ArrayList<User> userArrayList = new ArrayList<>();
-    //private final PropertyChangeSupport support = new PropertyChangeSupport(this);
 
     public UserJsonRepository(String filename) {
         readFromJsonFile(filename);
     }
 
-    public ArrayList<User> readFromJsonFile(String filename) {
-        ObjectMapper objectMapper = new ObjectMapper().registerModule(new JavaTimeModule());
-
-        try (InputStream input = getClass().getResourceAsStream(filename)) {
-            if (input == null) {
-                throw new FileNotFoundException("Could not find file " + filename);
-            }
-            User[] userArray = objectMapper.readValue(input, User[].class);
-            userArrayList.addAll(Arrays.asList(userArray));
-            //support.firePropertyChange("userArrayList", null, userArrayList);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return userArrayList;
-    }
     @Override
     public ArrayList<User> getUsers() {
         ArrayList<User> users = new ArrayList<>(userArrayList);
@@ -50,7 +33,6 @@ public class UserJsonRepository implements UserRepository{
         User newUser = new User(username, password, firstname, lastname, email, generateUnicProfileId(), trips);
 
         userArrayList.add(newUser);
-        //support.firePropertyChange("userArrayList", null, userArrayList);
 
         writeToJsonFile("/src/main/resources/database/user.json");
 
@@ -79,20 +61,46 @@ public class UserJsonRepository implements UserRepository{
         }
     }
 
+    @Override
+    public void editUserInfo(String username, String password, String firstname, String lastname, String email) {
 
-    private void writeToJsonFile(String filename) {
-        ObjectMapper objectMapper = new ObjectMapper().registerModule(new JavaTimeModule());
-        try {
-            String projectPath = new File(".").getAbsolutePath();
-            String fullPath = projectPath + filename;
-            objectMapper.writerWithDefaultPrettyPrinter().writeValue(new File(fullPath), userArrayList);
-        } catch (IOException e) {
-            e.printStackTrace();
+        int profileId = LoggedInProfile.getProfile().getLoggedInProfileId();
+
+        for (User user : userArrayList) {
+            if (user.getProfileId() == profileId){
+                if (!username.isEmpty())
+                    user.setUsername(username);
+                if (!password.isEmpty())
+                    user.setPassword(password);
+                if (!firstname.isEmpty())
+                    user.setFirstname(firstname);
+                if (!lastname.isEmpty())
+                    user.setLastname(lastname);
+                if (!email.isEmpty())
+                    user.setEmail(email);
+
+                writeToJsonFile("/src/main/resources/database/user.json");
+
+                System.out.println("User info successfully edited");
+            }
         }
     }
-   /* public void addPropertyChangeListener(PropertyChangeListener pcl) {
-        support.addPropertyChangeListener(pcl);
-    }*/
+
+    @Override
+    public void bookTrip(Trip trip) {
+        int profileId = LoggedInProfile.getProfile().getLoggedInProfileId();
+
+        for (User user : userArrayList) {
+            if (user.getProfileId() == profileId){
+                user.addTrip(trip);
+
+                writeToJsonFile("/src/main/resources/database/user.json");
+
+                System.out.println("The trip: " + trip.getTitle() + " was successfully added to your trips");
+            }
+        }
+    }
+
 
     public int generateUnicProfileId() {
         int newID = 0;
@@ -126,6 +134,31 @@ public class UserJsonRepository implements UserRepository{
         }
         System.out.println("User don't exists");
         return 0;
+    }
+
+    public ArrayList<User> readFromJsonFile(String filename) {
+        ObjectMapper objectMapper = new ObjectMapper().registerModule(new JavaTimeModule());
+
+        try (InputStream input = getClass().getResourceAsStream(filename)) {
+            if (input == null) {
+                throw new FileNotFoundException("Could not find file " + filename);
+            }
+            User[] userArray = objectMapper.readValue(input, User[].class);
+            userArrayList.addAll(Arrays.asList(userArray));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return userArrayList;
+    }
+    private void writeToJsonFile(String filename) {
+        ObjectMapper objectMapper = new ObjectMapper().registerModule(new JavaTimeModule());
+        try {
+            String projectPath = new File(".").getAbsolutePath();
+            String fullPath = projectPath + filename;
+            objectMapper.writerWithDefaultPrettyPrinter().writeValue(new File(fullPath), userArrayList);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 

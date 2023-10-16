@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.set.mvp.models.Guide;
 import com.set.mvp.models.Trip;
+import com.set.mvp.repository.interfaces.TripRepository;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
@@ -17,7 +18,6 @@ import java.util.Arrays;
 
 public class TripJsonRepository implements TripRepository {
     private ArrayList<Trip> tripArrayList = new ArrayList<>();
-    private final PropertyChangeSupport support = new PropertyChangeSupport(this);
 
     public TripJsonRepository(String filename) {
         readFromJsonFile(filename);
@@ -32,7 +32,6 @@ public class TripJsonRepository implements TripRepository {
             }
             Trip[] tripArray = objectMapper.readValue(input, Trip[].class);
             tripArrayList.addAll(Arrays.asList(tripArray));
-            support.firePropertyChange("tripArrayList", null, tripArrayList);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -46,11 +45,10 @@ public class TripJsonRepository implements TripRepository {
     }
 
     @Override
-    public Trip addTrip(int tripId, String title, String location, String description, Guide guide, double price, int duration, LocalDate date, ArrayList<String> reviews) {
+    public Trip addTrip(String title, String location, String description, Guide guide, double price, int duration, LocalDate date, ArrayList<String> reviews) {
         Trip newTrip = new Trip(generateUnicTripId(), title, location, description, guide, price, duration, date, reviews);
 
         tripArrayList.add(newTrip);
-        support.firePropertyChange("tripArrayList", null, tripArrayList);
 
         writeToJsonFile("/src/main/resources/database/trip.json");
 
@@ -70,10 +68,6 @@ public class TripJsonRepository implements TripRepository {
         }
     }
 
-
-    public void addPropertyChangeListener(PropertyChangeListener pcl) {
-        support.addPropertyChangeListener(pcl);
-    }
     public int generateUnicTripId() {
         int newID = 0;
         for (Trip trip : tripArrayList) {

@@ -5,9 +5,8 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.set.mvp.models.Guide;
 import com.set.mvp.models.Trip;
 import com.set.mvp.models.User;
+import com.set.mvp.repository.interfaces.GuideRepository;
 
-import java.beans.PropertyChangeListener;
-import java.beans.PropertyChangeSupport;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -17,7 +16,6 @@ import java.util.Arrays;
 
 public class GuideJsonRepository implements GuideRepository {
     private ArrayList<Guide> guideArrayList = new ArrayList<>();
-    //private final PropertyChangeSupport support = new PropertyChangeSupport(this);
 
     public GuideJsonRepository(String filename) {
         readFromJsonFile(filename);
@@ -50,7 +48,6 @@ public class GuideJsonRepository implements GuideRepository {
         Guide newGuide = new Guide(username, password, firstname, lastname, email, generateUnicProfileId(), trips);
 
         guideArrayList.add(newGuide);
-        //support.firePropertyChange("guideArraylist", null, guideArrayList);
 
         writeToJsonFile("/src/main/resources/database/guide.json");
 
@@ -78,9 +75,6 @@ public class GuideJsonRepository implements GuideRepository {
         }
     }
 
-    /*public void addPropertyChangeListener(PropertyChangeListener pcl) {
-        support.addPropertyChangeListener(pcl);
-    }*/
     public int generateUnicProfileId() {
         int newID = 0;
         for (Guide guide : guideArrayList) {
