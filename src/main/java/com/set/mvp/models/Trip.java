@@ -5,10 +5,10 @@ import java.util.ArrayList;
 
 public class Trip {
 
-
-    private String title, tripId, location, description, guide;
-    private double price, rating;
-    private int duration, bookedSpots;
+    private Guide guide;
+    private String title, location, description;
+    private double price;
+    private int duration, tripId;
     private LocalDate date;
     private ArrayList<String> reviews;
 
@@ -20,27 +20,17 @@ public class Trip {
         this.price = price;
     }
 
-    public Trip(String tripId, String title, String location, String description, String guide, double price, double rating, int duration, int bookedSpots, LocalDate date, ArrayList<String> reviews) {
+    public Trip(int tripId, String title, String location, String description, Guide guide, double price, int duration, LocalDate date, ArrayList<String> reviews) {
         this.tripId = tripId;
         this.title = title;
         this.location = location;
         this.description = description;
         this.guide = guide;
         this.price = price;
-        this.rating = rating;
         this.duration = duration;
-        this.bookedSpots = bookedSpots;
         this.date = date;
         this.reviews = reviews;
     }
-
-    /*public ArrayList<Trip> getTrips(){
-        ArrayList<Trip> trips = new ArrayList<>();
-        for (Trip trips1 : JOSNFile) {
-            trips.add(trips1)
-        }
-        return trips;
-    }*/
 
     public String getLocation() {
         return location;
@@ -62,24 +52,16 @@ public class Trip {
         this.description = description;
     }
 
-    public String getGuide() {
+    public Guide getGuide() {
         return guide;
     }
 
-    public void setGuide(String guide) {
+    public void setGuide(Guide guide) {
         this.guide = guide;
     }
 
     public void setPrice(double price) {
         this.price = price;
-    }
-
-    public double getRating() {
-        return rating;
-    }
-
-    public void setRating(double rating) {
-        this.rating = rating;
     }
 
     public int getDuration() {
@@ -114,24 +96,17 @@ public class Trip {
         this.title = title;
     }
 
-    public String getTripId() {
+    public int getTripId() {
         return tripId;
     }
 
-    public void setTripId(String tripId) {
+    public void setTripId(int tripId) {
         this.tripId = tripId;
     }
 
-    public int getBookedSpots() {
-        return bookedSpots;
-    }
-
-    public void setBookedSpots(int bookedSpots) {
-        this.bookedSpots = bookedSpots;
-    }
 
     @Override
     public String toString() {
-        return "Location: " + location + ", Price: " + price + "kr, Description: " + description + ", Rating: " + rating + ", Guide: " + guide + ", Booked Spots: " + bookedSpots;
+        return "Location: " + location + ", Price: " + price + "kr, Description: " + description + ", Rating: " + ", Guide: " + guide + ", Booked Spots: ";
     }
 }

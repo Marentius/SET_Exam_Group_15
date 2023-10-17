@@ -1,5 +1,6 @@
 package com.set.mvp.panels.user;
 
+import com.set.mvp.models.LoggedInProfile;
 import com.set.mvp.panels.InitApp;
 import com.set.mvp.panels.StartPanelLogIn;
 import com.set.mvp.repository.UserJsonRepository;
@@ -18,8 +19,6 @@ public class CreateUser extends InitApp {
     private JTextField txtFirstname;
     private JTextField txtLastname;
     private JTextField txtEmail;
-    private JTextField txtPhonenumber;
-    private JTextField txtAddress;
     private JButton createUserButton;
     private UserJsonRepository userJsonRepository;
 
@@ -31,18 +30,9 @@ public class CreateUser extends InitApp {
         createUserButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                userJsonRepository.createUser(txtUsername.getText(), txtPassword.getText(), txtFirstname.getText(), txtLastname.getText(), txtEmail.getText(), txtPhonenumber.getText(), txtAddress.getText(), new ArrayList<>());
-            }
-        });
-        createUserButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                new_panel(CreateUser.this, new MainPageUser("Main Page"));
-            }
-        });
-        homeButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
+                userJsonRepository.createUser(txtUsername.getText(), txtPassword.getText(), txtFirstname.getText(), txtLastname.getText(), txtEmail.getText(), new ArrayList<>());
+                int userId = userJsonRepository.checkUserExistans(txtUsername.getText());
+                LoggedInProfile.getProfile().logIn(userId);
                 new_panel(CreateUser.this, new MainPageUser("Main Page"));
             }
         });

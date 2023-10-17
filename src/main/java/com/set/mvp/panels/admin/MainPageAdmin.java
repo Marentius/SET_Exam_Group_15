@@ -2,6 +2,7 @@ package com.set.mvp.panels.admin;
 
 import com.set.mvp.panels.InitApp;
 import com.set.mvp.panels.StartPanelLogIn;
+import com.set.mvp.panels.guide.MainPageGuide;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -11,7 +12,7 @@ public class MainPageAdmin extends InitApp {
     private JButton logOutButton;
     private JPanel mainPanel;
     private JButton viewUsersButton;
-    private JButton reportUserButton;
+    private JButton viewGuidesButton;
 
     public MainPageAdmin(String title) {
         super(title);
@@ -27,6 +28,12 @@ public class MainPageAdmin extends InitApp {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new_panel(MainPageAdmin.this, new ViewUsersAdmin("View Users Admin"));
+            }
+        });
+        viewGuidesButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new_panel(MainPageAdmin.this, new ViewGuidesAdmin("View Guides Admin"));
             }
         });
     }

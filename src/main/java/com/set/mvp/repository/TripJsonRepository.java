@@ -2,19 +2,22 @@ package com.set.mvp.repository;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import com.set.mvp.models.Guide;
 import com.set.mvp.models.Trip;
+import com.set.mvp.repository.interfaces.TripRepository;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 
 public class TripJsonRepository implements TripRepository {
     private ArrayList<Trip> tripArrayList = new ArrayList<>();
-    private final PropertyChangeSupport support = new PropertyChangeSupport(this);
 
     public TripJsonRepository(String filename) {
         readFromJsonFile(filename);
@@ -29,7 +32,6 @@ public class TripJsonRepository implements TripRepository {
             }
             Trip[] tripArray = objectMapper.readValue(input, Trip[].class);
             tripArrayList.addAll(Arrays.asList(tripArray));
-            support.firePropertyChange("tripArrayList", null, tripArrayList);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -42,8 +44,55 @@ public class TripJsonRepository implements TripRepository {
         return trips;
     }
 
-    public void addPropertyChangeListener(PropertyChangeListener pcl) {
-        support.addPropertyChangeListener(pcl);
+    @Override
+    public Trip addTrip(String title, String location, String description, Guide guide, double price, int duration, LocalDate date, ArrayList<String> reviews) {
+        Trip newTrip = new Trip(generateUnicTripId(), title, location, description, guide, price, duration, date, reviews);
+
+        tripArrayList.add(newTrip);
+
+        writeToJsonFile("/src/main/resources/database/trip.json");
+
+        System.out.println("Trip successfully created");
+
+        return newTrip;
     }
+
+    private void writeToJsonFile(String filename) {
+        ObjectMapper objectMapper = new ObjectMapper().registerModule(new JavaTimeModule());
+        try {
+            String projectPath = new File(".").getAbsolutePath();
+            String fullPath = projectPath + filename;
+            objectMapper.writerWithDefaultPrettyPrinter().writeValue(new File(fullPath), tripArrayList);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public int generateUnicTripId() {
+        int newID = 0;
+        for (Trip trip : tripArrayList) {
+            if (trip.getTripId() > newID) {
+                newID = trip.getTripId();
+            }
+        }
+
+        newID++;
+
+        while (idExists(newID)) {
+            newID++;
+        }
+
+        return newID;
+    }
+
+    private boolean idExists(int id) {
+        for (Trip trip : tripArrayList) {
+            if (trip.getTripId() == id) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 
 }

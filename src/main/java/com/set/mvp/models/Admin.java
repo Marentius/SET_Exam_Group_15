@@ -14,12 +14,6 @@ public class Admin {
 
     }
 
-    //public void checkUser(User profileId) {}
-    //public void executeBackup(JSON ???) {}
-    //public void verifyGuideProfile(User profileId)
-
-
-
     public int getProfileId() {
         return profileId;
     }
