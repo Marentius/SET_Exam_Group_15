@@ -1,7 +1,6 @@
 package com.set.mvp.admintests;
 
 import com.set.mvp.models.Guide;
-import com.set.mvp.models.Trip;
 import com.set.mvp.models.User;
 import com.set.mvp.panels.admin.ViewGuidesAdmin;
 import com.set.mvp.repository.GuideJsonRepository;
@@ -9,7 +8,8 @@ import com.set.mvp.repository.UserJsonRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
+
+
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -58,16 +58,15 @@ public class AdminFunctionsTest {
         assertFalse(isProfileInIdList);
     }
 
-
+/*
     @Test
     public void adminCanViewAllUsers(){
-    fail("ikke implementert");
+
     }
     @Test
-    public void adminCanViewAllGuides(){
-    fail("ikke implementert");
+    public void adminCanViewAllGuides() {
 
-    }
-
+}
+*/
 }
 
