@@ -152,12 +152,4 @@
   "password" : "Test",
   "profileId" : 9,
   "trips" : [ ]
-}, {
-  "firstname" : "TestTest",
-  "lastname" : "TestTest",
-  "email" : "TestTest",
-  "username" : "TestTest",
-  "password" : "TestTest",
-  "profileId" : 10,
-  "trips" : [ ]
 } ]
