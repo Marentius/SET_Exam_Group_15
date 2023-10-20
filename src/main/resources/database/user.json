@@ -152,4 +152,20 @@
   "password" : "Test",
   "profileId" : 9,
   "trips" : [ ]
+}, {
+  "firstname" : "Robin",
+  "lastname" : "Enerhaugen",
+  "email" : "Robin.enerhaugen@hotmail.com",
+  "username" : "Robene",
+  "password" : "123",
+  "profileId" : 10,
+  "trips" : [ ]
+}, {
+  "firstname" : "Robin",
+  "lastname" : "Enerhaugen",
+  "email" : "Robin.enerhaugen@hotmail.com",
+  "username" : "Robene",
+  "password" : "123",
+  "profileId" : 11,
+  "trips" : [ ]
 } ]

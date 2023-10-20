@@ -1,5 +1,6 @@
 package com.set.mvp.usertests;
 
+import com.set.mvp.models.LoggedInProfile;
 import com.set.mvp.models.User;
 import com.set.mvp.repository.UserJsonRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -36,24 +37,18 @@ public class CreateUserAndEditUserTest {
         userJsonRepository.deleteUser(createdUser.getProfileId());
     }
 
-    /*@Test
+    @Test
     public void user_can_edit_user_info() {
+        User createdUser = userJsonRepository.createUser("Robene", "123", "Robin", "Enerhaugen", "Robin.enerhaugen@hotmail.com", new ArrayList<>());
+        int createdUserProfileId = createdUser.getProfileId();
+        LoggedInProfile.getProfile().logIn(createdUserProfileId);
 
-        User user = new User("originalFirstname", "originalLastname", "originalEmail", 1);
-
-        user.editUserInfo("newFirstname", "newLastname", "newEmail");
-
-        assertEquals("newFirstname", user.getFirstname();
-        assertEquals("newLastname", user.getLastname();
-        assertEquals("newEmail", user.getEmail());
-
-        fail("Method not implemented");
     }
 
     @Test
     public void user_can_change_passoword(){
         fail("Method not implemented yet");
-    }*/
+    }
 
 
 }

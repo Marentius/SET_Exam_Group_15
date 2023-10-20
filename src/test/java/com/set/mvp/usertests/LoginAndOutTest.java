@@ -8,7 +8,10 @@ public class LoginAndOutTest {
 
     /*@Test
     public void user_can_log_in(){
-        fail("Method not implemented yet.");
+        User createdUser = userJsonRepository.createUser("Robene", "123", "Robin", "Enerhaugen", "Robin.enerhaugen@hotmail.com", new ArrayList<>());
+        int createdUserProfileId = createdUser.getProfileId();
+        LoggedInProfile.getProfile().logIn(createdUserProfileId);
+        assertTrue()
     }
 
     @Test
