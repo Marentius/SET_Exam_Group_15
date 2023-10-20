@@ -9,4 +9,5 @@ import java.util.ArrayList;
 public interface TripRepository {
     ArrayList<Trip> getTrips();
     Trip addTrip(String title, String location, String description, Guide guide, double price, int duration, LocalDate date, ArrayList<String> reviews);
+    void deleteTrip(int tripId);
 }
