@@ -1,21 +1,38 @@
 package com.set.mvp.usertests;
-
+import com.set.mvp.models.LoggedInProfile;
+import com.set.mvp.models.User;
+import com.set.mvp.repository.UserJsonRepository;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.fail;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class LoginAndOutTest {
-
-    /*@Test
+    UserJsonRepository userJsonRepository;
+    @BeforeEach
+    public void init(){
+        userJsonRepository = new UserJsonRepository("/database/user.json");
+    }
+    @Test
     public void user_can_log_in(){
-        User createdUser = userJsonRepository.createUser("Robene", "123", "Robin", "Enerhaugen", "Robin.enerhaugen@hotmail.com", new ArrayList<>());
-        int createdUserProfileId = createdUser.getProfileId();
-        LoggedInProfile.getProfile().logIn(createdUserProfileId);
-        assertTrue()
+        User createduser = userJsonRepository.createUser("user", "user", "user", "user", "user", null);
+        int createdUserId = createduser.getProfileId();
+        LoggedInProfile.getProfile().logIn(createdUserId);
+        assertTrue(LoggedInProfile.getProfile().getLoggedInProfileId() == createdUserId);
+        assertFalse(LoggedInProfile.getProfile().getLoggedInProfileId() == 100000);
+        LoggedInProfile.getProfile().logOut();
+        userJsonRepository.deleteUser(createdUserId);
     }
 
     @Test
     public void user_can_log_out(){
-        fail("Method not implemented yet.");
-    }*/
+        User createduser = userJsonRepository.createUser("user", "user", "user", "user", "user", null);
+        int createdUserId = createduser.getProfileId();
+        LoggedInProfile.getProfile().logIn(createdUserId);
+        assertTrue(LoggedInProfile.getProfile().getLoggedInProfileId() == createdUserId);
+        LoggedInProfile.getProfile().logOut();
+        assertFalse(LoggedInProfile.getProfile().getLoggedInProfileId() == createdUserId);
+        userJsonRepository.deleteUser(createdUserId);
+
+    }
 }
