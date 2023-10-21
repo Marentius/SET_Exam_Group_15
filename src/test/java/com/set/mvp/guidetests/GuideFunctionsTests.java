@@ -4,6 +4,7 @@ import com.set.mvp.models.Guide;
 import com.set.mvp.models.Trip;
 
 import com.set.mvp.repository.GuideJsonRepository;
+import com.set.mvp.repository.TripJsonRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -14,10 +15,11 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class GuideFunctionsTests {
     GuideJsonRepository guideJsonRepository;
+    TripJsonRepository tripJsonRepository;
     @BeforeEach
         public void init(){
            guideJsonRepository = new GuideJsonRepository("/database/guide.json");
-
+           tripJsonRepository = new TripJsonRepository("/database/trip.json");
         }
 
 
@@ -39,18 +41,24 @@ public class GuideFunctionsTests {
         guideJsonRepository.deleteGuide(createdGuide.getProfileId());
     }
 
-    /*
+
     @Test
     public void guide_can_create_trip(){
         ArrayList<Trip> trips = new ArrayList<>();
-    Guide createdGuide = guideJsonRepository.createGuide("Guide","Guide","Guide","Guide","Guide", trips);
-    ArrayList<Trip> originalTripList = createdGuide.getTrips();
-    createdGuide.createTrip("Trip","Trip","Trip","Trip", 200);
-    ArrayList<Trip> newTripList = createdGuide.getTrips();
-    assertFalse(originalTripList != newTripList);
-    }
+        Guide guide = guideJsonRepository.createGuide("Guide", "Guide", "Guide", "Guide", "Guide", trips);
+        Trip trip = tripJsonRepository.addTrip("Guide", "Guide", "Guide", guide, 1000, 100, null, null);
+        guide.addTrip(trip);
+        boolean isTripInTripList = false;
 
-     */
+        for (Trip trip1 : guide.getTrips()){
+            if (trip1.getTripId() == trip.getTripId()){
+                isTripInTripList = true;
+                break;
+            }
+        }
+        assertTrue(isTripInTripList);
+        guide.deleteTrip(trip);
+    }
 
     @Test
     public void guide_can_cancel_trip(){
@@ -69,12 +77,5 @@ public class GuideFunctionsTests {
 
         assertTrue(tripListSize > guide.getTrips().size());
     }
-/*
-   @Test
-    public void guide_can_edit_trip(){
-
-    }
-
- */
 
 }

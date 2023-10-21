@@ -160,4 +160,40 @@
   "tripId" : 9,
   "date" : [ 2023, 5, 20 ],
   "reviews" : [ "Sykkelturen var en drøm!", "Kan ikke vente med å gjøre dette igjen." ]
+}, {
+  "guide" : {
+    "firstname" : "Guide",
+    "lastname" : "Guide",
+    "email" : "Guide",
+    "username" : "Guide",
+    "password" : "Guide",
+    "profileId" : 6,
+    "trips" : [ ]
+  },
+  "title" : "Guide",
+  "location" : "Guide",
+  "description" : "Guide",
+  "price" : 1000.0,
+  "duration" : 100,
+  "tripId" : 10,
+  "date" : null,
+  "reviews" : null
+}, {
+  "guide" : {
+    "firstname" : "Guide",
+    "lastname" : "Guide",
+    "email" : "Guide",
+    "username" : "Guide",
+    "password" : "Guide",
+    "profileId" : 7,
+    "trips" : [ ]
+  },
+  "title" : "Guide",
+  "location" : "Guide",
+  "description" : "Guide",
+  "price" : 1000.0,
+  "duration" : 100,
+  "tripId" : 11,
+  "date" : null,
+  "reviews" : null
 } ]
