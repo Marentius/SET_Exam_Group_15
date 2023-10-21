@@ -2,7 +2,6 @@ package com.set.mvp.admintests;
 
 import com.set.mvp.models.Guide;
 import com.set.mvp.models.User;
-import com.set.mvp.panels.admin.ViewGuidesAdmin;
 import com.set.mvp.repository.GuideJsonRepository;
 import com.set.mvp.repository.UserJsonRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -16,14 +15,12 @@ import static org.junit.jupiter.api.Assertions.*;
 public class AdminFunctionsTest {
     GuideJsonRepository guideJsonRepository;
     UserJsonRepository userJsonRepository;
-    ViewGuidesAdmin viewGuidesAdmin;
+
 
     @BeforeEach
     public void init() {
         guideJsonRepository = new GuideJsonRepository("/database/guide.json");
         userJsonRepository = new UserJsonRepository("/database/user.json");
-        viewGuidesAdmin = new ViewGuidesAdmin("Admin Can View Guides");
-
 
     }
 
