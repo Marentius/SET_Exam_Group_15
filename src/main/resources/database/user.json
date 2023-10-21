@@ -153,43 +153,19 @@
   "profileId" : 9,
   "trips" : [ ]
 }, {
-  "firstname" : "newuser",
-  "lastname" : "newuser",
-  "email" : "newuser",
-  "username" : "newuser",
-  "password" : "newuser",
+  "firstname" : "Robin",
+  "lastname" : "Enerhaugen",
+  "email" : "Robin.enerhaugen@hotmail.com",
+  "username" : "Robene",
+  "password" : "123",
   "profileId" : 10,
-  "trips" : null
+  "trips" : [ ]
 }, {
-  "firstname" : "newuser",
-  "lastname" : "newuser",
-  "email" : "newuser",
-  "username" : "newuser",
-  "password" : "newuser",
+  "firstname" : "Robin",
+  "lastname" : "Enerhaugen",
+  "email" : "Robin.enerhaugen@hotmail.com",
+  "username" : "Robene",
+  "password" : "123",
   "profileId" : 11,
-  "trips" : null
-}, {
-  "firstname" : "newuser",
-  "lastname" : "newuser",
-  "email" : "newuser",
-  "username" : "newuser",
-  "password" : "newuser",
-  "profileId" : 12,
-  "trips" : null
-}, {
-  "firstname" : "User",
-  "lastname" : "User",
-  "email" : "User",
-  "username" : "User",
-  "password" : "User",
-  "profileId" : 13,
-  "trips" : null
-}, {
-  "firstname" : "user",
-  "lastname" : "user",
-  "email" : "user",
-  "username" : "user",
-  "password" : "user",
-  "profileId" : 14,
-  "trips" : null
+  "trips" : [ ]
 } ]

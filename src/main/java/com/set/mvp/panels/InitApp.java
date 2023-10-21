@@ -2,6 +2,7 @@ package com.set.mvp.panels;
 
 import com.set.mvp.panels.admin.MainPageAdmin;
 import com.set.mvp.panels.admin.ViewGuidesAdmin;
+import com.set.mvp.panels.admin.ViewTripsAdmin;
 import com.set.mvp.panels.admin.ViewUsersAdmin;
 import com.set.mvp.panels.guide.AddTripPage;
 import com.set.mvp.panels.guide.CreateGuide;
@@ -150,6 +151,18 @@ public class InitApp extends JFrame {
         neww.setVisible(true);
     }
     public void new_panel(ViewGuidesAdmin old, StartPanelLogIn neww){
+        old.setVisible(false);
+        neww.setVisible(true);
+    }
+    public void new_panel(ViewTripsAdmin old, MainPageAdmin neww){
+        old.setVisible(false);
+        neww.setVisible(true);
+    }
+    public void new_panel(ViewTripsAdmin old, StartPanelLogIn neww){
+        old.setVisible(false);
+        neww.setVisible(true);
+    }
+    public void new_panel(MainPageAdmin old, ViewTripsAdmin neww){
         old.setVisible(false);
         neww.setVisible(true);
     }

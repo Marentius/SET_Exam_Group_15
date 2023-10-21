@@ -39,7 +39,6 @@ public class CreateUserAndEditUserTest {
 
     @Test
     public void user_can_edit_user_info() {
-
         User createdUser = userJsonRepository.createUser("User","User","User","User","User", null);
         int createdUserProfileID = createdUser.getProfileId();
         String oldUsername = createdUser.getUsername();
@@ -59,17 +58,20 @@ public class CreateUserAndEditUserTest {
 
         LoggedInProfile.getProfile().logOut();
         userJsonRepository.deleteUser(createdUserProfileID);
+
     }
 
     @Test
     public void user_can_change_passoword(){
-    User createdUser = userJsonRepository.createUser("User", "User", "User", "User","User", null);
-    int createdUserProfileId = createdUser.getProfileId();
-    LoggedInProfile.getProfile().logIn(createdUserProfileId);
-    String oldPassword = createdUser.getPassword();
-    userJsonRepository.editUserInfo("User", "New_password", "User", "User", "User");
-    assertFalse(oldPassword.equals(createdUser.getPassword()));
-    LoggedInProfile.getProfile().logOut();
-    userJsonRepository.deleteUser(createdUserProfileId);
+        User createdUser = userJsonRepository.createUser("User", "User", "User", "User","User", null);
+        int createdUserProfileId = createdUser.getProfileId();
+        LoggedInProfile.getProfile().logIn(createdUserProfileId);
+        String oldPassword = createdUser.getPassword();
+        userJsonRepository.editUserInfo("User", "New_password", "User", "User", "User");
+        assertFalse(oldPassword.equals(createdUser.getPassword()));
+        LoggedInProfile.getProfile().logOut();
+        userJsonRepository.deleteUser(createdUserProfileId);
     }
+
+
 }

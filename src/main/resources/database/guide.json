@@ -38,4 +38,12 @@
   "password" : "Guide",
   "profileId" : 4,
   "trips" : [ ]
+}, {
+  "firstname" : "Guide",
+  "lastname" : "Guide",
+  "email" : "Guide",
+  "username" : "Guide",
+  "password" : "Guide",
+  "profileId" : 5,
+  "trips" : null
 } ]

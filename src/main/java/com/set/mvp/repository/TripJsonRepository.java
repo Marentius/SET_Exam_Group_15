@@ -57,6 +57,26 @@ public class TripJsonRepository implements TripRepository {
         return newTrip;
     }
 
+    @Override
+    public void deleteTrip(int tripId) {
+        Trip tripToDelete = null;
+
+        for (Trip trip : tripArrayList) {
+            if (trip.getTripId() == tripId) {
+                tripToDelete = trip;
+                break;
+            }
+        }
+
+        if (tripToDelete != null) {
+            tripArrayList.remove(tripToDelete);
+            writeToJsonFile("/src/main/resources/database/trip.json");
+            System.out.println("Trip with ID " + tripId + " was successfully deleted");
+        } else {
+            System.out.println("Trip with ID " + tripId + " was not found.");
+        }
+    }
+
     private void writeToJsonFile(String filename) {
         ObjectMapper objectMapper = new ObjectMapper().registerModule(new JavaTimeModule());
         try {

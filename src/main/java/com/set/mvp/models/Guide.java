@@ -17,4 +17,6 @@ public class Guide extends User {
     public void deleteTrip(Trip trip) {
         getTrips().remove(trip);}
 
+
 }
+

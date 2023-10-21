@@ -1,5 +1,4 @@
 package com.set.mvp.usertests;
-
 import com.set.mvp.models.LoggedInProfile;
 import com.set.mvp.models.User;
 import com.set.mvp.repository.UserJsonRepository;
@@ -14,7 +13,6 @@ public class LoginAndOutTest {
     public void init(){
         userJsonRepository = new UserJsonRepository("/database/user.json");
     }
-
     @Test
     public void user_can_log_in(){
         User createduser = userJsonRepository.createUser("user", "user", "user", "user", "user", null);
@@ -35,5 +33,6 @@ public class LoginAndOutTest {
         LoggedInProfile.getProfile().logOut();
         assertFalse(LoggedInProfile.getProfile().getLoggedInProfileId() == createdUserId);
         userJsonRepository.deleteUser(createdUserId);
+
     }
 }
