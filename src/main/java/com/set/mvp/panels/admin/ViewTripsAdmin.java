@@ -49,6 +49,7 @@ public class ViewTripsAdmin extends InitApp {
 
                 if (selectedTrip != null){
                     tripJsonRepository.deleteTrip(selectedTrip.getTripId());
+                    JOptionPane.showMessageDialog(mainPanel, "The trip: " + tripJList.getSelectedValue().getTitle() + " was successfully deleted");
 
                     updateTripList();
                 } else {

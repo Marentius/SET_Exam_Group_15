@@ -15,83 +15,11 @@
   "profileId" : 2,
   "trips" : [ ]
 }, {
-  "firstname" : "Erik",
-  "lastname" : "Larsen",
-  "email" : "erik.larsen@example.com",
-  "username" : "guide789",
-  "password" : "mySecret789",
-  "profileId" : 3,
-  "trips" : [ ]
-}, {
   "firstname" : "Test",
   "lastname" : "Test",
   "email" : "Test@example.com",
   "username" : "Test",
   "password" : "Test",
   "profileId" : 3,
-  "trips" : [ ]
-}, {
-  "firstname" : "Guide",
-  "lastname" : "Guide",
-  "email" : "Guide",
-  "username" : "Guide",
-  "password" : "Guide",
-  "profileId" : 4,
-  "trips" : [ ]
-}, {
-  "firstname" : "Guide",
-  "lastname" : "Guide",
-  "email" : "Guide",
-  "username" : "Guide",
-  "password" : "Guide",
-  "profileId" : 5,
-  "trips" : null
-}, {
-  "firstname" : "Guide",
-  "lastname" : "Guide",
-  "email" : "Guide",
-  "username" : "Guide",
-  "password" : "Guide",
-  "profileId" : 6,
-  "trips" : [ ]
-}, {
-  "firstname" : "Guide",
-  "lastname" : "Guide",
-  "email" : "Guide",
-  "username" : "Guide",
-  "password" : "Guide",
-  "profileId" : 7,
-  "trips" : [ ]
-}, {
-  "firstname" : "Guide",
-  "lastname" : "Guide",
-  "email" : "Guide",
-  "username" : "Guide",
-  "password" : "Guide",
-  "profileId" : 8,
-  "trips" : [ ]
-}, {
-  "firstname" : "Guide",
-  "lastname" : "Guide",
-  "email" : "Guide",
-  "username" : "Guide",
-  "password" : "Guide",
-  "profileId" : 9,
-  "trips" : [ ]
-}, {
-  "firstname" : "Guide",
-  "lastname" : "Guide",
-  "email" : "Guide",
-  "username" : "Guide",
-  "password" : "Guide",
-  "profileId" : 10,
-  "trips" : [ ]
-}, {
-  "firstname" : "Guide",
-  "lastname" : "Guide",
-  "email" : "Guide",
-  "username" : "Guide",
-  "password" : "Guide",
-  "profileId" : 11,
   "trips" : [ ]
 } ]

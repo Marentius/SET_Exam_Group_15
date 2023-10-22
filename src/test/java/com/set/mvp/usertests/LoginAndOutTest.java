@@ -33,6 +33,5 @@ public class LoginAndOutTest {
         LoggedInProfile.getProfile().logOut();
         assertFalse(LoggedInProfile.getProfile().getLoggedInProfileId() == createdUserId);
         userJsonRepository.deleteUser(createdUserId);
-
     }
 }

@@ -37,6 +37,7 @@ public class ViewUsersAdmin extends InitApp {
 
                 if (selectedUser != null) {
                     userJsonRepository.deleteUser(selectedUser.getProfileId());
+                    JOptionPane.showMessageDialog(mainPanel, "The user: " + userJList.getSelectedValue().getUsername() + " was successfully deleted");
 
                     updateUserList();
                 } else {
