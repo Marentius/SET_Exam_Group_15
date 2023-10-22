@@ -62,4 +62,36 @@
   "password" : "Guide",
   "profileId" : 7,
   "trips" : [ ]
+}, {
+  "firstname" : "Guide",
+  "lastname" : "Guide",
+  "email" : "Guide",
+  "username" : "Guide",
+  "password" : "Guide",
+  "profileId" : 8,
+  "trips" : [ ]
+}, {
+  "firstname" : "Guide",
+  "lastname" : "Guide",
+  "email" : "Guide",
+  "username" : "Guide",
+  "password" : "Guide",
+  "profileId" : 9,
+  "trips" : [ ]
+}, {
+  "firstname" : "Guide",
+  "lastname" : "Guide",
+  "email" : "Guide",
+  "username" : "Guide",
+  "password" : "Guide",
+  "profileId" : 10,
+  "trips" : [ ]
+}, {
+  "firstname" : "Guide",
+  "lastname" : "Guide",
+  "email" : "Guide",
+  "username" : "Guide",
+  "password" : "Guide",
+  "profileId" : 11,
+  "trips" : [ ]
 } ]

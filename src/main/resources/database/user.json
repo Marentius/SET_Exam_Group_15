@@ -143,13 +143,31 @@
   "username" : "Robin",
   "password" : "RobinRobin",
   "profileId" : 8,
-  "trips" : [ ]
+  "trips" : [ {
+    "guide" : {
+      "firstname" : "Guide",
+      "lastname" : "Guide",
+      "email" : "Guide",
+      "username" : "Guide",
+      "password" : "Guide",
+      "profileId" : 9,
+      "trips" : [ ]
+    },
+    "title" : "Guide",
+    "location" : "Guide",
+    "description" : "Guide",
+    "price" : 1000.0,
+    "duration" : 100,
+    "tripId" : 13,
+    "date" : null,
+    "reviews" : null
+  } ]
 }, {
-  "firstname" : "Test",
-  "lastname" : "Test",
-  "email" : "Test",
-  "username" : "Test",
-  "password" : "Test",
+  "firstname" : "New firstname",
+  "lastname" : "New lastname",
+  "email" : "New email",
+  "username" : "New Username",
+  "password" : "New password",
   "profileId" : 9,
   "trips" : [ ]
 }, {

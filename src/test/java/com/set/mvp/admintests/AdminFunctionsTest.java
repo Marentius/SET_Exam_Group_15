@@ -87,5 +87,11 @@ public class AdminFunctionsTest {
         assertArrayEquals(guides.toArray(), guideJsonRepository.getGuides().toArray());
 
 }
+
+@Test
+    public void adminCanViewAllTrips(){
+        ArrayList<Trip> trips = tripJsonRepository.getTrips();
+        assertArrayEquals(trips.toArray(), tripJsonRepository.getTrips().toArray());
+}
 }
 

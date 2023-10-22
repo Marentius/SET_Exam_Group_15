@@ -196,4 +196,76 @@
   "tripId" : 11,
   "date" : null,
   "reviews" : null
+}, {
+  "guide" : {
+    "firstname" : "Guide",
+    "lastname" : "Guide",
+    "email" : "Guide",
+    "username" : "Guide",
+    "password" : "Guide",
+    "profileId" : 8,
+    "trips" : [ ]
+  },
+  "title" : "Guide",
+  "location" : "Guide",
+  "description" : "Guide",
+  "price" : 1000.0,
+  "duration" : 100,
+  "tripId" : 12,
+  "date" : null,
+  "reviews" : null
+}, {
+  "guide" : {
+    "firstname" : "Guide",
+    "lastname" : "Guide",
+    "email" : "Guide",
+    "username" : "Guide",
+    "password" : "Guide",
+    "profileId" : 9,
+    "trips" : [ ]
+  },
+  "title" : "Guide",
+  "location" : "Guide",
+  "description" : "Guide",
+  "price" : 1000.0,
+  "duration" : 100,
+  "tripId" : 13,
+  "date" : null,
+  "reviews" : null
+}, {
+  "guide" : {
+    "firstname" : "Guide",
+    "lastname" : "Guide",
+    "email" : "Guide",
+    "username" : "Guide",
+    "password" : "Guide",
+    "profileId" : 10,
+    "trips" : [ ]
+  },
+  "title" : "Guide",
+  "location" : "Guide",
+  "description" : "Guide",
+  "price" : 1000.0,
+  "duration" : 100,
+  "tripId" : 14,
+  "date" : null,
+  "reviews" : null
+}, {
+  "guide" : {
+    "firstname" : "Guide",
+    "lastname" : "Guide",
+    "email" : "Guide",
+    "username" : "Guide",
+    "password" : "Guide",
+    "profileId" : 11,
+    "trips" : [ ]
+  },
+  "title" : "Guide",
+  "location" : "Guide",
+  "description" : "Guide",
+  "price" : 1000.0,
+  "duration" : 100,
+  "tripId" : 15,
+  "date" : null,
+  "reviews" : null
 } ]
