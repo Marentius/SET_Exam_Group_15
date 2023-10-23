@@ -135,6 +135,60 @@
     "tripId" : 7,
     "date" : [ 2023, 2, 15 ],
     "reviews" : [ "Utrolig gøy!", "Skal definitivt tilbake neste år." ]
+  }, {
+    "guide" : {
+      "firstname" : "Per",
+      "lastname" : "Hansen",
+      "email" : "Per@hansen.no",
+      "username" : null,
+      "password" : null,
+      "profileId" : 1500,
+      "trips" : [ ]
+    },
+    "title" : "Fantastisk fjelltur",
+    "location" : "Tromsø",
+    "description" : "Opplev de majestetiske fjellene i Tromsø.",
+    "price" : 500.0,
+    "duration" : 3,
+    "tripId" : 1,
+    "date" : [ 2023, 6, 15 ],
+    "reviews" : [ "Fantastisk tur!", "Vil dra igjen." ]
+  }, {
+    "guide" : {
+      "firstname" : "Per",
+      "lastname" : "Hansen",
+      "email" : "Per@hansen.no",
+      "username" : null,
+      "password" : null,
+      "profileId" : 1500,
+      "trips" : [ ]
+    },
+    "title" : "Fantastisk fjelltur",
+    "location" : "Tromsø",
+    "description" : "Opplev de majestetiske fjellene i Tromsø.",
+    "price" : 500.0,
+    "duration" : 3,
+    "tripId" : 1,
+    "date" : [ 2023, 6, 15 ],
+    "reviews" : [ "Fantastisk tur!", "Vil dra igjen." ]
+  }, {
+    "guide" : {
+      "firstname" : "Per",
+      "lastname" : "Hansen",
+      "email" : "Per@hansen.no",
+      "username" : null,
+      "password" : null,
+      "profileId" : 1500,
+      "trips" : [ ]
+    },
+    "title" : "Skitur i Hemsedal",
+    "location" : "Hemsedal",
+    "description" : "En herlig skitur i Hemsedal.",
+    "price" : 600.0,
+    "duration" : 2,
+    "tripId" : 7,
+    "date" : [ 2023, 2, 15 ],
+    "reviews" : [ "Utrolig gøy!", "Skal definitivt tilbake neste år." ]
   } ]
 }, {
   "firstname" : "Robin",
@@ -143,13 +197,31 @@
   "username" : "Robin",
   "password" : "RobinRobin",
   "profileId" : 8,
-  "trips" : [ ]
+  "trips" : [ {
+    "guide" : {
+      "firstname" : "Guide",
+      "lastname" : "Guide",
+      "email" : "Guide",
+      "username" : "Guide",
+      "password" : "Guide",
+      "profileId" : 9,
+      "trips" : [ ]
+    },
+    "title" : "Guide",
+    "location" : "Guide",
+    "description" : "Guide",
+    "price" : 1000.0,
+    "duration" : 100,
+    "tripId" : 13,
+    "date" : null,
+    "reviews" : null
+  } ]
 }, {
-  "firstname" : "Test",
-  "lastname" : "Test",
-  "email" : "Test",
-  "username" : "Test",
-  "password" : "Test",
+  "firstname" : "New firstname",
+  "lastname" : "New lastname",
+  "email" : "New email",
+  "username" : "New Username",
+  "password" : "New password",
   "profileId" : 9,
   "trips" : [ ]
 }, {
@@ -168,4 +240,64 @@
   "password" : "123",
   "profileId" : 11,
   "trips" : [ ]
+}, {
+  "firstname" : "Lol",
+  "lastname" : "Lol",
+  "email" : "Lol",
+  "username" : "Lol",
+  "password" : "Lol",
+  "profileId" : 12,
+  "trips" : [ {
+    "guide" : {
+      "firstname" : "Erik",
+      "lastname" : "Larsen",
+      "email" : "erik.larsen@example.com",
+      "username" : "guide789",
+      "password" : "mySecret789",
+      "profileId" : 3,
+      "trips" : [ ]
+    },
+    "title" : "Albert",
+    "location" : "Albert",
+    "description" : "Albert",
+    "price" : 1.0,
+    "duration" : 1,
+    "tripId" : 12,
+    "date" : [ 1, 1, 1 ],
+    "reviews" : [ ]
+  } ]
+}, {
+  "firstname" : "keyboard",
+  "lastname" : "keyboard",
+  "email" : "keyboard",
+  "username" : "keyboard",
+  "password" : "keyboard",
+  "profileId" : 13,
+  "trips" : [ ]
+}, {
+  "firstname" : "Tommy",
+  "lastname" : "Tommy",
+  "email" : "Tommy",
+  "username" : "Tommy",
+  "password" : "Tommy",
+  "profileId" : 14,
+  "trips" : [ {
+    "guide" : {
+      "firstname" : "Per",
+      "lastname" : "Hansen",
+      "email" : "Per@hansen.no",
+      "username" : null,
+      "password" : null,
+      "profileId" : 1500,
+      "trips" : [ ]
+    },
+    "title" : "Sykkeltur i Geiranger",
+    "location" : "Geiranger",
+    "description" : "En uforglemmelig sykkeltur gjennom den storslåtte naturen i Geiranger.",
+    "price" : 400.0,
+    "duration" : 1,
+    "tripId" : 9,
+    "date" : [ 2023, 5, 20 ],
+    "reviews" : [ "Sykkelturen var en drøm!", "Kan ikke vente med å gjøre dette igjen." ]
+  } ]
 } ]

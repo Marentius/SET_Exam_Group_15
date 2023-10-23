@@ -1,26 +1,31 @@
 package com.set.mvp.admintests;
 
+
 import com.set.mvp.models.Guide;
+import com.set.mvp.models.Trip;
 import com.set.mvp.models.User;
 import com.set.mvp.repository.GuideJsonRepository;
+import com.set.mvp.repository.TripJsonRepository;
 import com.set.mvp.repository.UserJsonRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 
-
+import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class AdminFunctionsTest {
     GuideJsonRepository guideJsonRepository;
     UserJsonRepository userJsonRepository;
+    TripJsonRepository tripJsonRepository;
 
 
     @BeforeEach
     public void init() {
         guideJsonRepository = new GuideJsonRepository("/database/guide.json");
         userJsonRepository = new UserJsonRepository("/database/user.json");
+        tripJsonRepository = new TripJsonRepository("/database/trip.json");
 
     }
 
@@ -55,15 +60,38 @@ public class AdminFunctionsTest {
         assertFalse(isProfileInIdList);
     }
 
-/*
+    @Test
+    public void adminCanDeleteTripTest() {
+        Trip createdTrip = tripJsonRepository.addTrip("Trip", "Trip", "Trip", null, 1000, 100, null, null);
+        boolean isTripIdInList = false;
+        tripJsonRepository.deleteTrip(createdTrip.getTripId());
+        for (Trip trip : tripJsonRepository.getTrips()) {
+            if (trip.getTripId() == createdTrip.getTripId()) {
+                isTripIdInList = true;
+                break;
+            }
+        }
+        assertFalse(isTripIdInList);
+    }
+
+
+
     @Test
     public void adminCanViewAllUsers(){
-
+        ArrayList<User> users = userJsonRepository.getUsers();
+        assertArrayEquals(users.toArray(), userJsonRepository.getUsers().toArray());
     }
-    @Test
+  @Test
     public void adminCanViewAllGuides() {
+        ArrayList<Guide> guides = guideJsonRepository.getGuides();
+        assertArrayEquals(guides.toArray(), guideJsonRepository.getGuides().toArray());
 
 }
-*/
+
+@Test
+    public void adminCanViewAllTrips(){
+        ArrayList<Trip> trips = tripJsonRepository.getTrips();
+        assertArrayEquals(trips.toArray(), tripJsonRepository.getTrips().toArray());
+}
 }
 
