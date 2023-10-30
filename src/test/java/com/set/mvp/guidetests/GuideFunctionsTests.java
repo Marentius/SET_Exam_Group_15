@@ -31,7 +31,7 @@ public class GuideFunctionsTests {
     @Test
     public void guide_can_create_profile() {
         ArrayList<Guide> guidesOriginal = guideJsonRepository.getGuides();
-        Guide createdGuide = guideJsonRepository.createGuide("Guide", "Guide", "Guide", "Guide", "Guide", null);
+        Guide createdGuide = guideJsonRepository.createGuide("Guide", "Guide", "Guide", "Guide", "Guide");
         boolean isProfileIdInList = false;
         for (Guide guide : guideJsonRepository.getGuides()) {
             if (guide.getProfileId() == createdGuide.getProfileId()) {
@@ -50,7 +50,7 @@ public class GuideFunctionsTests {
     @Test
     public void guide_can_create_trip(){
         ArrayList<Trip> trips = new ArrayList<>();
-        Guide guide = guideJsonRepository.createGuide("Guide", "Guide", "Guide", "Guide", "Guide", trips);
+        Guide guide = guideJsonRepository.createGuide("Guide", "Guide", "Guide", "Guide", "Guide");
         Trip trip = tripJsonRepository.addTrip("Guide", "Guide", "Guide", guide, 1000, 100, null, null);
         guide.addTrip(trip);
         boolean isTripInTripList = false;
@@ -68,7 +68,7 @@ public class GuideFunctionsTests {
     @Test
     public void guide_can_cancel_trip(){
         ArrayList<Trip> trips = new ArrayList<>();
-        Guide guide = new Guide("Guide", "Guide", "Guide", "Guide", "Guide", 100, trips);
+        Guide guide = new Guide("Guide", "Guide", "Guide", "Guide", "Guide", 100);
 
         Trip trip = new Trip("Oslo", 100);
         Trip trip1 = new Trip("Tønsberg", 100);
@@ -85,7 +85,7 @@ public class GuideFunctionsTests {
 
     @Test
     public void guide_can_log_in(){
-        Guide createdGuide = guideJsonRepository.createGuide("Guide", "Guide", "Guide", "Guide", "Guide", null);
+        Guide createdGuide = guideJsonRepository.createGuide("Guide", "Guide", "Guide", "Guide", "Guide");
         int createdGuideId = createdGuide.getProfileId();
         LoggedInProfile.getProfile().logIn(createdGuideId);
         assertTrue(LoggedInProfile.getProfile().getLoggedInProfileId() == createdGuideId);
@@ -96,7 +96,7 @@ public class GuideFunctionsTests {
 
     @Test
     public void guideCanLogOut(){
-        Guide createdGuide = guideJsonRepository.createGuide("Guide", "Guide", "Guide", "Guide", "Guide", null);
+        Guide createdGuide = guideJsonRepository.createGuide("Guide", "Guide", "Guide", "Guide", "Guide");
         int createdGuideId = createdGuide.getProfileId();
         LoggedInProfile.getProfile().logIn(createdGuideId);
         assertTrue(createdGuideId == LoggedInProfile.getProfile().getLoggedInProfileId());

@@ -32,7 +32,7 @@ public class AdminFunctionsTest {
     @Test
     public void adminCanDeleteGuideTest() {
 
-        Guide createdGuide = guideJsonRepository.createGuide("DeleteGuide", "123", "Guide", "Guide", "Guide", null);
+        Guide createdGuide = guideJsonRepository.createGuide("DeleteGuide", "123", "Guide", "Guide", "Guide");
 
         guideJsonRepository.deleteGuide(createdGuide.getProfileId());
         boolean isProfileInIdList = false;

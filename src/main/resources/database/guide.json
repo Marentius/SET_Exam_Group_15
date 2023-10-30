@@ -1,25 +1,25 @@
 [ {
-  "firstname" : "Ola",
-  "lastname" : "Nordmann",
-  "email" : "ola.nordmann@example.com",
-  "username" : "guide123",
-  "password" : "password123",
-  "profileId" : 1,
-  "trips" : [ ]
-}, {
-  "firstname" : "Kari",
+  "firstname" : "Per",
   "lastname" : "Hansen",
-  "email" : "kari.hansen@example.com",
-  "username" : "guide456",
-  "password" : "securePass456",
-  "profileId" : 2,
+  "email" : "Per@hansen.no",
+  "username" : "perhansen",
+  "password" : "guide",
+  "profileId" : 3,
   "trips" : [ ]
 }, {
-  "firstname" : "Test",
-  "lastname" : "Test",
-  "email" : "Test@example.com",
-  "username" : "Test",
-  "password" : "Test",
-  "profileId" : 3,
+  "firstname" : "Erik",
+  "lastname" : "Larsen",
+  "email" : "erik.larsen@example.com",
+  "username" : "eriklarsen",
+  "password" : "hemmelig",
+  "profileId" : 4,
+  "trips" : [ ]
+}, {
+  "firstname" : "Guide",
+  "lastname" : "Guide",
+  "email" : "Guide",
+  "username" : "Guide",
+  "password" : "Guide",
+  "profileId" : 5,
   "trips" : [ ]
 } ]

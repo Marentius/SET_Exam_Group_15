@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 public interface GuideRepository {
     ArrayList<Guide> getGuides();
-    Guide createGuide(String username, String password, String firstname, String lastname,  String email, ArrayList<Trip> trips);
+    Guide createGuide(String username, String password, String firstname, String lastname,  String email);
     void deleteGuide(int profileId);
+    void editGuideInfo(String username, String password, String firstname, String lastname, String email);
 }

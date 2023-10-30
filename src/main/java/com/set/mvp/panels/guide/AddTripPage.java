@@ -21,11 +21,12 @@ public class AddTripPage extends InitApp {
     private JTextField txtLocation;
     private JTextField txtDescription;
     private JTextField txtPrice;
-    private JTextField txtDuration;
-    private JTextField txtDateYear;
-    private JTextField txtDateMonth;
-    private JTextField txtDateDay;
     private JButton addTripButton;
+    private JComboBox dayComboBox;
+    private JComboBox yearComboBox;
+    private JComboBox MonthComboBox;
+    private JComboBox priceComboBox;
+    private JComboBox durationComboBox;
     private TripJsonRepository tripJsonRepository;
     private GuideJsonRepository guideJsonRepository;
 
@@ -53,9 +54,29 @@ public class AddTripPage extends InitApp {
             public void actionPerformed(ActionEvent e) {
                 for (Guide guide : guideJsonRepository.getGuides()) {
                     if (LoggedInProfile.getProfile().getLoggedInProfileId() == guide.getProfileId()){
-                        tripJsonRepository.addTrip(txtTitle.getText(), txtLocation.getText(), txtDescription.getText(), guide, Double.parseDouble(txtPrice.getText()),
-                                Integer.parseInt(txtPrice.getText()), LocalDate.of(Integer.parseInt(txtDateYear.getText()), Integer.parseInt(txtDateMonth.getText()),
-                                        Integer.parseInt(txtDateDay.getText())), new ArrayList<>());
+                        if (txtTitle.getText().isEmpty()
+                                || txtLocation.getText().isEmpty()
+                                || txtDescription.getText().isEmpty()
+                                || "".equals(priceComboBox.getSelectedItem())
+                                || "".equals(durationComboBox.getSelectedItem())
+                                || "".equals(yearComboBox.getSelectedItem())
+                                || "".equals(MonthComboBox.getSelectedItem())
+                                || "".equals(dayComboBox.getSelectedItem())){
+                            JOptionPane.showMessageDialog(mainPanel, "All fields must be provided and cannot be empty or null.");
+                            return;
+                        }
+                        tripJsonRepository.addTrip(txtTitle.getText(),
+                                txtLocation.getText(),
+                                txtDescription.getText(),
+                                guide,
+                                Double.parseDouble((String) priceComboBox.getSelectedItem()),
+                                Integer.parseInt((String) durationComboBox.getSelectedItem()),
+                                LocalDate.of(Integer.parseInt((String) yearComboBox.getSelectedItem()), Integer.parseInt((String) MonthComboBox.getSelectedItem()), Integer.parseInt((String) dayComboBox.getSelectedItem())),
+                                new ArrayList<>());
+
+                        JOptionPane.showMessageDialog(mainPanel, "The trip: " + txtTitle.getText() + " was successfully added.");
+
+                        new_panel(AddTripPage.this, new MainPageGuide("Main Page Guide"));
                     }
                 }
             }
