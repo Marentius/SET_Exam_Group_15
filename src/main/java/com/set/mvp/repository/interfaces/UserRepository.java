@@ -11,4 +11,6 @@ public interface UserRepository {
     void deleteUser(int profileId);
     void editUserInfo(String username, String password, String firstname, String lastname, String email);
     void bookTrip(Trip trip);
+    ArrayList<Trip> getTrips(int profileId);
+    void unbookTrip(Trip trip);
 }

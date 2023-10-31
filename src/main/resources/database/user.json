@@ -15,14 +15,6 @@
   "profileId" : 2,
   "trips" : [ ]
 }, {
-  "firstname" : "Per",
-  "lastname" : "Hansen",
-  "email" : "per.hansen@mail.com",
-  "username" : "perhansen",
-  "password" : "1234",
-  "profileId" : 3,
-  "trips" : [ ]
-}, {
   "firstname" : "Anne",
   "lastname" : "Olsen",
   "email" : "anne.olsen@mail.com",
@@ -37,6 +29,14 @@
   "username" : "Vetle",
   "password" : "hei",
   "profileId" : 7,
+  "trips" : [ ]
+}, {
+  "firstname" : "Test",
+  "lastname" : "Test",
+  "email" : "Test",
+  "username" : "Test",
+  "password" : "Test",
+  "profileId" : 9,
   "trips" : [ {
     "guide" : {
       "firstname" : "Per",
@@ -47,21 +47,13 @@
       "profileId" : 3,
       "trips" : [ ]
     },
-    "title" : "Sykkeltur i Geiranger",
-    "location" : "Geiranger",
-    "description" : "En uforglemmelig sykkeltur gjennom den storslåtte naturen i Geiranger.",
-    "price" : 400.0,
-    "duration" : 1,
-    "tripId" : 9,
-    "date" : [ 2023, 5, 20 ],
-    "reviews" : [ "Sykkelturen var en drøm!", "Kan ikke vente med å gjøre dette igjen." ]
+    "title" : "Gåtur i norsk fjell",
+    "location" : "Geilo",
+    "description" : "Utforsk den norske naturen til fots.",
+    "price" : 600.0,
+    "duration" : 4,
+    "tripId" : 4,
+    "date" : [ 2023, 8, 12 ],
+    "reviews" : [ "Flinke guider!", "Utrolig natur." ]
   } ]
-}, {
-  "firstname" : "Robin",
-  "lastname" : "Enerhaugen",
-  "email" : "Robin.enerhaugen@hotmail.com",
-  "username" : "Robene",
-  "password" : "123",
-  "profileId" : 10,
-  "trips" : [ ]
 } ]

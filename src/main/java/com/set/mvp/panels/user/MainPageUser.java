@@ -13,6 +13,7 @@ public class MainPageUser extends InitApp {
     private JButton editUserButton;
     private JButton bookTripButton;
     private JButton logOutButton;
+    private JButton viewAndManageYourButton;
 
     public MainPageUser(String title) {
         super(title);
@@ -40,6 +41,12 @@ public class MainPageUser extends InitApp {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new_panel(MainPageUser.this, new EditUserPage("Edit User"));
+            }
+        });
+        viewAndManageYourButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new_panel(MainPageUser.this, new ViewAndManageUserTrips("View And Manage Usertrips"));
             }
         });
     }

@@ -22,4 +22,12 @@
   "password" : "Guide",
   "profileId" : 5,
   "trips" : [ ]
+}, {
+  "firstname" : "Test",
+  "lastname" : "Test",
+  "email" : "Test@Test.com",
+  "username" : "Test",
+  "password" : "Test",
+  "profileId" : 6,
+  "trips" : [ ]
 } ]

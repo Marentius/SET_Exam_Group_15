@@ -12,7 +12,6 @@ import com.set.mvp.repository.UserJsonRepository;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 
 public class StartPanelLogIn extends InitApp {
     private JPanel mainPanel;
@@ -23,8 +22,10 @@ public class StartPanelLogIn extends InitApp {
     private JButton createUserButton;
     private JButton createGuideButton;
     private JPasswordField txtPassword;
+    private JButton runTestsButton;
     private UserJsonRepository userJsonRepository;
     private GuideJsonRepository guideJsonRepository;
+    private UserJsonRepository adminJsonRepository;
 
     public StartPanelLogIn(String title) {
         super(title);
@@ -32,6 +33,7 @@ public class StartPanelLogIn extends InitApp {
 
         userJsonRepository = new UserJsonRepository("/database/user.json");
         guideJsonRepository = new GuideJsonRepository("/database/guide.json");
+        adminJsonRepository = new UserJsonRepository("/database/admin.json");
 
         logInAsUserButton.addActionListener(new ActionListener() {
             @Override
@@ -48,9 +50,9 @@ public class StartPanelLogIn extends InitApp {
         logInAsGuideButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int userId = guideJsonRepository.checkGuideExistans(txtUsername.getText());
-                if (userId != 0) {
-                    LoggedInProfile.getProfile().logIn(userId);
+                int guideId = guideJsonRepository.checkGuideExistans(txtUsername.getText());
+                if (guideId != 0) {
+                    LoggedInProfile.getProfile().logIn(guideId);
                     new_panel(StartPanelLogIn.this, new MainPageGuide("Main Page Guide"));
                 } else {
                     JOptionPane.showMessageDialog(StartPanelLogIn.this, "LogIn Failed. Try Again or create guide");
@@ -60,7 +62,13 @@ public class StartPanelLogIn extends InitApp {
         logInAsAdminButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new_panel(StartPanelLogIn.this, new MainPageAdmin("Main page"));
+                int adminId = adminJsonRepository.checkUserExistans(txtUsername.getText());
+                if (adminId != 0) {
+                    LoggedInProfile.getProfile().logIn(adminId);
+                    new_panel(StartPanelLogIn.this, new MainPageAdmin("Main page"));
+                } else {
+                    JOptionPane.showMessageDialog(StartPanelLogIn.this, "LogIn Failed. Only admin can log in");
+                }
             }
         });
         createUserButton.addActionListener(new ActionListener() {

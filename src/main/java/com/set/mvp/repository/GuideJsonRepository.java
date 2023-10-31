@@ -91,7 +91,7 @@ public class GuideJsonRepository implements GuideRepository {
                 if (!email.isEmpty())
                     user.setEmail(email);
 
-                writeToJsonFile("/src/main/resources/database/user.json");
+                writeToJsonFile("/src/main/resources/database/guide.json");
 
                 System.out.println("User info successfully edited");
             }
