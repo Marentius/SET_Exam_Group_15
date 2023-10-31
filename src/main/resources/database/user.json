@@ -5,25 +5,7 @@
   "username" : "olanordmann",
   "password" : "1234",
   "profileId" : 1,
-  "trips" : [ {
-    "guide" : {
-      "firstname" : "Per",
-      "lastname" : "Hansen",
-      "email" : "Per@hansen.no",
-      "username" : null,
-      "password" : null,
-      "profileId" : 1500,
-      "trips" : [ ]
-    },
-    "title" : "Fjelltur i Jotunheimen",
-    "location" : "Jotunheimen",
-    "description" : "En flott fjelltur i Jotunheimen.",
-    "price" : 500.0,
-    "duration" : 3,
-    "tripId" : 6,
-    "date" : [ 2023, 6, 15 ],
-    "reviews" : [ "Fantastisk tur!", "Anbefales!" ]
-  } ]
+  "trips" : [ ]
 }, {
   "firstname" : "Kari",
   "lastname" : "Nordmann",
@@ -31,51 +13,7 @@
   "username" : "kariordmann",
   "password" : "1234",
   "profileId" : 2,
-  "trips" : [ {
-    "guide" : {
-      "firstname" : "Per",
-      "lastname" : "Hansen",
-      "email" : "Per@hansen.no",
-      "username" : null,
-      "password" : null,
-      "profileId" : 1501,
-      "trips" : [ ]
-    },
-    "title" : "Skitur i Hemsedal",
-    "location" : "Hemsedal",
-    "description" : "En herlig skitur i Hemsedal.",
-    "price" : 600.0,
-    "duration" : 2,
-    "tripId" : 7,
-    "date" : [ 2023, 2, 15 ],
-    "reviews" : [ "Utrolig gøy!", "Skal definitivt tilbake neste år." ]
-  } ]
-}, {
-  "firstname" : "Per",
-  "lastname" : "Hansen",
-  "email" : "per.hansen@mail.com",
-  "username" : "perhansen",
-  "password" : "1234",
-  "profileId" : 3,
-  "trips" : [ {
-    "guide" : {
-      "firstname" : "Per",
-      "lastname" : "Hansen",
-      "email" : "Per@hansen.no",
-      "username" : null,
-      "password" : null,
-      "profileId" : 1502,
-      "trips" : [ ]
-    },
-    "title" : "Båttur i Lofoten",
-    "location" : "Lofoten",
-    "description" : "En fantastisk båttur rundt de vakre øyene i Lofoten.",
-    "price" : 700.0,
-    "duration" : 4,
-    "tripId" : 8,
-    "date" : [ 2023, 7, 10 ],
-    "reviews" : [ "Fantastisk opplevelse!", "Lofoten er utrolig vakkert." ]
-  } ]
+  "trips" : [ ]
 }, {
   "firstname" : "Anne",
   "lastname" : "Olsen",
@@ -83,32 +21,6 @@
   "username" : "anneolsen",
   "password" : "1234",
   "profileId" : 4,
-  "trips" : [ {
-    "guide" : {
-      "firstname" : "Per",
-      "lastname" : "Hansen",
-      "email" : "Per@hansen.no",
-      "username" : null,
-      "password" : null,
-      "profileId" : 1503,
-      "trips" : [ ]
-    },
-    "title" : "Sykkeltur i Geiranger",
-    "location" : "Geiranger",
-    "description" : "En uforglemmelig sykkeltur gjennom den storslåtte naturen i Geiranger.",
-    "price" : 400.0,
-    "duration" : 1,
-    "tripId" : 9,
-    "date" : [ 2023, 5, 20 ],
-    "reviews" : [ "Sykkelturen var en drøm!", "Kan ikke vente med å gjøre dette igjen." ]
-  } ]
-}, {
-  "firstname" : "Test1",
-  "lastname" : "Test1",
-  "email" : "Test1",
-  "username" : "Test1",
-  "password" : "Test1",
-  "profileId" : 6,
   "trips" : [ ]
 }, {
   "firstname" : "Vetle Marentius",
@@ -117,32 +29,6 @@
   "username" : "Vetle",
   "password" : "hei",
   "profileId" : 7,
-  "trips" : [ {
-    "guide" : {
-      "firstname" : "Per",
-      "lastname" : "Hansen",
-      "email" : "Per@hansen.no",
-      "username" : null,
-      "password" : null,
-      "profileId" : 1500,
-      "trips" : [ ]
-    },
-    "title" : "Skitur i Hemsedal",
-    "location" : "Hemsedal",
-    "description" : "En herlig skitur i Hemsedal.",
-    "price" : 600.0,
-    "duration" : 2,
-    "tripId" : 7,
-    "date" : [ 2023, 2, 15 ],
-    "reviews" : [ "Utrolig gøy!", "Skal definitivt tilbake neste år." ]
-  } ]
-}, {
-  "firstname" : "Robin",
-  "lastname" : "Robin",
-  "email" : "Robin",
-  "username" : "Robin",
-  "password" : "RobinRobin",
-  "profileId" : 8,
   "trips" : [ ]
 }, {
   "firstname" : "Test",
@@ -151,13 +37,23 @@
   "username" : "Test",
   "password" : "Test",
   "profileId" : 9,
-  "trips" : [ ]
-}, {
-  "firstname" : "TestTest",
-  "lastname" : "TestTest",
-  "email" : "TestTest",
-  "username" : "TestTest",
-  "password" : "TestTest",
-  "profileId" : 10,
-  "trips" : [ ]
+  "trips" : [ {
+    "guide" : {
+      "firstname" : "Per",
+      "lastname" : "Hansen",
+      "email" : "Per@hansen.no",
+      "username" : "perhansen",
+      "password" : "guide",
+      "profileId" : 3,
+      "trips" : [ ]
+    },
+    "title" : "Gåtur i norsk fjell",
+    "location" : "Geilo",
+    "description" : "Utforsk den norske naturen til fots.",
+    "price" : 600.0,
+    "duration" : 4,
+    "tripId" : 4,
+    "date" : [ 2023, 8, 12 ],
+    "reviews" : [ "Flinke guider!", "Utrolig natur." ]
+  } ]
 } ]

@@ -31,7 +31,7 @@ public class CreateGuide extends InitApp {
         createGuideButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                guideJsonRepository.createGuide(txtUsername.getText(), txtPassword.getText(), txtFirstName.getText(), txtLastName.getText(), txtEmail.getText(), new ArrayList<>());
+                guideJsonRepository.createGuide(txtUsername.getText(), txtPassword.getText(), txtFirstName.getText(), txtLastName.getText(), txtEmail.getText());
                 new_panel(CreateGuide.this, new MainPageGuide("Main Page Guide"));
             }
         });

@@ -3,7 +3,7 @@ package com.set.mvp.repository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.set.mvp.models.Guide;
-import com.set.mvp.models.Trip;
+import com.set.mvp.models.LoggedInProfile;
 import com.set.mvp.models.User;
 import com.set.mvp.repository.interfaces.GuideRepository;
 
@@ -30,7 +30,6 @@ public class GuideJsonRepository implements GuideRepository {
             }
             Guide[] guideArray = objectMapper.readValue(input, Guide[].class);
             guideArrayList.addAll(Arrays.asList(guideArray));
-            //support.firePropertyChange("userArrayList", null, guideArrayList);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -44,8 +43,8 @@ public class GuideJsonRepository implements GuideRepository {
     }
 
     @Override
-    public Guide createGuide(String username, String password, String firstname, String lastname, String email, ArrayList<Trip> trips) {
-        Guide newGuide = new Guide(username, password, firstname, lastname, email, generateUnicProfileId(), trips);
+    public Guide createGuide(String username, String password, String firstname, String lastname, String email) {
+        Guide newGuide = new Guide(username, password, firstname, lastname, email, generateUnicProfileId());
 
         guideArrayList.add(newGuide);
 
@@ -72,6 +71,30 @@ public class GuideJsonRepository implements GuideRepository {
             System.out.println("Guide with ID " + profileId + " was successfully deleted");
         } else {
             System.out.println("Guide with ID " + profileId + " not found.");
+        }
+    }
+
+    @Override
+    public void editGuideInfo(String username, String password, String firstname, String lastname, String email) {
+        int profileId = LoggedInProfile.getProfile().getLoggedInProfileId();
+
+        for (User user : guideArrayList) {
+            if (user.getProfileId() == profileId){
+                if (!username.isEmpty())
+                    user.setUsername(username);
+                if (!password.isEmpty())
+                    user.setPassword(password);
+                if (!firstname.isEmpty())
+                    user.setFirstname(firstname);
+                if (!lastname.isEmpty())
+                    user.setLastname(lastname);
+                if (!email.isEmpty())
+                    user.setEmail(email);
+
+                writeToJsonFile("/src/main/resources/database/guide.json");
+
+                System.out.println("User info successfully edited");
+            }
         }
     }
 

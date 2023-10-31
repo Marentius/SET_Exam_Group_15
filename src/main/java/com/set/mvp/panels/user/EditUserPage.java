@@ -43,8 +43,14 @@ public class EditUserPage extends InitApp {
                 if (txtNewUsername.getText().equals("")){
 
                 } else {
-                    userJsonRepository.editUserInfo(txtNewUsername.getText(), txtNewPassword.getText(), txtNewFirstname.getText(), txtNewLastName.getText(), txtNewEmail.getText());
+                    userJsonRepository.editUserInfo(
+                            txtNewUsername.getText(),
+                            txtNewPassword.getText(),
+                            txtNewFirstname.getText(),
+                            txtNewLastName.getText(),
+                            txtNewEmail.getText());
                 }
+
             }
         });
     }

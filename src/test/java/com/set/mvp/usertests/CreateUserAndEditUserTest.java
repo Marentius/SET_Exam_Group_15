@@ -1,5 +1,6 @@
 package com.set.mvp.usertests;
 
+import com.set.mvp.models.LoggedInProfile;
 import com.set.mvp.models.User;
 import com.set.mvp.repository.UserJsonRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -36,24 +37,41 @@ public class CreateUserAndEditUserTest {
         userJsonRepository.deleteUser(createdUser.getProfileId());
     }
 
-    /*@Test
+    @Test
     public void user_can_edit_user_info() {
+        User createdUser = userJsonRepository.createUser("User","User","User","User","User", null);
+        int createdUserProfileID = createdUser.getProfileId();
+        String oldUsername = createdUser.getUsername();
+        String oldPasword = createdUser.getPassword();
+        String oldFirstname = createdUser.getFirstname();
+        String oldLastname = createdUser.getLastname();
+        String oldEmail = createdUser.getEmail();
+        LoggedInProfile.getProfile().logIn(createdUserProfileID);
+        userJsonRepository.editUserInfo("newuser", "newuser","newuser","newuser","newuser");
+        assertFalse(createdUser.getUsername().equals(oldUsername));
+        assertFalse(createdUser.getPassword().equals(oldPasword));
+        assertFalse(createdUser.getFirstname().equals(oldFirstname));
+        assertFalse(createdUser.getLastname().equals(oldLastname));
+        assertFalse(createdUser.getLastname().equals(oldEmail));
+        assertTrue(createdUser.getUsername().equals("newuser"));
+        assertTrue(oldUsername.equals("User"));
 
-        User user = new User("originalFirstname", "originalLastname", "originalEmail", 1);
+        LoggedInProfile.getProfile().logOut();
+        userJsonRepository.deleteUser(createdUserProfileID);
 
-        user.editUserInfo("newFirstname", "newLastname", "newEmail");
-
-        assertEquals("newFirstname", user.getFirstname();
-        assertEquals("newLastname", user.getLastname();
-        assertEquals("newEmail", user.getEmail());
-
-        fail("Method not implemented");
     }
 
     @Test
     public void user_can_change_passoword(){
-        fail("Method not implemented yet");
-    }*/
+        User createdUser = userJsonRepository.createUser("User", "User", "User", "User","User", null);
+        int createdUserProfileId = createdUser.getProfileId();
+        LoggedInProfile.getProfile().logIn(createdUserProfileId);
+        String oldPassword = createdUser.getPassword();
+        userJsonRepository.editUserInfo("User", "New_password", "User", "User", "User");
+        assertFalse(oldPassword.equals(createdUser.getPassword()));
+        LoggedInProfile.getProfile().logOut();
+        userJsonRepository.deleteUser(createdUserProfileId);
+    }
 
 
 }

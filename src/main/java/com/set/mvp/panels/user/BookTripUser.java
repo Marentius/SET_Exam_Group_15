@@ -42,6 +42,7 @@ public class BookTripUser extends InitApp {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new_panel(BookTripUser.this, new StartPanelLogIn("Log in"));
+                LoggedInProfile.getProfile().logOut();
             }
         });
         homeButton.addActionListener(new ActionListener() {
@@ -54,6 +55,7 @@ public class BookTripUser extends InitApp {
             @Override
             public void actionPerformed(ActionEvent e) {
                 userJsonRepository.bookTrip(tripJlist.getSelectedValue());
+                JOptionPane.showMessageDialog(BookTripUser.this, "The trip: " + tripJlist.getSelectedValue().getTitle() + " was successfully added to your trips");
             }
         });
     }

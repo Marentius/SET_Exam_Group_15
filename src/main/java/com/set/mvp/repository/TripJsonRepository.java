@@ -46,6 +46,7 @@ public class TripJsonRepository implements TripRepository {
 
     @Override
     public Trip addTrip(String title, String location, String description, Guide guide, double price, int duration, LocalDate date, ArrayList<String> reviews) {
+
         Trip newTrip = new Trip(generateUnicTripId(), title, location, description, guide, price, duration, date, reviews);
 
         tripArrayList.add(newTrip);
@@ -55,6 +56,26 @@ public class TripJsonRepository implements TripRepository {
         System.out.println("Trip successfully created");
 
         return newTrip;
+    }
+
+    @Override
+    public void deleteTrip(int tripId) {
+        Trip tripToDelete = null;
+
+        for (Trip trip : tripArrayList) {
+            if (trip.getTripId() == tripId) {
+                tripToDelete = trip;
+                break;
+            }
+        }
+
+        if (tripToDelete != null) {
+            tripArrayList.remove(tripToDelete);
+            writeToJsonFile("/src/main/resources/database/trip.json");
+            System.out.println("Trip with ID " + tripId + " was successfully deleted");
+        } else {
+            System.out.println("Trip with ID " + tripId + " was not found.");
+        }
     }
 
     private void writeToJsonFile(String filename) {

@@ -1,7 +1,10 @@
 package com.set.mvp.models;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 import java.util.ArrayList;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class User {
 
     private String firstname, lastname, email,username, password;
@@ -95,7 +98,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "Username: " + username + ", First Name: " + firstname + ", Last name: " + lastname;
+        return "Username: " + username;
     }
 
 }

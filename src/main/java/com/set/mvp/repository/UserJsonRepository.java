@@ -101,6 +101,32 @@ public class UserJsonRepository implements UserRepository {
         }
     }
 
+    @Override
+    public ArrayList<Trip> getTrips(int profileId) {
+        ArrayList<Trip> trips = new ArrayList<>();
+        for (User user : userArrayList) {
+            if (user.getProfileId() == profileId){
+                trips.addAll(user.getTrips());
+            }
+        }
+        return trips;
+    }
+
+    @Override
+    public void unbookTrip(Trip trip) {
+        int profileId = LoggedInProfile.getProfile().getLoggedInProfileId();
+
+        for (User user : userArrayList) {
+            if (user.getProfileId() == profileId){
+                user.getTrips().remove(trip);
+
+                writeToJsonFile("/src/main/resources/database/user.json");
+
+                System.out.println("The trip: " + trip.getTitle() + " was successfully unbooked");
+            }
+        }
+    }
+
 
     public int generateUnicProfileId() {
         int newID = 0;

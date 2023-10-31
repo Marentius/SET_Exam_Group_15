@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 public class ViewGuidesAdmin extends InitApp {
     private JPanel mainPanel;
-    private JList<Guide> guideJlist;
+    private JList<Guide> guideJList;
     private JButton homeButton;
     private JButton logOutButton;
     private JButton deleteGuideButton;
@@ -26,16 +26,17 @@ public class ViewGuidesAdmin extends InitApp {
         guideJsonRepository = new GuideJsonRepository("/database/guide.json");
 
         listModel = new DefaultListModel<>();
-        guideJlist.setModel(listModel);
+        guideJList.setModel(listModel);
 
         updateGuideList();
         deleteGuideButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Guide selectedGuide = guideJlist.getSelectedValue();
+                Guide selectedGuide = guideJList.getSelectedValue();
 
                 if (selectedGuide != null) {
                     guideJsonRepository.deleteGuide(selectedGuide.getProfileId());
+                    JOptionPane.showMessageDialog(mainPanel, "The guide: " + guideJList.getSelectedValue().getUsername() + " was successfully deleted.");
 
                     updateGuideList();
                 } else {
@@ -63,4 +64,6 @@ public class ViewGuidesAdmin extends InitApp {
             listModel.addElement(guide);
         }
     }
+
+
 }
