@@ -1,6 +1,7 @@
 package com.set.mvp.panels.guide;
 
 import com.set.mvp.models.Guide;
+import com.set.mvp.models.LoggedInProfile;
 import com.set.mvp.panels.InitApp;
 import com.set.mvp.panels.StartPanelLogIn;
 import com.set.mvp.panels.admin.MainPageAdmin;
@@ -31,7 +32,10 @@ public class CreateGuide extends InitApp {
         createGuideButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                guideJsonRepository.createGuide(txtUsername.getText(), txtPassword.getText(), txtFirstName.getText(), txtLastName.getText(), txtEmail.getText());
+                Guide guide = guideJsonRepository.createGuide(txtUsername.getText(), txtPassword.getText(), txtFirstName.getText(), txtLastName.getText(), txtEmail.getText());
+                JOptionPane.showMessageDialog(mainPanel, "The user: " + guide.getUsername() + " was successfully created.");
+                int userId = guideJsonRepository.checkGuideExistansReturnProfileId(txtUsername.getText());
+                LoggedInProfile.getProfile().logIn(userId);
                 new_panel(CreateGuide.this, new MainPageGuide("Main Page Guide"));
             }
         });
@@ -39,6 +43,7 @@ public class CreateGuide extends InitApp {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new_panel(CreateGuide.this, new StartPanelLogIn("Log In"));
+                LoggedInProfile.getProfile().logOut();
             }
         });
     }

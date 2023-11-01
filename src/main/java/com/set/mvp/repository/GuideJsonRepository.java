@@ -133,7 +133,7 @@ public class GuideJsonRepository implements GuideRepository {
             e.printStackTrace();
         }
     }
-    public int checkGuideExistans(String username) {
+    public int checkGuideExistansReturnProfileId(String username) {
         for (User user : guideArrayList) {
             if (user.getUsername().equals(username)){
                 return user.getProfileId();

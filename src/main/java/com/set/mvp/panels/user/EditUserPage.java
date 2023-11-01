@@ -1,7 +1,10 @@
 package com.set.mvp.panels.user;
 
+import com.set.mvp.models.LoggedInProfile;
 import com.set.mvp.panels.InitApp;
 import com.set.mvp.panels.StartPanelLogIn;
+import com.set.mvp.panels.guide.EditGuidePage;
+import com.set.mvp.panels.guide.MainPageGuide;
 import com.set.mvp.repository.UserJsonRepository;
 
 import javax.swing.*;
@@ -35,22 +38,15 @@ public class EditUserPage extends InitApp {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new_panel(EditUserPage.this, new StartPanelLogIn("Log in"));
+                LoggedInProfile.getProfile().logOut();
             }
         });
         saveButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (txtNewUsername.getText().equals("")){
-
-                } else {
-                    userJsonRepository.editUserInfo(
-                            txtNewUsername.getText(),
-                            txtNewPassword.getText(),
-                            txtNewFirstname.getText(),
-                            txtNewLastName.getText(),
-                            txtNewEmail.getText());
-                }
-
+                userJsonRepository.editUserInfo(txtNewUsername.getText(), txtNewPassword.getText(), txtNewFirstname.getText(), txtNewLastName.getText(), txtNewEmail.getText());
+                JOptionPane.showMessageDialog(mainPanel, "User info successfully edited");
+                new_panel(EditUserPage.this, new MainPageUser("Main Page Guide"));
             }
         });
     }

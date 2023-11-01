@@ -1,5 +1,6 @@
 package com.set.mvp.panels.guide;
 
+import com.set.mvp.models.LoggedInProfile;
 import com.set.mvp.panels.InitApp;
 import com.set.mvp.panels.StartPanelLogIn;
 
@@ -12,6 +13,7 @@ public class MainPageGuide extends InitApp {
     private JPanel mainPanel;
     private JButton addTripButton;
     private JButton editUserButton;
+    private JButton viewAndManageYourButton;
 
     public MainPageGuide(String title) {
         super(title);
@@ -20,6 +22,7 @@ public class MainPageGuide extends InitApp {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new_panel(MainPageGuide.this, new StartPanelLogIn("Log in"));
+                LoggedInProfile.getProfile().logOut();
             }
         });
         editUserButton.addActionListener(new ActionListener() {
@@ -32,6 +35,12 @@ public class MainPageGuide extends InitApp {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new_panel(MainPageGuide.this, new AddTripPage("Add Trip Page"));
+            }
+        });
+        viewAndManageYourButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new_panel(MainPageGuide.this, new ViewAndManageGuideTrips("View and manage Guide trips"));
             }
         });
     }

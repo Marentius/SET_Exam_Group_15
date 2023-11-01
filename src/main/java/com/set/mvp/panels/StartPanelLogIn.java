@@ -22,7 +22,6 @@ public class StartPanelLogIn extends InitApp {
     private JButton createUserButton;
     private JButton createGuideButton;
     private JPasswordField txtPassword;
-    private JButton runTestsButton;
     private UserJsonRepository userJsonRepository;
     private GuideJsonRepository guideJsonRepository;
     private UserJsonRepository adminJsonRepository;
@@ -38,7 +37,7 @@ public class StartPanelLogIn extends InitApp {
         logInAsUserButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int userId = userJsonRepository.checkUserExistans(txtUsername.getText());
+                int userId = userJsonRepository.checkUserExistansReturnProfileId(txtUsername.getText());
                 if (userId != 0) {
                     LoggedInProfile.getProfile().logIn(userId);
                     new_panel(StartPanelLogIn.this, new MainPageUser("Main page User"));
@@ -50,7 +49,7 @@ public class StartPanelLogIn extends InitApp {
         logInAsGuideButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int guideId = guideJsonRepository.checkGuideExistans(txtUsername.getText());
+                int guideId = guideJsonRepository.checkGuideExistansReturnProfileId(txtUsername.getText());
                 if (guideId != 0) {
                     LoggedInProfile.getProfile().logIn(guideId);
                     new_panel(StartPanelLogIn.this, new MainPageGuide("Main Page Guide"));
@@ -62,7 +61,7 @@ public class StartPanelLogIn extends InitApp {
         logInAsAdminButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int adminId = adminJsonRepository.checkUserExistans(txtUsername.getText());
+                int adminId = adminJsonRepository.checkUserExistansReturnProfileId(txtUsername.getText());
                 if (adminId != 0) {
                     LoggedInProfile.getProfile().logIn(adminId);
                     new_panel(StartPanelLogIn.this, new MainPageAdmin("Main page"));

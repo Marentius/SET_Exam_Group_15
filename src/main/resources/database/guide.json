@@ -15,14 +15,6 @@
   "profileId" : 4,
   "trips" : [ ]
 }, {
-  "firstname" : "Guide",
-  "lastname" : "Guide",
-  "email" : "Guide",
-  "username" : "Guide",
-  "password" : "Guide",
-  "profileId" : 5,
-  "trips" : [ ]
-}, {
   "firstname" : "Test",
   "lastname" : "Test",
   "email" : "Test@Test.com",

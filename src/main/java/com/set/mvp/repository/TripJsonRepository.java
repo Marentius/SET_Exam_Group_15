@@ -3,7 +3,9 @@ package com.set.mvp.repository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.set.mvp.models.Guide;
+import com.set.mvp.models.LoggedInProfile;
 import com.set.mvp.models.Trip;
+import com.set.mvp.models.User;
 import com.set.mvp.repository.interfaces.TripRepository;
 
 import java.beans.PropertyChangeListener;
@@ -18,6 +20,7 @@ import java.util.Arrays;
 
 public class TripJsonRepository implements TripRepository {
     private ArrayList<Trip> tripArrayList = new ArrayList<>();
+    private UserJsonRepository userJsonRepository;
 
     public TripJsonRepository(String filename) {
         readFromJsonFile(filename);
@@ -77,6 +80,24 @@ public class TripJsonRepository implements TripRepository {
             System.out.println("Trip with ID " + tripId + " was not found.");
         }
     }
+    public void deleteTripFromAllUserTripLists(int tripId){
+        userJsonRepository = new UserJsonRepository("/database/user.json");
+
+        for (User user : userJsonRepository.getUsers()) {
+            ArrayList<Trip> userTrips = user.getTrips();
+
+            for (Trip trip : userTrips) {
+                if (trip.getTripId() == tripId) {
+                    userTrips.remove(trip);
+                    break;
+                }
+            }
+        }
+
+        userJsonRepository.writeToJsonFile("/src/main/resources/database/user.json");
+    }
+
+
 
     private void writeToJsonFile(String filename) {
         ObjectMapper objectMapper = new ObjectMapper().registerModule(new JavaTimeModule());
@@ -89,7 +110,7 @@ public class TripJsonRepository implements TripRepository {
         }
     }
 
-    public int generateUnicTripId() {
+    private int generateUnicTripId() {
         int newID = 0;
         for (Trip trip : tripArrayList) {
             if (trip.getTripId() > newID) {

@@ -1,7 +1,6 @@
 package com.set.mvp.panels.user;
 
 import com.set.mvp.models.LoggedInProfile;
-import com.set.mvp.models.Trip;
 import com.set.mvp.models.User;
 import com.set.mvp.panels.InitApp;
 import com.set.mvp.panels.StartPanelLogIn;
@@ -34,7 +33,7 @@ public class CreateUser extends InitApp {
             public void actionPerformed(ActionEvent e) {
                 User user = userJsonRepository.createUser(txtUsername.getText(), txtPassword.getText(), txtFirstname.getText(), txtLastname.getText(), txtEmail.getText(), new ArrayList<>());
                 JOptionPane.showMessageDialog(mainPanel, "The user: " + user.getUsername() + " was successfully created.");
-                int userId = userJsonRepository.checkUserExistans(txtUsername.getText());
+                int userId = userJsonRepository.checkUserExistansReturnProfileId(txtUsername.getText());
                 LoggedInProfile.getProfile().logIn(userId);
                 new_panel(CreateUser.this, new MainPageUser("Main Page"));
             }
@@ -43,6 +42,7 @@ public class CreateUser extends InitApp {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new_panel(CreateUser.this, new StartPanelLogIn("Log In"));
+                LoggedInProfile.getProfile().logOut();
             }
         });
     }

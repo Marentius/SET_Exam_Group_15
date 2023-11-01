@@ -16,3 +16,6 @@ Eksamensoppgave SET Gruppe 15
 - Guide kan legge til en tur
 - Bruker kan se liste over bookede turer
 - Bruker kan unbooke turer
+- Guide kan nå se en liste over alle turer h*n arrangerer 
+- Guide kan slette en tur h*n arrangerer. Denne turen vil da også bli slettet i turlisten til en bruker dersom brukeren har booked turen
+- Når Admin sletter en tur vil turen også bli slettet i turlisten til en bruker dersom brukeren har booked turen

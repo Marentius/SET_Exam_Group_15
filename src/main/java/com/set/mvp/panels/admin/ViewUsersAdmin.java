@@ -1,5 +1,6 @@
 package com.set.mvp.panels.admin;
 
+import com.set.mvp.models.LoggedInProfile;
 import com.set.mvp.panels.InitApp;
 import com.set.mvp.panels.StartPanelLogIn;
 import com.set.mvp.models.User;
@@ -55,6 +56,7 @@ public class ViewUsersAdmin extends InitApp {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new_panel(ViewUsersAdmin.this, new StartPanelLogIn("Log In"));
+                LoggedInProfile.getProfile().logOut();
             }
         });
     }

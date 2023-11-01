@@ -18,17 +18,12 @@ public class MainPageUser extends InitApp {
     public MainPageUser(String title) {
         super(title);
         start_gui(mainPanel, 800, 400);
-        if (LoggedInProfile.getProfile().isLoggedIn()) {
-            System.out.println("User is logged in");
-        }
 
         logOutButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new_panel(MainPageUser.this, new StartPanelLogIn("Log in"));
-                if (LoggedInProfile.getProfile().isLoggedIn()) {
-                    LoggedInProfile.getProfile().logOut();
-                }
+                LoggedInProfile.getProfile().logOut();
             }
         });
         bookTripButton.addActionListener(new ActionListener() {
@@ -46,7 +41,7 @@ public class MainPageUser extends InitApp {
         viewAndManageYourButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new_panel(MainPageUser.this, new ViewAndManageUserTrips("View And Manage Usertrips"));
+                new_panel(MainPageUser.this, new ViewAndManageUserTrips("View And Manage User trips"));
             }
         });
     }

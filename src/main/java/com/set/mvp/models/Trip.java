@@ -107,6 +107,6 @@ public class Trip {
 
     @Override
     public String toString() {
-        return "Location: " + location + ", Price: " + price + "kr, Description: " + description + ", Guide: " + guide.getFirstname() + " " + guide.getLastname();
+        return "Title: " + getTitle() + ", Location: " + location + ", Price: " + price + "kr, Description: " + description + ", Guide: " + guide.getFirstname() + " " + guide.getLastname();
     }
 }

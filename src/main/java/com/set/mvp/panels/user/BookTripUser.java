@@ -25,9 +25,6 @@ public class BookTripUser extends InitApp {
     public BookTripUser(String title) {
         super(title);
         start_gui(mainPanel, 1500, 400);
-        if (LoggedInProfile.getProfile().isLoggedIn()) {
-            System.out.println("User is logged in");
-        }
 
         tripJsonRepository = new TripJsonRepository("/database/trip.json");
         userJsonRepository = new UserJsonRepository("/database/user.json");
@@ -36,7 +33,6 @@ public class BookTripUser extends InitApp {
         tripJlist.setModel(listModel);
 
         updateTripList();
-        System.out.println(LoggedInProfile.getProfile().getLoggedInProfileId());
 
         logOutButton.addActionListener(new ActionListener() {
             @Override

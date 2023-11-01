@@ -152,7 +152,7 @@ public class UserJsonRepository implements UserRepository {
         }
         return false;
     }
-    public int checkUserExistans(String username) {
+    public int checkUserExistansReturnProfileId(String username) {
         for (User user : userArrayList) {
             if (user.getUsername().equals(username)){
                 return user.getProfileId();
@@ -176,7 +176,7 @@ public class UserJsonRepository implements UserRepository {
         }
         return userArrayList;
     }
-    private void writeToJsonFile(String filename) {
+    public void writeToJsonFile(String filename) {
         ObjectMapper objectMapper = new ObjectMapper().registerModule(new JavaTimeModule());
         try {
             String projectPath = new File(".").getAbsolutePath();

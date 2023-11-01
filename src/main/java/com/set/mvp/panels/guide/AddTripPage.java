@@ -47,6 +47,7 @@ public class AddTripPage extends InitApp {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new_panel(AddTripPage.this, new StartPanelLogIn("Log In"));
+                LoggedInProfile.getProfile().logOut();
             }
         });
         addTripButton.addActionListener(new ActionListener() {
