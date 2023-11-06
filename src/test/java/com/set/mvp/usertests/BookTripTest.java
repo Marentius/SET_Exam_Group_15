@@ -17,8 +17,8 @@ public class BookTripTest {
 
     @BeforeEach
     public void init(){
-    userJsonRepository = new UserJsonRepository("/database/user.json");
-    tripJsonRepository = new TripJsonRepository("/database/trip.json");
+    userJsonRepository = new UserJsonRepository();
+    tripJsonRepository = new TripJsonRepository();
     }
 
     @Test

@@ -25,7 +25,7 @@ public class EditGuidePage extends InitApp {
         super(title);
         start_gui(mainPanel, 800, 400);
 
-        guideJsonRepository = new GuideJsonRepository("/database/guide.json");
+        guideJsonRepository = new GuideJsonRepository();
         homeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

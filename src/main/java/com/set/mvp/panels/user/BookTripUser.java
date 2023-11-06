@@ -24,10 +24,10 @@ public class BookTripUser extends InitApp {
 
     public BookTripUser(String title) {
         super(title);
-        start_gui(mainPanel, 1500, 400);
+        start_gui(mainPanel, 1500, 800);
 
-        tripJsonRepository = new TripJsonRepository("/database/trip.json");
-        userJsonRepository = new UserJsonRepository("/database/user.json");
+        tripJsonRepository = new TripJsonRepository();
+        userJsonRepository = new UserJsonRepository();
 
         listModel = new DefaultListModel<>();
         tripJlist.setModel(listModel);

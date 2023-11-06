@@ -23,9 +23,9 @@ public class AdminFunctionsTest {
 
     @BeforeEach
     public void init() {
-        guideJsonRepository = new GuideJsonRepository("/database/guide.json");
-        userJsonRepository = new UserJsonRepository("/database/user.json");
-        tripJsonRepository = new TripJsonRepository("/database/trip.json");
+        guideJsonRepository = new GuideJsonRepository();
+        userJsonRepository = new UserJsonRepository();
+        tripJsonRepository = new TripJsonRepository();
 
     }
 

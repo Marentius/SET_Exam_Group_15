@@ -8,6 +8,7 @@ import com.set.mvp.panels.user.CreateUser;
 import com.set.mvp.panels.user.MainPageUser;
 import com.set.mvp.repository.GuideJsonRepository;
 import com.set.mvp.repository.UserJsonRepository;
+import com.set.mvp.repository.AdminJsonRepository;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -24,19 +25,20 @@ public class StartPanelLogIn extends InitApp {
     private JPasswordField txtPassword;
     private UserJsonRepository userJsonRepository;
     private GuideJsonRepository guideJsonRepository;
-    private UserJsonRepository adminJsonRepository;
+    private AdminJsonRepository adminJsonRepository;
 
     public StartPanelLogIn(String title) {
         super(title);
         start_gui(mainPanel, 800, 400);
 
-        userJsonRepository = new UserJsonRepository("/database/user.json");
-        guideJsonRepository = new GuideJsonRepository("/database/guide.json");
-        adminJsonRepository = new UserJsonRepository("/database/admin.json");
+        //userJsonRepository = new UserJsonRepository();
+        guideJsonRepository = new GuideJsonRepository();
+        adminJsonRepository = new AdminJsonRepository();
 
         logInAsUserButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                userJsonRepository = new UserJsonRepository();
                 int userId = userJsonRepository.checkUserExistansReturnProfileId(txtUsername.getText());
                 if (userId != 0) {
                     LoggedInProfile.getProfile().logIn(userId);

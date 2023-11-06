@@ -16,7 +16,7 @@ public class CreateUserAndEditUserTest {
 
     @BeforeEach
     public void init(){
-        userJsonRepository = new UserJsonRepository("/database/user.json");
+        userJsonRepository = new UserJsonRepository();
     }
 
     @Test

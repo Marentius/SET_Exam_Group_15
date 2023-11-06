@@ -24,7 +24,7 @@ public class ViewGuidesAdmin extends InitApp {
         super(title);
         start_gui(mainPanel, 800, 400);
 
-        guideJsonRepository = new GuideJsonRepository("/database/guide.json");
+        guideJsonRepository = new GuideJsonRepository();
 
         listModel = new DefaultListModel<>();
         guideJList.setModel(listModel);

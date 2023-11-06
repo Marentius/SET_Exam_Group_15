@@ -24,7 +24,7 @@ public class ViewUsersAdmin extends InitApp {
         super(title);
         start_gui(mainPanel, 800, 400);
 
-        userJsonRepository = new UserJsonRepository("/database/user.json");
+        userJsonRepository = new UserJsonRepository();
 
         listModel = new DefaultListModel<>();
         userJList.setModel(listModel);

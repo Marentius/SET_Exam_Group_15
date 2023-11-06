@@ -22,9 +22,9 @@ public class ViewTripsAdmin extends InitApp {
 
     public ViewTripsAdmin(String title) {
         super(title);
-        start_gui(mainPanel, 1500, 400);
+        start_gui(mainPanel, 1500, 800);
 
-        tripJsonRepository = new TripJsonRepository("/database/trip.json");
+        tripJsonRepository = new TripJsonRepository();
 
         listModel = new DefaultListModel<>();
         tripJList.setModel(listModel);

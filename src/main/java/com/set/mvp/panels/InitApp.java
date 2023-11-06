@@ -22,6 +22,15 @@ public class InitApp extends JFrame {
         setTitle("SET MVP");
     }
 
+    public void refreshGUI(JPanel currentPanel){
+        if (currentPanel != null) {
+            remove(currentPanel);
+        }
+        setContentPane(currentPanel);
+        revalidate();
+        repaint();
+    }
+
     public void new_panel(StartPanelLogIn old, MainPageUser neww){
         old.setVisible(false);
         neww.setVisible(true);

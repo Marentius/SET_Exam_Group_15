@@ -10,9 +10,9 @@ public class Admin {
         this.profileId = profileId;
         this.username = username;
         this.password = password;
-
-
     }
+
+    public Admin() {}
 
     public int getProfileId() {
         return profileId;

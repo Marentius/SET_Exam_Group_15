@@ -27,7 +27,7 @@ public class EditUserPage extends InitApp {
         super(title);
         start_gui(mainPanel, 800, 400);
 
-        userJsonRepository = new UserJsonRepository("/database/user.json");
+        userJsonRepository = new UserJsonRepository();
         homeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

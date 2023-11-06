@@ -11,7 +11,7 @@ public class LoginAndOutTest {
     UserJsonRepository userJsonRepository;
     @BeforeEach
     public void init(){
-        userJsonRepository = new UserJsonRepository("/database/user.json");
+        userJsonRepository = new UserJsonRepository();
     }
     @Test
     public void user_can_log_in(){

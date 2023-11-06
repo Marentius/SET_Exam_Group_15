@@ -34,8 +34,8 @@ public class AddTripPage extends InitApp {
         super(title);
         start_gui(mainPanel,800,400);
 
-        tripJsonRepository = new TripJsonRepository("/database/trip.json");
-        guideJsonRepository = new GuideJsonRepository("/database/guide.json");
+        tripJsonRepository = new TripJsonRepository();
+        guideJsonRepository = new GuideJsonRepository();
 
         homeButton.addActionListener(new ActionListener() {
             @Override

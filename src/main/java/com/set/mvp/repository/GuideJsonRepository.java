@@ -16,12 +16,12 @@ import java.util.Arrays;
 
 public class GuideJsonRepository implements GuideRepository {
     private ArrayList<Guide> guideArrayList = new ArrayList<>();
-
-    public GuideJsonRepository(String filename) {
-        readFromJsonFile(filename);
+    public GuideJsonRepository() {
+        getGuides();
     }
-
-    public ArrayList<Guide> readFromJsonFile(String filename) {
+    @Override
+    public ArrayList<Guide> getGuides() {
+        String filename = "/database/guide.json";
         ObjectMapper objectMapper = new ObjectMapper().registerModule(new JavaTimeModule());
 
         try (InputStream input = getClass().getResourceAsStream(filename)) {
@@ -35,26 +35,18 @@ public class GuideJsonRepository implements GuideRepository {
         }
         return guideArrayList;
     }
-
-    @Override
-    public ArrayList<Guide> getGuides() {
-        ArrayList<Guide> guides = new ArrayList<>(guideArrayList);
-        return guides;
-    }
-
     @Override
     public Guide createGuide(String username, String password, String firstname, String lastname, String email) {
-        Guide newGuide = new Guide(username, password, firstname, lastname, email, generateUnicProfileId());
+        Guide newGuide = new Guide(username, password, firstname, lastname, email, generateUnicGuideProfileId());
 
         guideArrayList.add(newGuide);
 
-        writeToJsonFile("/src/main/resources/database/guide.json");
+        writeToGuideJsonFile();
 
         System.out.println("Guide successfully created");
 
         return newGuide;
     }
-
     @Override
     public void deleteGuide(int profileId) {
         Guide guideToDelete = null;
@@ -67,13 +59,12 @@ public class GuideJsonRepository implements GuideRepository {
 
         if (guideToDelete != null) {
             guideArrayList.remove(guideToDelete);
-            writeToJsonFile("/src/main/resources/database/guide.json");
+            writeToGuideJsonFile();
             System.out.println("Guide with ID " + profileId + " was successfully deleted");
         } else {
             System.out.println("Guide with ID " + profileId + " not found.");
         }
     }
-
     @Override
     public void editGuideInfo(String username, String password, String firstname, String lastname, String email) {
         int profileId = LoggedInProfile.getProfile().getLoggedInProfileId();
@@ -91,14 +82,13 @@ public class GuideJsonRepository implements GuideRepository {
                 if (!email.isEmpty())
                     user.setEmail(email);
 
-                writeToJsonFile("/src/main/resources/database/guide.json");
+                writeToGuideJsonFile();
 
                 System.out.println("User info successfully edited");
             }
         }
     }
-
-    public int generateUnicProfileId() {
+    public int generateUnicGuideProfileId() {
         int newID = 0;
         for (Guide guide : guideArrayList) {
             if (guide.getProfileId() > newID) {
@@ -108,30 +98,18 @@ public class GuideJsonRepository implements GuideRepository {
 
         newID++;
 
-        while (idExists(newID)){
+        while (guideProfileIdExists(newID)){
             newID++;
         }
         return newID;
     }
-
-    private boolean idExists(int id) {
+    private boolean guideProfileIdExists(int id) {
         for (User user : guideArrayList) {
             if (user.getProfileId() == id) {
                 return true;
             }
         }
         return false;
-    }
-
-    private void writeToJsonFile(String filename) {
-        ObjectMapper objectMapper = new ObjectMapper().registerModule(new JavaTimeModule());
-        try {
-            String projectPath = new File(".").getAbsolutePath();
-            String fullPath = projectPath + filename;
-            objectMapper.writerWithDefaultPrettyPrinter().writeValue(new File(fullPath), guideArrayList);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
     public int checkGuideExistansReturnProfileId(String username) {
         for (User user : guideArrayList) {
@@ -142,4 +120,17 @@ public class GuideJsonRepository implements GuideRepository {
         System.out.println("Guide don't exists");
         return 0;
     }
+    private void writeToGuideJsonFile() {
+        String filename = "/src/main/resources/database/guide.json";
+
+        ObjectMapper objectMapper = new ObjectMapper().registerModule(new JavaTimeModule());
+        try {
+            String projectPath = new File(".").getAbsolutePath();
+            String fullPath = projectPath + filename;
+            objectMapper.writerWithDefaultPrettyPrinter().writeValue(new File(fullPath), guideArrayList);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

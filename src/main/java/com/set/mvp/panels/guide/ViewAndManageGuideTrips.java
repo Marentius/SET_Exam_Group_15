@@ -2,7 +2,6 @@ package com.set.mvp.panels.guide;
 
 import com.set.mvp.models.LoggedInProfile;
 import com.set.mvp.models.Trip;
-import com.set.mvp.models.User;
 import com.set.mvp.panels.InitApp;
 import com.set.mvp.panels.StartPanelLogIn;
 import com.set.mvp.repository.TripJsonRepository;
@@ -25,7 +24,7 @@ public class ViewAndManageGuideTrips extends InitApp {
         super(title);
         start_gui(mainPanel, 1500, 400);
 
-        tripJsonRepository = new TripJsonRepository("/database/trip.json");
+        tripJsonRepository = new TripJsonRepository();
 
         listModel = new DefaultListModel<>();
         tripJList.setModel(listModel);

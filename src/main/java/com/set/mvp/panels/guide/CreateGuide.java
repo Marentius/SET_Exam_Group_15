@@ -28,7 +28,7 @@ public class CreateGuide extends InitApp {
         super(title);
         start_gui(mainPanel, 800,400);
 
-        guideJsonRepository = new GuideJsonRepository("/database/guide.json");
+        guideJsonRepository = new GuideJsonRepository();
         createGuideButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

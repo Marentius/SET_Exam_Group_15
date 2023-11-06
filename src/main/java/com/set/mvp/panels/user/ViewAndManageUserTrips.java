@@ -24,7 +24,7 @@ public class ViewAndManageUserTrips extends InitApp {
         super(title);
         start_gui(mainPanel, 1500,400);
 
-        userJsonRepository = new UserJsonRepository("/database/user.json");
+        userJsonRepository = new UserJsonRepository();
 
         listModel = new DefaultListModel<>();
         userTripList.setModel(listModel);
