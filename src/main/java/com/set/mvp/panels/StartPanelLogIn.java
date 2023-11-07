@@ -31,14 +31,13 @@ public class StartPanelLogIn extends InitApp {
         super(title);
         start_gui(mainPanel, 800, 400);
 
-        //userJsonRepository = new UserJsonRepository();
         guideJsonRepository = new GuideJsonRepository();
+        userJsonRepository = new UserJsonRepository();
         adminJsonRepository = new AdminJsonRepository();
 
         logInAsUserButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                userJsonRepository = new UserJsonRepository();
                 int userId = userJsonRepository.checkUserExistansReturnProfileId(txtUsername.getText());
                 if (userId != 0) {
                     LoggedInProfile.getProfile().logIn(userId);

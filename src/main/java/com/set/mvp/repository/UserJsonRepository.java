@@ -19,23 +19,12 @@ public class UserJsonRepository implements UserRepository {
     private ArrayList<User> userArrayList = new ArrayList<>();
 
     public UserJsonRepository() {
-        getUsers();
+        readFromUserJsonFile();
     }
     @Override
     public ArrayList<User> getUsers() {
-        String filename = "/database/user.json";
-        ObjectMapper objectMapper = new ObjectMapper().registerModule(new JavaTimeModule());
-
-        try (InputStream input = getClass().getResourceAsStream(filename)) {
-            if (input == null) {
-                throw new FileNotFoundException("Could not find file " + filename);
-            }
-            User[] userArray = objectMapper.readValue(input, User[].class);
-            userArrayList.addAll(Arrays.asList(userArray));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return userArrayList;
+        ArrayList<User> users = new ArrayList<>(userArrayList);
+        return users;
     }
 
     @Override
@@ -185,10 +174,19 @@ public class UserJsonRepository implements UserRepository {
             e.printStackTrace();
         }
     }
+    public ArrayList<User> readFromUserJsonFile() {
+        String filename = "/database/user.json";
+        ObjectMapper objectMapper = new ObjectMapper().registerModule(new JavaTimeModule());
 
-
-
-
-
-
+        try (InputStream input = getClass().getResourceAsStream(filename)) {
+            if (input == null) {
+                throw new FileNotFoundException("Could not find file " + filename);
+            }
+            User[] userArray = objectMapper.readValue(input, User[].class);
+            userArrayList.addAll(Arrays.asList(userArray));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return userArrayList;
+    }
 }

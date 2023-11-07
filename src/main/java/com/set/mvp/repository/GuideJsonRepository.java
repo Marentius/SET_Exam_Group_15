@@ -17,23 +17,12 @@ import java.util.Arrays;
 public class GuideJsonRepository implements GuideRepository {
     private ArrayList<Guide> guideArrayList = new ArrayList<>();
     public GuideJsonRepository() {
-        getGuides();
+        readFromGuideJsonFile();
     }
     @Override
     public ArrayList<Guide> getGuides() {
-        String filename = "/database/guide.json";
-        ObjectMapper objectMapper = new ObjectMapper().registerModule(new JavaTimeModule());
-
-        try (InputStream input = getClass().getResourceAsStream(filename)) {
-            if (input == null) {
-                throw new FileNotFoundException("Could not find file " + filename);
-            }
-            Guide[] guideArray = objectMapper.readValue(input, Guide[].class);
-            guideArrayList.addAll(Arrays.asList(guideArray));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return guideArrayList;
+        ArrayList<Guide> guides = new ArrayList<>(guideArrayList);
+        return guides;
     }
     @Override
     public Guide createGuide(String username, String password, String firstname, String lastname, String email) {
@@ -131,6 +120,21 @@ public class GuideJsonRepository implements GuideRepository {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+    public ArrayList<Guide> readFromGuideJsonFile() {
+        String filename = "/database/guide.json";
+        ObjectMapper objectMapper = new ObjectMapper().registerModule(new JavaTimeModule());
+
+        try (InputStream input = getClass().getResourceAsStream(filename)) {
+            if (input == null) {
+                throw new FileNotFoundException("Could not find file " + filename);
+            }
+            Guide[] guideArray = objectMapper.readValue(input, Guide[].class);
+            guideArrayList.addAll(Arrays.asList(guideArray));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return guideArrayList;
     }
 
 }

@@ -19,24 +19,14 @@ public class TripJsonRepository implements TripRepository {
     private ArrayList<Trip> tripArrayList = new ArrayList<>();
     private UserJsonRepository userJsonRepository;
     public TripJsonRepository() {
-        getTrips();
+        readFromTripJsonFile();
     }
     @Override
     public ArrayList<Trip> getTrips() {
-        String filename = "/database/trip.json";
-        ObjectMapper objectMapper = new ObjectMapper().registerModule(new JavaTimeModule());
-
-        try (InputStream input = getClass().getResourceAsStream(filename)) {
-            if (input == null) {
-                throw new FileNotFoundException("Could not find file " + filename);
-            }
-            Trip[] tripArray = objectMapper.readValue(input, Trip[].class);
-            tripArrayList.addAll(Arrays.asList(tripArray));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return tripArrayList;
+        ArrayList<Trip> trips = new ArrayList<>(tripArrayList);
+        return trips;
     }
+
     @Override
     public Trip addTrip(String title, String location, String description, Guide guide, double price, int duration, LocalDate date, ArrayList<String> reviews) {
 
@@ -119,5 +109,20 @@ public class TripJsonRepository implements TripRepository {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+    public ArrayList<Trip> readFromTripJsonFile() {
+        String filename = "/database/trip.json";
+        ObjectMapper objectMapper = new ObjectMapper().registerModule(new JavaTimeModule());
+
+        try (InputStream input = getClass().getResourceAsStream(filename)) {
+            if (input == null) {
+                throw new FileNotFoundException("Could not find file " + filename);
+            }
+            Trip[] tripArray = objectMapper.readValue(input, Trip[].class);
+            tripArrayList.addAll(Arrays.asList(tripArray));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return tripArrayList;
     }
 }

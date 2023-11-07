@@ -17,7 +17,6 @@ public class AdminJsonRepository {
     public AdminJsonRepository() {
         readFromJsonFile();
     }
-
     public ArrayList<Admin> readFromJsonFile() {
         String filename = "/database/admin.json";
         ObjectMapper objectMapper = new ObjectMapper().registerModule(new JavaTimeModule());
