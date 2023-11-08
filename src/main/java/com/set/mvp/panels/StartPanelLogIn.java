@@ -83,7 +83,6 @@ public class StartPanelLogIn extends InitApp {
             }
         });
 
-        // Make login form look mega sexy
         txtUsername.setCaretPosition(0);
         txtUsername.addKeyListener(new KeyListener() {
             @Override
