@@ -32,8 +32,8 @@ public class StartPanelLogIn extends InitApp {
         start_gui(mainPanel, 800, 400);
 
         guideJsonRepository = new GuideJsonRepository();
-        userJsonRepository = new UserJsonRepository();
         adminJsonRepository = new AdminJsonRepository();
+        userJsonRepository = new UserJsonRepository();
 
         logInAsUserButton.addActionListener(new ActionListener() {
             @Override

@@ -7,10 +7,7 @@ import com.set.mvp.models.LoggedInProfile;
 import com.set.mvp.models.User;
 import com.set.mvp.repository.interfaces.GuideRepository;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -101,6 +98,7 @@ public class GuideJsonRepository implements GuideRepository {
         return false;
     }
     public int checkGuideExistansReturnProfileId(String username) {
+        readFromGuideJsonFile();
         for (User user : guideArrayList) {
             if (user.getUsername().equals(username)){
                 return user.getProfileId();
@@ -122,13 +120,13 @@ public class GuideJsonRepository implements GuideRepository {
         }
     }
     public ArrayList<Guide> readFromGuideJsonFile() {
-        String filename = "/database/guide.json";
+        String filename = "src/main/resources/database/guide.json";
         ObjectMapper objectMapper = new ObjectMapper().registerModule(new JavaTimeModule());
 
-        try (InputStream input = getClass().getResourceAsStream(filename)) {
-            if (input == null) {
-                throw new FileNotFoundException("Could not find file " + filename);
-            }
+        try (InputStream input = new FileInputStream(new File(filename))){
+        //    if (input == null) {
+        //        throw new FileNotFoundException("Could not find file " + filename);
+        //    }
             Guide[] guideArray = objectMapper.readValue(input, Guide[].class);
             guideArrayList.addAll(Arrays.asList(guideArray));
         } catch (IOException e) {

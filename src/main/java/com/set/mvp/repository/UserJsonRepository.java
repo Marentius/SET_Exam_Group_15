@@ -7,10 +7,7 @@ import com.set.mvp.models.Trip;
 import com.set.mvp.models.User;
 import com.set.mvp.repository.interfaces.UserRepository;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -152,6 +149,7 @@ public class UserJsonRepository implements UserRepository {
     }
 
     public int checkUserExistansReturnProfileId(String username) {
+        readFromUserJsonFile();
         for (User user : userArrayList) {
             if (user.getUsername().equals(username)){
                 return user.getProfileId();
@@ -175,13 +173,13 @@ public class UserJsonRepository implements UserRepository {
         }
     }
     public ArrayList<User> readFromUserJsonFile() {
-        String filename = "/database/user.json";
+        String filename = "src/main/resources/database/user.json";
         ObjectMapper objectMapper = new ObjectMapper().registerModule(new JavaTimeModule());
 
-        try (InputStream input = getClass().getResourceAsStream(filename)) {
-            if (input == null) {
-                throw new FileNotFoundException("Could not find file " + filename);
-            }
+        try (InputStream input = new FileInputStream(new File(filename))) {
+        //    if (input == null) {
+        //        throw new FileNotFoundException("Could not find file " + filename);
+        //    }
             User[] userArray = objectMapper.readValue(input, User[].class);
             userArrayList.addAll(Arrays.asList(userArray));
         } catch (IOException e) {
