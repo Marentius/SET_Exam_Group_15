@@ -99,7 +99,7 @@ public class TripJsonRepository implements TripRepository {
         return false;
     }
     private void writeToTripJsonFile() {
-        String filename = "/src/main/resources/database/user.json";
+        String filename = "/src/main/resources/database/trip.json";
 
         ObjectMapper objectMapper = new ObjectMapper().registerModule(new JavaTimeModule());
         try {

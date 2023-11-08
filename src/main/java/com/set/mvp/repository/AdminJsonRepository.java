@@ -3,11 +3,8 @@ package com.set.mvp.repository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.set.mvp.models.Admin;
-import com.set.mvp.models.User;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -15,16 +12,13 @@ public class AdminJsonRepository {
     private ArrayList<Admin> adminArrayList = new ArrayList<>();
 
     public AdminJsonRepository() {
-        readFromJsonFile();
+        readFromGuideJsonFile();
     }
-    public ArrayList<Admin> readFromJsonFile() {
-        String filename = "/database/admin.json";
+    public ArrayList<Admin> readFromGuideJsonFile() {
+        String filename = "src/main/resources/database/admin.json";
         ObjectMapper objectMapper = new ObjectMapper().registerModule(new JavaTimeModule());
 
-        try (InputStream input = getClass().getResourceAsStream(filename)) {
-            if (input == null) {
-                throw new FileNotFoundException("Could not find file " + filename);
-            }
+        try (InputStream input = new FileInputStream(new File(filename))){
             Admin[] adminArray = objectMapper.readValue(input, Admin[].class);
             adminArrayList.addAll(Arrays.asList(adminArray));
         } catch (IOException e) {

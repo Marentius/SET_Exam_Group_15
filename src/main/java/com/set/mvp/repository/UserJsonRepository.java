@@ -177,9 +177,6 @@ public class UserJsonRepository implements UserRepository {
         ObjectMapper objectMapper = new ObjectMapper().registerModule(new JavaTimeModule());
 
         try (InputStream input = new FileInputStream(new File(filename))) {
-        //    if (input == null) {
-        //        throw new FileNotFoundException("Could not find file " + filename);
-        //    }
             User[] userArray = objectMapper.readValue(input, User[].class);
             userArrayList.addAll(Arrays.asList(userArray));
         } catch (IOException e) {

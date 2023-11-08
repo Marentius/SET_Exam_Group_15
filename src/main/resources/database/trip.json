@@ -178,7 +178,7 @@
   "tripId" : 11,
   "date" : [ 2023, 12, 20 ],
   "reviews" : [ "Snøen var perfekt.", "En herlig skitur." ]
-},{
+}, {
   "guide" : {
     "firstname" : "Test",
     "lastname" : "Test",

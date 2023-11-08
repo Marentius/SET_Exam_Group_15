@@ -124,9 +124,6 @@ public class GuideJsonRepository implements GuideRepository {
         ObjectMapper objectMapper = new ObjectMapper().registerModule(new JavaTimeModule());
 
         try (InputStream input = new FileInputStream(new File(filename))){
-        //    if (input == null) {
-        //        throw new FileNotFoundException("Could not find file " + filename);
-        //    }
             Guide[] guideArray = objectMapper.readValue(input, Guide[].class);
             guideArrayList.addAll(Arrays.asList(guideArray));
         } catch (IOException e) {
@@ -136,3 +133,16 @@ public class GuideJsonRepository implements GuideRepository {
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
