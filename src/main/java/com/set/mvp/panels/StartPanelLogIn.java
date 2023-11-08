@@ -11,8 +11,7 @@ import com.set.mvp.repository.UserJsonRepository;
 import com.set.mvp.repository.AdminJsonRepository;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 
 public class StartPanelLogIn extends InitApp {
     private JPanel mainPanel;
@@ -81,6 +80,42 @@ public class StartPanelLogIn extends InitApp {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new_panel(StartPanelLogIn.this, new CreateGuide("Create Guide"));
+            }
+        });
+
+        // Make login form look mega sexy
+        txtUsername.setCaretPosition(0);
+        txtUsername.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                if (txtUsername.getText().equals("Check instructions below")) {
+                    txtUsername.setText("");
+                }
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                if (txtUsername.getText().equals("")) {
+                    txtUsername.setText("Check instructions below");
+                    txtUsername.setCaretPosition(0);
+                }
+            }
+        });
+        txtUsername.addFocusListener(new FocusListener() {
+            @Override
+            public void focusGained(FocusEvent e) {
+                if (txtUsername.getText().equals("Check instructions below")) {
+                    txtUsername.setCaretPosition(0);
+                }
+            }
+
+            @Override
+            public void focusLost(FocusEvent e) {
+
             }
         });
     }

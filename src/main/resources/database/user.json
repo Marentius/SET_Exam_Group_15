@@ -115,5 +115,41 @@
   "username" : "dettefunker",
   "password" : "dettefunker",
   "profileId" : 14,
-  "trips" : [ ]
+  "trips" : [ {
+    "guide" : {
+      "firstname" : "Erik",
+      "lastname" : "Larsen",
+      "email" : "erik.larsen@example.com",
+      "username" : "eriklarsen",
+      "password" : "hemmelig",
+      "profileId" : 4,
+      "trips" : [ ]
+    },
+    "title" : "Skitur i Trysil",
+    "location" : "Trysil",
+    "description" : "Nyt vinterlandskapet i Trysil på ski.",
+    "price" : 800.0,
+    "duration" : 3,
+    "tripId" : 11,
+    "date" : [ 2023, 12, 20 ],
+    "reviews" : [ "Snøen var perfekt.", "En herlig skitur." ]
+  }, {
+    "guide" : {
+      "firstname" : "Test",
+      "lastname" : "Test",
+      "email" : "Test@Test.com",
+      "username" : "Test",
+      "password" : "Test",
+      "profileId" : 6,
+      "trips" : [ ]
+    },
+    "title" : "Sykkeltur i Geiranger",
+    "location" : "Geiranger",
+    "description" : "En uforglemmelig sykkeltur gjennom den storslåtte naturen i Geiranger.",
+    "price" : 400.0,
+    "duration" : 1,
+    "tripId" : 9,
+    "date" : [ 2023, 5, 20 ],
+    "reviews" : [ "Sykkelturen var en drøm!", "Kan ikke vente med å gjøre dette igjen." ]
+  } ]
 } ]
