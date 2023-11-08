@@ -4,6 +4,7 @@ import com.set.mvp.models.Guide;
 import com.set.mvp.models.LoggedInProfile;
 import com.set.mvp.models.Trip;
 
+
 import com.set.mvp.repository.GuideJsonRepository;
 import com.set.mvp.repository.TripJsonRepository;
 import com.set.mvp.repository.UserJsonRepository;
@@ -49,7 +50,6 @@ public class GuideFunctionsTests {
 
     @Test
     public void guide_can_create_trip(){
-        ArrayList<Trip> trips = new ArrayList<>();
         Guide guide = guideJsonRepository.createGuide("Guide", "Guide", "Guide", "Guide", "Guide");
         Trip trip = tripJsonRepository.addTrip("Guide", "Guide", "Guide", guide, 1000, 100, null, null);
         guide.addTrip(trip);
@@ -105,20 +105,20 @@ public class GuideFunctionsTests {
         assertFalse(LoggedInProfile.getProfile().getLoggedInProfileId() == createdGuideId);
         guideJsonRepository.deleteGuide(createdGuideId);
     }
-/*
-Vil feile ettersom guideJsoNRepository ikke har en edit profile funksjon, velger å la den ligge enn så lenge i tilfellet vi velger og implementere det.
+
+
     @Test
     public void guide_can_edit_profile(){
-        Guide createdGuide = guideJsonRepository.createGuide("Guide", "Guide", "Guide", "Guide", "Guide", null);
-        int createdGuideProfileId = createdGuide.getProfileId();
+        Guide createdGuide = guideJsonRepository.createGuide("guide", "password", "firstname", "lastname", "email");
         String oldUsername = createdGuide.getUsername();
         String oldPassword = createdGuide.getPassword();
         String oldFirstname = createdGuide.getFirstname();
         String oldLastname = createdGuide.getLastname();
         String oldEmail = createdGuide.getEmail();
 
-        LoggedInProfile.getProfile().logIn(createdGuideProfileId);
-        userJsonRepository.editUserInfo("New Username", "New password", "New firstname", "New lastname", "New email");
+        LoggedInProfile.getProfile().logIn(createdGuide.getProfileId());
+        guideJsonRepository.editGuideInfo("newUsername", "newPassword", "newFirstname", "newLastname", "newEmail");
+
         assertFalse(createdGuide.getUsername().equals(oldUsername));
         assertFalse(createdGuide.getPassword().equals(oldPassword));
         assertFalse(createdGuide.getFirstname().equals(oldFirstname));
@@ -126,11 +126,21 @@ Vil feile ettersom guideJsoNRepository ikke har en edit profile funksjon, velger
         assertFalse(createdGuide.getLastname().equals(oldEmail));
 
         LoggedInProfile.getProfile().logOut();
-        guideJsonRepository.deleteGuide(createdGuideProfileId);
+        guideJsonRepository.deleteGuide(createdGuide.getProfileId());
     }
 
 
- */
+    @Test
+    public void checkGuideExistence(){
+        Guide createdGuide1 = guideJsonRepository.createGuide("CheckIfGuideExists", "password", "firstname", "lastname", "email");
+
+        assertEquals(guideJsonRepository.checkGuideExistans("CheckIfGuideExists"), createdGuide1.getProfileId());
+
+        guideJsonRepository.deleteGuide(createdGuide1.getProfileId());
+    }
+
+
+
 
 
 }

@@ -1,5 +1,6 @@
 package com.set.mvp.usertests;
 
+import com.set.mvp.models.LoggedInProfile;
 import com.set.mvp.models.Trip;
 import com.set.mvp.models.User;
 import com.set.mvp.repository.TripJsonRepository;
@@ -22,41 +23,27 @@ public class BookTripTest {
     }
 
     @Test
-    public void book_one_trip_test() {
+    public void userCanBookTripTest(){
         ArrayList<Trip> trips = new ArrayList<>();
-        User user = userJsonRepository.createUser("User", "User", "User", "User", "User", trips);
-        Trip trip = tripJsonRepository.addTrip("Trip", "Trip", "Trip", null, 100, 100, null, null);
-        user.addTrip(trip);
-        assertTrue(user.getTrips().size() > 0);
-        assertTrue(user.getTrips().size() < 2);
-        assertFalse(user.getTrips().size() == 3);
-        tripJsonRepository.deleteTrip(trip.getTripId());
-        userJsonRepository.deleteUser(user.getProfileId());
+        User user = userJsonRepository.createUser("user", "user", "user", "user", "user", trips);
 
-    }
+        Trip trip1 = tripJsonRepository.addTrip("Trip1", "location,", "desc", null, 100, 100, null, null);
+        Trip trip2 = tripJsonRepository.addTrip("Trip2", "location,", "desc", null, 100, 100, null, null);
 
-    @Test
-    public void book_several_trips_test() {
-        ArrayList<Trip> trips = new ArrayList<>();
-        User user = userJsonRepository.createUser("User", "User", "User", "User", "User", trips);
-        Trip trip1 = tripJsonRepository.addTrip("Trip", "Trip", "Trip", null, 100, 100, null, null);
-        Trip trip2 = tripJsonRepository.addTrip("Trip", "Trip", "Trip", null, 100, 100, null, null);
-        Trip trip3 = tripJsonRepository.addTrip("Trip", "Trip", "Trip", null, 100, 100, null, null);
-        Trip trip4 = tripJsonRepository.addTrip("Trip", "Trip", "Trip", null, 100, 100, null, null);
+        LoggedInProfile.getProfile().logIn(user.getProfileId());
 
-        user.addTrip(trip1);
-        user.addTrip(trip2);
-        assertTrue(user.getTrips().size() == 2);
-        user.addTrip(trip3);
-        assertFalse(user.getTrips().size() == 2);
-        user.addTrip(trip4);
-        assertTrue(user.getTrips().size() == 4);
+        userJsonRepository.bookTrip(trip1);
+        userJsonRepository.bookTrip(trip2);
+
+        assertTrue(user.getTrips().contains(trip1));
+        assertTrue(user.getTrips().contains(trip2));
+
+        LoggedInProfile.getProfile().logOut();
 
         userJsonRepository.deleteUser(user.getProfileId());
         tripJsonRepository.deleteTrip(trip1.getTripId());
         tripJsonRepository.deleteTrip(trip2.getTripId());
-        tripJsonRepository.deleteTrip(trip3.getTripId());
-        tripJsonRepository.deleteTrip(trip4.getTripId());
     }
+
 
 }
