@@ -53,7 +53,7 @@ public class GuideFunctionsTests {
     public void guide_can_create_trip(){
 
         Guide guide = guideJsonRepository.createGuide("Guide12421", "Guide", "Guide", "Guide", "Guide");
-        Trip trip = tripJsonRepository.addTrip("Guide", "Guide", "Guide", guide, 1000, 100, null, null);
+        Trip trip = tripJsonRepository.addTrip("Guide", "Guide", "Guide", guide, 1000, 100, null);
         guide.addTrip(trip);
         boolean isTripInTripList = false;
 

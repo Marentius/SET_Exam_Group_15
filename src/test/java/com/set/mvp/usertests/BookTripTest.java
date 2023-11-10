@@ -27,8 +27,8 @@ public class BookTripTest {
         ArrayList<Trip> trips = new ArrayList<>();
         User user = userJsonRepository.createUser("user", "user", "user", "user", "user", trips);
 
-        Trip trip1 = tripJsonRepository.addTrip("Trip1", "location,", "desc", null, 100, 100, null, null);
-        Trip trip2 = tripJsonRepository.addTrip("Trip2", "location,", "desc", null, 100, 100, null, null);
+        Trip trip1 = tripJsonRepository.addTrip("Trip1", "location,", "desc", null, 100, 100, null);
+        Trip trip2 = tripJsonRepository.addTrip("Trip2", "location,", "desc", null, 100, 100, null);
 
         LoggedInProfile.getProfile().logIn(user.getProfileId());
 

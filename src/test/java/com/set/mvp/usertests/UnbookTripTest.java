@@ -28,8 +28,8 @@ public class UnbookTripTest {
 
         User user = userJsonRepository.createUser("User", "User", "User", "User", "User", trip);
 
-        Trip trip1 = tripJsonRepository.addTrip("Trip1", "Trip", "Trip", null, 100, 100, null, null);
-        Trip trip2 = tripJsonRepository.addTrip("Trip2", "Trip", "Trip", null, 100, 100, null, null);
+        Trip trip1 = tripJsonRepository.addTrip("Trip1", "Trip", "Trip", null, 100, 100, null);
+        Trip trip2 = tripJsonRepository.addTrip("Trip2", "Trip", "Trip", null, 100, 100, null);
 
         LoggedInProfile.getProfile().logIn(user.getProfileId());
 
