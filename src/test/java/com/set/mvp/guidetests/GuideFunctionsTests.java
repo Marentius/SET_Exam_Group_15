@@ -4,6 +4,7 @@ import com.set.mvp.models.Guide;
 import com.set.mvp.models.LoggedInProfile;
 import com.set.mvp.models.Trip;
 
+import com.set.mvp.models.User;
 import com.set.mvp.repository.GuideJsonRepository;
 import com.set.mvp.repository.TripJsonRepository;
 import com.set.mvp.repository.UserJsonRepository;
@@ -31,7 +32,7 @@ public class GuideFunctionsTests {
     @Test
     public void guide_can_create_profile() {
         ArrayList<Guide> guidesOriginal = guideJsonRepository.getGuides();
-        Guide createdGuide = guideJsonRepository.createGuide("Guide", "Guide", "Guide", "Guide", "Guide");
+        Guide createdGuide = guideJsonRepository.createGuide("Guide123", "Guide", "Guide", "Guide", "Guide");
         boolean isProfileIdInList = false;
         for (Guide guide : guideJsonRepository.getGuides()) {
             if (guide.getProfileId() == createdGuide.getProfileId()) {
@@ -49,8 +50,8 @@ public class GuideFunctionsTests {
 
     @Test
     public void guide_can_create_trip(){
-        ArrayList<Trip> trips = new ArrayList<>();
-        Guide guide = guideJsonRepository.createGuide("Guide", "Guide", "Guide", "Guide", "Guide");
+
+        Guide guide = guideJsonRepository.createGuide("Guide12421", "Guide", "Guide", "Guide", "Guide");
         Trip trip = tripJsonRepository.addTrip("Guide", "Guide", "Guide", guide, 1000, 100, null, null);
         guide.addTrip(trip);
         boolean isTripInTripList = false;
@@ -62,13 +63,14 @@ public class GuideFunctionsTests {
             }
         }
         assertTrue(isTripInTripList);
-        guide.deleteTrip(trip);
+        tripJsonRepository.deleteTrip(trip.getTripId());
+
+        guideJsonRepository.deleteGuide(guide.getProfileId());
     }
 
     @Test
     public void guide_can_cancel_trip(){
-        ArrayList<Trip> trips = new ArrayList<>();
-        Guide guide = new Guide("Guide", "Guide", "Guide", "Guide", "Guide", 100);
+        Guide guide = new Guide("Guid123e", "Guide", "Guide", "Guide", "Guide", 100);
 
         Trip trip = new Trip("Oslo", 100);
         Trip trip1 = new Trip("Tønsberg", 100);
@@ -79,13 +81,15 @@ public class GuideFunctionsTests {
         int tripListSize = guide.getTrips().size();
 
         guide.deleteTrip(trip);
+        tripJsonRepository.deleteTrip(trip.getTripId());
+        tripJsonRepository.deleteTrip(trip1.getTripId());
 
         assertTrue(tripListSize > guide.getTrips().size());
     }
 
     @Test
     public void guide_can_log_in(){
-        Guide createdGuide = guideJsonRepository.createGuide("Guide", "Guide", "Guide", "Guide", "Guide");
+        Guide createdGuide = guideJsonRepository.createGuide("Guid876e", "Guide", "Guide", "Guide", "Guide");
         int createdGuideId = createdGuide.getProfileId();
         LoggedInProfile.getProfile().logIn(createdGuideId);
         assertTrue(LoggedInProfile.getProfile().getLoggedInProfileId() == createdGuideId);
@@ -96,7 +100,7 @@ public class GuideFunctionsTests {
 
     @Test
     public void guideCanLogOut(){
-        Guide createdGuide = guideJsonRepository.createGuide("Guide", "Guide", "Guide", "Guide", "Guide");
+        Guide createdGuide = guideJsonRepository.createGuide("Guideeee", "Guide", "Guide", "Guide", "Guide");
         int createdGuideId = createdGuide.getProfileId();
         LoggedInProfile.getProfile().logIn(createdGuideId);
         assertTrue(createdGuideId == LoggedInProfile.getProfile().getLoggedInProfileId());
@@ -105,20 +109,19 @@ public class GuideFunctionsTests {
         assertFalse(LoggedInProfile.getProfile().getLoggedInProfileId() == createdGuideId);
         guideJsonRepository.deleteGuide(createdGuideId);
     }
-/*
-Vil feile ettersom guideJsoNRepository ikke har en edit profile funksjon, velger å la den ligge enn så lenge i tilfellet vi velger og implementere det.
+
     @Test
     public void guide_can_edit_profile(){
-        Guide createdGuide = guideJsonRepository.createGuide("Guide", "Guide", "Guide", "Guide", "Guide", null);
-        int createdGuideProfileId = createdGuide.getProfileId();
+        Guide createdGuide = guideJsonRepository.createGuide("Guide", "Guide", "Guide", "Guide", "Guide");
+
         String oldUsername = createdGuide.getUsername();
         String oldPassword = createdGuide.getPassword();
         String oldFirstname = createdGuide.getFirstname();
         String oldLastname = createdGuide.getLastname();
         String oldEmail = createdGuide.getEmail();
 
-        LoggedInProfile.getProfile().logIn(createdGuideProfileId);
-        userJsonRepository.editUserInfo("New Username", "New password", "New firstname", "New lastname", "New email");
+        LoggedInProfile.getProfile().logIn(createdGuide.getProfileId());
+        guideJsonRepository.editGuideInfo("New Username", "New password", "New firstname", "New lastname", "New email");
         assertFalse(createdGuide.getUsername().equals(oldUsername));
         assertFalse(createdGuide.getPassword().equals(oldPassword));
         assertFalse(createdGuide.getFirstname().equals(oldFirstname));
@@ -126,11 +129,43 @@ Vil feile ettersom guideJsoNRepository ikke har en edit profile funksjon, velger
         assertFalse(createdGuide.getLastname().equals(oldEmail));
 
         LoggedInProfile.getProfile().logOut();
-        guideJsonRepository.deleteGuide(createdGuideProfileId);
+        guideJsonRepository.deleteGuide(createdGuide.getProfileId());
     }
+
+/*
+    @Test
+    public void deleteTripFromAllUsersTest(){
+        ArrayList<Trip> trips = new ArrayList<>();
+        User createdUser = userJsonRepository.createUser("deletetripsfromalluserstest", "password", "firstname", "lastname", "email", trips);
+
+        Trip trip = tripJsonRepository.addTrip("tripuserscandeletetripsfromallusers", "loc", "desc", null, 100, 100, null, null);
+
+        LoggedInProfile.getProfile().logIn(createdUser.getProfileId());
+        userJsonRepository.bookTrip(trip);
+
+        tripJsonRepository.deleteTripFromAllUserTripLists(trip.getTripId());
+
+        assertFalse(createdUser.getTrips().contains(trip));
+
+        userJsonRepository.deleteUser(createdUser.getProfileId());
+        userJsonRepository.deleteUser(createdUser.getProfileId());
+
+    }
+
 
 
  */
 
+    /*
+    @Test
+    public void checkIfGuideExists(){
+        Guide createdGuide = guideJsonRepository.createGuide("checkifguideexists", "pas", "name", "name", "mail");
 
+        assertEquals(guideJsonRepository.checkGuideExistansReturnProfileId("checkifguideexists"), createdGuide.getProfileId());
+
+        guideJsonRepository.deleteGuide(createdGuide.getProfileId());
+        guideJsonRepository.deleteGuide(createdGuide.getProfileId());
+    }
+
+     */
 }

@@ -1,9 +1,11 @@
 package com.set.mvp.admintests;
 
 
+import com.set.mvp.models.Admin;
 import com.set.mvp.models.Guide;
 import com.set.mvp.models.Trip;
 import com.set.mvp.models.User;
+import com.set.mvp.repository.AdminJsonRepository;
 import com.set.mvp.repository.GuideJsonRepository;
 import com.set.mvp.repository.TripJsonRepository;
 import com.set.mvp.repository.UserJsonRepository;
@@ -19,6 +21,7 @@ public class AdminFunctionsTest {
     GuideJsonRepository guideJsonRepository;
     UserJsonRepository userJsonRepository;
     TripJsonRepository tripJsonRepository;
+    AdminJsonRepository adminJsonRepository;
 
 
     @BeforeEach
@@ -26,6 +29,7 @@ public class AdminFunctionsTest {
         guideJsonRepository = new GuideJsonRepository();
         userJsonRepository = new UserJsonRepository();
         tripJsonRepository = new TripJsonRepository();
+        adminJsonRepository = new AdminJsonRepository();
 
     }
 
@@ -45,6 +49,7 @@ public class AdminFunctionsTest {
         }
         assertFalse(isProfileInIdList);
     }
+
     @Test
     public void adminCanDeleteUserTest() {
         User createdUser = userJsonRepository.createUser("User", "User", "User", "User", "User", null);
@@ -75,23 +80,24 @@ public class AdminFunctionsTest {
     }
 
 
-
     @Test
-    public void adminCanViewAllUsers(){
+    public void adminCanViewAllUsers() {
         ArrayList<User> users = userJsonRepository.getUsers();
         assertArrayEquals(users.toArray(), userJsonRepository.getUsers().toArray());
     }
-  @Test
+
+    @Test
     public void adminCanViewAllGuides() {
         ArrayList<Guide> guides = guideJsonRepository.getGuides();
         assertArrayEquals(guides.toArray(), guideJsonRepository.getGuides().toArray());
 
-}
+    }
 
-@Test
-    public void adminCanViewAllTrips(){
+    @Test
+    public void adminCanViewAllTrips() {
         ArrayList<Trip> trips = tripJsonRepository.getTrips();
         assertArrayEquals(trips.toArray(), tripJsonRepository.getTrips().toArray());
+    }
 }
-}
+
 
