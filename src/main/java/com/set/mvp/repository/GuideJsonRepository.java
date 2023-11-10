@@ -122,8 +122,9 @@ public class GuideJsonRepository implements GuideRepository {
     public ArrayList<Guide> readFromGuideJsonFile() {
         String filename = "src/main/resources/database/guide.json";
         ObjectMapper objectMapper = new ObjectMapper().registerModule(new JavaTimeModule());
+        guideArrayList.clear();
 
-        try (InputStream input = new FileInputStream(new File(filename))){
+        try (InputStream input = new FileInputStream(filename)){
             Guide[] guideArray = objectMapper.readValue(input, Guide[].class);
             guideArrayList.addAll(Arrays.asList(guideArray));
         } catch (IOException e) {

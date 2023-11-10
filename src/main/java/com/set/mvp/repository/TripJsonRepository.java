@@ -7,10 +7,7 @@ import com.set.mvp.models.Trip;
 import com.set.mvp.models.User;
 import com.set.mvp.repository.interfaces.TripRepository;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -63,11 +60,10 @@ public class TripJsonRepository implements TripRepository {
         userJsonRepository = new UserJsonRepository();
 
         for (User user : userJsonRepository.getUsers()) {
-            ArrayList<Trip> userTrips = user.getTrips();
 
-            for (Trip trip : userTrips) {
+            for (Trip trip : user.getTrips()) {
                 if (trip.getTripId() == tripId) {
-                    userTrips.remove(trip);
+                    user.getTrips().remove(trip);
                     break;
                 }
             }
@@ -111,13 +107,11 @@ public class TripJsonRepository implements TripRepository {
         }
     }
     public ArrayList<Trip> readFromTripJsonFile() {
-        String filename = "/database/trip.json";
+        String filename = "src/main/resources/database/trip.json";
         ObjectMapper objectMapper = new ObjectMapper().registerModule(new JavaTimeModule());
+        tripArrayList.clear();
 
-        try (InputStream input = getClass().getResourceAsStream(filename)) {
-            if (input == null) {
-                throw new FileNotFoundException("Could not find file " + filename);
-            }
+        try (InputStream input = new FileInputStream(filename)) {
             Trip[] tripArray = objectMapper.readValue(input, Trip[].class);
             tripArrayList.addAll(Arrays.asList(tripArray));
         } catch (IOException e) {

@@ -17,8 +17,9 @@ public class AdminJsonRepository {
     public ArrayList<Admin> readFromGuideJsonFile() {
         String filename = "src/main/resources/database/admin.json";
         ObjectMapper objectMapper = new ObjectMapper().registerModule(new JavaTimeModule());
+        adminArrayList.clear();
 
-        try (InputStream input = new FileInputStream(new File(filename))){
+        try (InputStream input = new FileInputStream(filename)){
             Admin[] adminArray = objectMapper.readValue(input, Admin[].class);
             adminArrayList.addAll(Arrays.asList(adminArray));
         } catch (IOException e) {

@@ -11,6 +11,7 @@ import com.set.mvp.repository.UserJsonRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -132,13 +133,13 @@ public class GuideFunctionsTests {
         guideJsonRepository.deleteGuide(createdGuide.getProfileId());
     }
 
-/*
-    @Test
-    public void deleteTripFromAllUsersTest(){
-        ArrayList<Trip> trips = new ArrayList<>();
-        User createdUser = userJsonRepository.createUser("deletetripsfromalluserstest", "password", "firstname", "lastname", "email", trips);
 
-        Trip trip = tripJsonRepository.addTrip("tripuserscandeletetripsfromallusers", "loc", "desc", null, 100, 100, null, null);
+   /* @Test
+    public void deleteTripFromAllUsersTest(){
+        User createdUser = userJsonRepository.createUser("tripUsersCanDeleteTripsFromAllUsers", "password", "firstname", "lastname", "email", new ArrayList<>());
+        Guide createdGuide = guideJsonRepository.createGuide("DummyGuide", "guide", "guide", "test", "email");
+
+        Trip trip = tripJsonRepository.addTrip("tripUsersCanDeleteTripsFromAllUsers", "loc", "desc", createdGuide, 100, 100, LocalDate.of(2024, 01,01), new ArrayList<>());
 
         LoggedInProfile.getProfile().logIn(createdUser.getProfileId());
         userJsonRepository.bookTrip(trip);
@@ -148,13 +149,9 @@ public class GuideFunctionsTests {
         assertFalse(createdUser.getTrips().contains(trip));
 
         userJsonRepository.deleteUser(createdUser.getProfileId());
-        userJsonRepository.deleteUser(createdUser.getProfileId());
 
-    }
+    }*/
 
-
-
- */
 
     /*
     @Test

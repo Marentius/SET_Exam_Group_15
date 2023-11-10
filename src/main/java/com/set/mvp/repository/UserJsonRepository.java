@@ -175,8 +175,9 @@ public class UserJsonRepository implements UserRepository {
     public ArrayList<User> readFromUserJsonFile() {
         String filename = "src/main/resources/database/user.json";
         ObjectMapper objectMapper = new ObjectMapper().registerModule(new JavaTimeModule());
+        userArrayList.clear();
 
-        try (InputStream input = new FileInputStream(new File(filename))) {
+        try (InputStream input = new FileInputStream(filename)) {
             User[] userArray = objectMapper.readValue(input, User[].class);
             userArrayList.addAll(Arrays.asList(userArray));
         } catch (IOException e) {
