@@ -27,7 +27,7 @@ public class AdminJsonRepository {
         }
         return adminArrayList;
     }
-    public int checkUserExistansReturnProfileId(String username) {
+    public int checkAdminExistansReturnProfileId(String username) {
         for (Admin admin : adminArrayList) {
             if (admin.getUsername().equals(username)){
                 return admin.getProfileId();

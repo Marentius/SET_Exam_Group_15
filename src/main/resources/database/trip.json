@@ -14,8 +14,7 @@
   "price" : 500.0,
   "duration" : 3,
   "tripId" : 1,
-  "date" : [ 2023, 6, 15 ],
-  "reviews" : [ "Fantastisk tur!", "Vil dra igjen." ]
+  "date" : [ 2023, 6, 15 ]
 }, {
   "guide" : {
     "firstname" : "Test",
@@ -32,8 +31,7 @@
   "price" : 1200.0,
   "duration" : 2,
   "tripId" : 2,
-  "date" : [ 2023, 7, 10 ],
-  "reviews" : [ "Utrolig vakkert!", "Anbefales!" ]
+  "date" : [ 2023, 7, 10 ]
 }, {
   "guide" : {
     "firstname" : "Test",
@@ -50,8 +48,7 @@
   "price" : 300.0,
   "duration" : 1,
   "tripId" : 3,
-  "date" : [ 2023, 5, 20 ],
-  "reviews" : [ "Nydelig by!", "Fin tur." ]
+  "date" : [ 2023, 5, 20 ]
 }, {
   "guide" : {
     "firstname" : "Test",
@@ -68,8 +65,7 @@
   "price" : 600.0,
   "duration" : 4,
   "tripId" : 4,
-  "date" : [ 2023, 8, 12 ],
-  "reviews" : [ "Flinke guider!", "Utrolig natur." ]
+  "date" : [ 2023, 8, 12 ]
 }, {
   "guide" : {
     "firstname" : "Test",
@@ -86,8 +82,7 @@
   "price" : 800.0,
   "duration" : 2,
   "tripId" : 5,
-  "date" : [ 2023, 11, 25 ],
-  "reviews" : [ "Magisk!", "Enestående opplevelse." ]
+  "date" : [ 2023, 11, 25 ]
 }, {
   "guide" : {
     "firstname" : "Test",
@@ -104,8 +99,7 @@
   "price" : 500.0,
   "duration" : 3,
   "tripId" : 6,
-  "date" : [ 2023, 6, 15 ],
-  "reviews" : [ "Fantastisk tur!", "Anbefales!" ]
+  "date" : [ 2023, 6, 15 ]
 }, {
   "guide" : {
     "firstname" : "Test",
@@ -122,8 +116,7 @@
   "price" : 700.0,
   "duration" : 4,
   "tripId" : 8,
-  "date" : [ 2023, 7, 10 ],
-  "reviews" : [ "Fantastisk opplevelse!", "Lofoten er utrolig vakkert." ]
+  "date" : [ 2023, 7, 10 ]
 }, {
   "guide" : {
     "firstname" : "Per",
@@ -140,8 +133,7 @@
   "price" : 450.0,
   "duration" : 2,
   "tripId" : 10,
-  "date" : [ 2023, 9, 5 ],
-  "reviews" : [ "Bergen er så vakkert.", "Sykkelturen var veldig gøy." ]
+  "date" : [ 2023, 9, 5 ]
 }, {
   "guide" : {
     "firstname" : "Erik",
@@ -158,8 +150,7 @@
   "price" : 800.0,
   "duration" : 3,
   "tripId" : 11,
-  "date" : [ 2023, 12, 20 ],
-  "reviews" : [ "Snøen var perfekt.", "En herlig skitur." ]
+  "date" : [ 2023, 12, 20 ]
 }, {
   "guide" : {
     "firstname" : "Test",
@@ -176,6 +167,5 @@
   "price" : 400.0,
   "duration" : 1,
   "tripId" : 9,
-  "date" : [ 2023, 5, 20 ],
-  "reviews" : [ "Sykkelturen var en drøm!", "Kan ikke vente med å gjøre dette igjen." ]
+  "date" : [ 2023, 5, 20 ]
 } ]

@@ -72,8 +72,7 @@ public class AddTripPage extends InitApp {
                                 guide,
                                 Double.parseDouble((String) priceComboBox.getSelectedItem()),
                                 Integer.parseInt((String) durationComboBox.getSelectedItem()),
-                                LocalDate.of(Integer.parseInt((String) yearComboBox.getSelectedItem()), Integer.parseInt((String) MonthComboBox.getSelectedItem()), Integer.parseInt((String) dayComboBox.getSelectedItem())),
-                                new ArrayList<>());
+                                LocalDate.of(Integer.parseInt((String) yearComboBox.getSelectedItem()), Integer.parseInt((String) MonthComboBox.getSelectedItem()), Integer.parseInt((String) dayComboBox.getSelectedItem())));
 
                         JOptionPane.showMessageDialog(mainPanel, "The trip: " + txtTitle.getText() + " was successfully added.");
 

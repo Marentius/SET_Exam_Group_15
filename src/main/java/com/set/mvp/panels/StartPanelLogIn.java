@@ -61,7 +61,7 @@ public class StartPanelLogIn extends InitApp {
         logInAsAdminButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int adminId = adminJsonRepository.checkUserExistansReturnProfileId(txtUsername.getText());
+                int adminId = adminJsonRepository.checkAdminExistansReturnProfileId(txtUsername.getText());
                 if (adminId != 0) {
                     LoggedInProfile.getProfile().logIn(adminId);
                     new_panel(StartPanelLogIn.this, new MainPageAdmin("Main page"));

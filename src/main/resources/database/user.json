@@ -29,8 +29,7 @@
     "price" : 800.0,
     "duration" : 3,
     "tripId" : 11,
-    "date" : [ 2023, 12, 20 ],
-    "reviews" : [ "Snøen var perfekt.", "En herlig skitur." ]
+    "date" : [ 2023, 12, 20 ]
   }, {
     "guide" : {
       "firstname" : "Per",
@@ -47,8 +46,7 @@
     "price" : 450.0,
     "duration" : 2,
     "tripId" : 10,
-    "date" : [ 2023, 9, 5 ],
-    "reviews" : [ "Bergen er så vakkert.", "Sykkelturen var veldig gøy." ]
+    "date" : [ 2023, 9, 5 ]
   } ]
 }, {
   "firstname" : "Test",
@@ -57,7 +55,24 @@
   "username" : "Test",
   "password" : "Test",
   "profileId" : 9,
-  "trips" : [ ]
+  "trips" : [ {
+    "guide" : {
+      "firstname" : "Erik",
+      "lastname" : "Larsen",
+      "email" : "erik.larsen@example.com",
+      "username" : "eriklarsen",
+      "password" : "hemmelig",
+      "profileId" : 4,
+      "trips" : [ ]
+    },
+    "title" : "Skitur i Trysil",
+    "location" : "Trysil",
+    "description" : "Nyt vinterlandskapet i Trysil på ski.",
+    "price" : 800.0,
+    "duration" : 3,
+    "tripId" : 11,
+    "date" : [ 2023, 12, 20 ]
+  } ]
 }, {
   "firstname" : "testmann",
   "lastname" : "testmann",
@@ -81,8 +96,7 @@
     "price" : 800.0,
     "duration" : 3,
     "tripId" : 11,
-    "date" : [ 2023, 12, 20 ],
-    "reviews" : [ "Snøen var perfekt.", "En herlig skitur." ]
+    "date" : [ 2023, 12, 20 ]
   } ]
 }, {
   "firstname" : "Kokko",
@@ -131,7 +145,6 @@
     "price" : 800.0,
     "duration" : 3,
     "tripId" : 11,
-    "date" : [ 2023, 12, 20 ],
-    "reviews" : [ "Snøen var perfekt.", "En herlig skitur." ]
+    "date" : [ 2023, 12, 20 ]
   } ]
 } ]
