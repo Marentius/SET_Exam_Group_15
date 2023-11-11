@@ -18,9 +18,9 @@ import java.util.Arrays;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class GuideFunctionsTests {
-    GuideJsonRepository guideJsonRepository;
-    TripJsonRepository tripJsonRepository;
-    UserJsonRepository userJsonRepository;
+    private GuideJsonRepository guideJsonRepository;
+    private TripJsonRepository tripJsonRepository;
+    private UserJsonRepository userJsonRepository;
     @BeforeEach
         public void init(){
            guideJsonRepository = new GuideJsonRepository();
@@ -153,7 +153,7 @@ public class GuideFunctionsTests {
     }*/
 
 
-    /*
+
     @Test
     public void checkIfGuideExists(){
         Guide createdGuide = guideJsonRepository.createGuide("checkifguideexists", "pas", "name", "name", "mail");
@@ -161,8 +161,8 @@ public class GuideFunctionsTests {
         assertEquals(guideJsonRepository.checkGuideExistansReturnProfileId("checkifguideexists"), createdGuide.getProfileId());
 
         guideJsonRepository.deleteGuide(createdGuide.getProfileId());
-        guideJsonRepository.deleteGuide(createdGuide.getProfileId());
+
     }
 
-     */
+
 }

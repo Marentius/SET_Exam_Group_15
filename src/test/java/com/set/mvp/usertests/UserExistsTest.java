@@ -23,9 +23,4 @@ public class UserExistsTest {
         userJsonRepository.deleteUser(createdUser.getProfileId());
 
     }
-
-
-
-
-
 }

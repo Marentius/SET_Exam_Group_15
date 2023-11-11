@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class LoginAndOutTest {
-    UserJsonRepository userJsonRepository;
+    private UserJsonRepository userJsonRepository;
     @BeforeEach
     public void init(){
         userJsonRepository = new UserJsonRepository();

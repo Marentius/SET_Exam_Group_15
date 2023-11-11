@@ -1,7 +1,6 @@
 package com.set.mvp.admintests;
 
 
-import com.set.mvp.models.Admin;
 import com.set.mvp.models.Guide;
 import com.set.mvp.models.Trip;
 import com.set.mvp.models.User;
@@ -18,10 +17,10 @@ import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class AdminFunctionsTest {
-    GuideJsonRepository guideJsonRepository;
-    UserJsonRepository userJsonRepository;
-    TripJsonRepository tripJsonRepository;
-    AdminJsonRepository adminJsonRepository;
+    private GuideJsonRepository guideJsonRepository;
+    private UserJsonRepository userJsonRepository;
+    private TripJsonRepository tripJsonRepository;
+    private AdminJsonRepository adminJsonRepository;
 
 
     @BeforeEach
@@ -97,6 +96,11 @@ public class AdminFunctionsTest {
     public void adminCanViewAllTrips() {
         ArrayList<Trip> trips = tripJsonRepository.getTrips();
         assertArrayEquals(trips.toArray(), tripJsonRepository.getTrips().toArray());
+    }
+
+    @Test
+    public void adminExists(){
+        assertEquals(adminJsonRepository.checkAdminExistansReturnProfileId("Admin"), 1);
     }
 }
 
