@@ -1,6 +1,7 @@
 package com.set.mvp.panels.user;
 
 import com.set.mvp.models.LoggedInProfile;
+import com.set.mvp.models.User;
 import com.set.mvp.panels.InitApp;
 import com.set.mvp.panels.StartPanelLogIn;
 import com.set.mvp.models.Trip;
@@ -24,19 +25,15 @@ public class BookTripUser extends InitApp {
 
     public BookTripUser(String title) {
         super(title);
-        start_gui(mainPanel, 1500, 400);
-        if (LoggedInProfile.getProfile().isLoggedIn()) {
-            System.out.println("User is logged in");
-        }
+        start_gui(mainPanel, 1500, 600);
 
-        tripJsonRepository = new TripJsonRepository("/database/trip.json");
-        userJsonRepository = new UserJsonRepository("/database/user.json");
+        tripJsonRepository = new TripJsonRepository();
+        userJsonRepository = new UserJsonRepository();
 
         listModel = new DefaultListModel<>();
         tripJlist.setModel(listModel);
 
         updateTripList();
-        System.out.println(LoggedInProfile.getProfile().getLoggedInProfileId());
 
         logOutButton.addActionListener(new ActionListener() {
             @Override
@@ -54,8 +51,34 @@ public class BookTripUser extends InitApp {
         bookTripButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                userJsonRepository.bookTrip(tripJlist.getSelectedValue());
-                JOptionPane.showMessageDialog(BookTripUser.this, "The trip: " + tripJlist.getSelectedValue().getTitle() + " was successfully added to your trips");
+
+                Trip selectedTrip = tripJlist.getSelectedValue();
+
+                if (selectedTrip == null){
+                    JOptionPane.showMessageDialog(mainPanel,"Please select a trip to book.");
+                    return;
+                }
+
+                //Should have the implementation below in the bookTrip method, but I left it here for simplicity.
+                //JOptionPane.showMessageDialog generated unnecessary popups in the test classes.
+
+                User loggedInUser = userJsonRepository.getLoggedInUser();
+                boolean tripAlreadyBooked = false;
+
+                for (Trip userTrip : loggedInUser.getTrips()) {
+                    if (userTrip.getTripId() == selectedTrip.getTripId()) {
+                        tripAlreadyBooked = true;
+                        break;
+                    }
+                }
+
+                if (!tripAlreadyBooked) {
+                    userJsonRepository.bookTrip(selectedTrip);
+                    JOptionPane.showMessageDialog(mainPanel, "The trip: " + selectedTrip.getTitle() + " was successfully added to your trips");
+                } else {
+                    System.out.println("Trip already booked");
+                    JOptionPane.showMessageDialog(mainPanel, "Trip already booked");
+                }
             }
         });
     }

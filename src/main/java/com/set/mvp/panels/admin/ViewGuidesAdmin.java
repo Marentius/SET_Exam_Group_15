@@ -1,6 +1,7 @@
 package com.set.mvp.panels.admin;
 
 import com.set.mvp.models.Guide;
+import com.set.mvp.models.LoggedInProfile;
 import com.set.mvp.panels.InitApp;
 import com.set.mvp.panels.StartPanelLogIn;
 import com.set.mvp.repository.GuideJsonRepository;
@@ -21,9 +22,9 @@ public class ViewGuidesAdmin extends InitApp {
 
     public ViewGuidesAdmin(String title) {
         super(title);
-        start_gui(mainPanel, 800, 400);
+        start_gui(mainPanel, 800, 600);
 
-        guideJsonRepository = new GuideJsonRepository("/database/guide.json");
+        guideJsonRepository = new GuideJsonRepository();
 
         listModel = new DefaultListModel<>();
         guideJList.setModel(listModel);
@@ -54,6 +55,7 @@ public class ViewGuidesAdmin extends InitApp {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new_panel(ViewGuidesAdmin.this, new StartPanelLogIn("Log In"));
+                LoggedInProfile.getProfile().logOut();
             }
         });
     }

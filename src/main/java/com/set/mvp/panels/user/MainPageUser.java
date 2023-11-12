@@ -3,6 +3,7 @@ package com.set.mvp.panels.user;
 import com.set.mvp.models.LoggedInProfile;
 import com.set.mvp.panels.InitApp;
 import com.set.mvp.panels.StartPanelLogIn;
+import com.set.mvp.repository.UserJsonRepository;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -14,21 +15,22 @@ public class MainPageUser extends InitApp {
     private JButton bookTripButton;
     private JButton logOutButton;
     private JButton viewAndManageYourButton;
+    private JLabel welcome;
+    private UserJsonRepository userJsonRepository;
 
     public MainPageUser(String title) {
         super(title);
         start_gui(mainPanel, 800, 400);
-        if (LoggedInProfile.getProfile().isLoggedIn()) {
-            System.out.println("User is logged in");
-        }
+
+        userJsonRepository = new UserJsonRepository();
+
+        welcome.setText(userJsonRepository.getLoggedInUser().getFirstname() + " " + userJsonRepository.getLoggedInUser().getLastname());
 
         logOutButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new_panel(MainPageUser.this, new StartPanelLogIn("Log in"));
-                if (LoggedInProfile.getProfile().isLoggedIn()) {
-                    LoggedInProfile.getProfile().logOut();
-                }
+                LoggedInProfile.getProfile().logOut();
             }
         });
         bookTripButton.addActionListener(new ActionListener() {
@@ -46,7 +48,7 @@ public class MainPageUser extends InitApp {
         viewAndManageYourButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new_panel(MainPageUser.this, new ViewAndManageUserTrips("View And Manage Usertrips"));
+                new_panel(MainPageUser.this, new ViewAndManageUserTrips("View And Manage User trips"));
             }
         });
     }

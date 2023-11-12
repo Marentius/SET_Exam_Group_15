@@ -1,5 +1,6 @@
 package com.set.mvp.panels.admin;
 
+import com.set.mvp.models.LoggedInProfile;
 import com.set.mvp.panels.InitApp;
 import com.set.mvp.panels.StartPanelLogIn;
 import com.set.mvp.models.User;
@@ -21,9 +22,9 @@ public class ViewUsersAdmin extends InitApp {
 
     public ViewUsersAdmin(String title) {
         super(title);
-        start_gui(mainPanel, 800, 400);
+        start_gui(mainPanel, 800, 600);
 
-        userJsonRepository = new UserJsonRepository("/database/user.json");
+        userJsonRepository = new UserJsonRepository();
 
         listModel = new DefaultListModel<>();
         userJList.setModel(listModel);
@@ -38,7 +39,6 @@ public class ViewUsersAdmin extends InitApp {
                 if (selectedUser != null) {
                     userJsonRepository.deleteUser(selectedUser.getProfileId());
                     JOptionPane.showMessageDialog(mainPanel, "The user: " + userJList.getSelectedValue().getUsername() + " was successfully deleted");
-
                     updateUserList();
                 } else {
                         JOptionPane.showMessageDialog(mainPanel, "Please select an user to delete.");
@@ -55,6 +55,7 @@ public class ViewUsersAdmin extends InitApp {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new_panel(ViewUsersAdmin.this, new StartPanelLogIn("Log In"));
+                LoggedInProfile.getProfile().logOut();
             }
         });
     }

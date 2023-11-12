@@ -8,10 +8,10 @@ import com.set.mvp.panels.user.CreateUser;
 import com.set.mvp.panels.user.MainPageUser;
 import com.set.mvp.repository.GuideJsonRepository;
 import com.set.mvp.repository.UserJsonRepository;
+import com.set.mvp.repository.AdminJsonRepository;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 
 public class StartPanelLogIn extends InitApp {
     private JPanel mainPanel;
@@ -22,23 +22,22 @@ public class StartPanelLogIn extends InitApp {
     private JButton createUserButton;
     private JButton createGuideButton;
     private JPasswordField txtPassword;
-    private JButton runTestsButton;
     private UserJsonRepository userJsonRepository;
     private GuideJsonRepository guideJsonRepository;
-    private UserJsonRepository adminJsonRepository;
+    private AdminJsonRepository adminJsonRepository;
 
     public StartPanelLogIn(String title) {
         super(title);
         start_gui(mainPanel, 800, 400);
 
-        userJsonRepository = new UserJsonRepository("/database/user.json");
-        guideJsonRepository = new GuideJsonRepository("/database/guide.json");
-        adminJsonRepository = new UserJsonRepository("/database/admin.json");
+        guideJsonRepository = new GuideJsonRepository();
+        adminJsonRepository = new AdminJsonRepository();
+        userJsonRepository = new UserJsonRepository();
 
         logInAsUserButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int userId = userJsonRepository.checkUserExistans(txtUsername.getText());
+                int userId = userJsonRepository.checkUserExistansReturnProfileId(txtUsername.getText());
                 if (userId != 0) {
                     LoggedInProfile.getProfile().logIn(userId);
                     new_panel(StartPanelLogIn.this, new MainPageUser("Main page User"));
@@ -50,7 +49,7 @@ public class StartPanelLogIn extends InitApp {
         logInAsGuideButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int guideId = guideJsonRepository.checkGuideExistans(txtUsername.getText());
+                int guideId = guideJsonRepository.checkGuideExistansReturnProfileId(txtUsername.getText());
                 if (guideId != 0) {
                     LoggedInProfile.getProfile().logIn(guideId);
                     new_panel(StartPanelLogIn.this, new MainPageGuide("Main Page Guide"));
@@ -62,7 +61,7 @@ public class StartPanelLogIn extends InitApp {
         logInAsAdminButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int adminId = adminJsonRepository.checkUserExistans(txtUsername.getText());
+                int adminId = adminJsonRepository.checkAdminExistansReturnProfileId(txtUsername.getText());
                 if (adminId != 0) {
                     LoggedInProfile.getProfile().logIn(adminId);
                     new_panel(StartPanelLogIn.this, new MainPageAdmin("Main page"));
@@ -81,6 +80,40 @@ public class StartPanelLogIn extends InitApp {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new_panel(StartPanelLogIn.this, new CreateGuide("Create Guide"));
+            }
+        });
+
+        txtUsername.setCaretPosition(0);
+        txtUsername.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                if (txtUsername.getText().equals("Check instructions below")) {
+                    txtUsername.setText("");
+                }
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                if (txtUsername.getText().equals("")) {
+                    txtUsername.setText("Check instructions below");
+                    txtUsername.setCaretPosition(0);
+                }
+            }
+        });
+        txtUsername.addFocusListener(new FocusListener() {
+            @Override
+            public void focusGained(FocusEvent e) {
+                if (txtUsername.getText().equals("Check instructions below")) {
+                    txtUsername.setCaretPosition(0);
+                }
+            }
+
+            @Override
+            public void focusLost(FocusEvent e) {
             }
         });
     }

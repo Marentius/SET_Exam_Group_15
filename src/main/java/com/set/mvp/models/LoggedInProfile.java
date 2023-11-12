@@ -25,8 +25,5 @@ public class LoggedInProfile {
         return LoggedInProfileId;
     }
 
-    public boolean isLoggedIn() {
-        return LoggedInProfileId != -1;
-    }
 }
 

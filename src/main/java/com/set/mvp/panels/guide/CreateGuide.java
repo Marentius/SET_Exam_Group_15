@@ -1,6 +1,7 @@
 package com.set.mvp.panels.guide;
 
 import com.set.mvp.models.Guide;
+import com.set.mvp.models.LoggedInProfile;
 import com.set.mvp.panels.InitApp;
 import com.set.mvp.panels.StartPanelLogIn;
 import com.set.mvp.panels.admin.MainPageAdmin;
@@ -25,20 +26,32 @@ public class CreateGuide extends InitApp {
 
     public CreateGuide(String title) {
         super(title);
-        start_gui(mainPanel, 800,400);
+        start_gui(mainPanel, 800,450);
 
-        guideJsonRepository = new GuideJsonRepository("/database/guide.json");
+        guideJsonRepository = new GuideJsonRepository();
         createGuideButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                guideJsonRepository.createGuide(txtUsername.getText(), txtPassword.getText(), txtFirstName.getText(), txtLastName.getText(), txtEmail.getText());
-                new_panel(CreateGuide.this, new MainPageGuide("Main Page Guide"));
+                if (txtFirstName.getText().isEmpty()
+                        || txtUsername.getText().isEmpty()
+                        || txtEmail.getText().isEmpty()
+                        || txtLastName.getText().isEmpty()
+                        || txtPassword.getText().isEmpty()){
+                    JOptionPane.showMessageDialog(mainPanel, "Failed to create guide. Fields can not be empty");
+                } else {
+                    Guide guide = guideJsonRepository.createGuide(txtUsername.getText(), txtPassword.getText(), txtFirstName.getText(), txtLastName.getText(), txtEmail.getText());
+                    JOptionPane.showMessageDialog(mainPanel, "The user: " + guide.getUsername() + " was successfully created.");
+                    int userId = guideJsonRepository.checkGuideExistansReturnProfileId(txtUsername.getText());
+                    LoggedInProfile.getProfile().logIn(userId);
+                    new_panel(CreateGuide.this, new MainPageGuide("Main Page Guide"));
+                }
             }
         });
         logOutButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new_panel(CreateGuide.this, new StartPanelLogIn("Log In"));
+                LoggedInProfile.getProfile().logOut();
             }
         });
     }

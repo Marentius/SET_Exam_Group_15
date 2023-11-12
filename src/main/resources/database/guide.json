@@ -15,19 +15,27 @@
   "profileId" : 4,
   "trips" : [ ]
 }, {
-  "firstname" : "Guide",
-  "lastname" : "Guide",
-  "email" : "Guide",
-  "username" : "Guide",
-  "password" : "Guide",
-  "profileId" : 5,
-  "trips" : [ ]
-}, {
   "firstname" : "Test",
-  "lastname" : "Test",
+  "lastname" : "Tester",
   "email" : "Test@Test.com",
   "username" : "Test",
-  "password" : "Test",
+  "password" : "Test987",
   "profileId" : 6,
+  "trips" : [ ]
+}, {
+  "firstname" : "Guide",
+  "lastname" : "Guide",
+  "email" : "Guide@email.com",
+  "username" : "Guide",
+  "password" : "Guide",
+  "profileId" : 7,
+  "trips" : [ ]
+}, {
+  "firstname" : "Stavros",
+  "lastname" : "Stavros",
+  "email" : "Stavros",
+  "username" : "Stavros",
+  "password" : "Stavros",
+  "profileId" : 8,
   "trips" : [ ]
 } ]

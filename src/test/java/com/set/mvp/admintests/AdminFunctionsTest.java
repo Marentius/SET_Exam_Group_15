@@ -4,6 +4,7 @@ package com.set.mvp.admintests;
 import com.set.mvp.models.Guide;
 import com.set.mvp.models.Trip;
 import com.set.mvp.models.User;
+import com.set.mvp.repository.AdminJsonRepository;
 import com.set.mvp.repository.GuideJsonRepository;
 import com.set.mvp.repository.TripJsonRepository;
 import com.set.mvp.repository.UserJsonRepository;
@@ -16,16 +17,18 @@ import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class AdminFunctionsTest {
-    GuideJsonRepository guideJsonRepository;
-    UserJsonRepository userJsonRepository;
-    TripJsonRepository tripJsonRepository;
+    private GuideJsonRepository guideJsonRepository;
+    private UserJsonRepository userJsonRepository;
+    private TripJsonRepository tripJsonRepository;
+    private AdminJsonRepository adminJsonRepository;
 
 
     @BeforeEach
     public void init() {
-        guideJsonRepository = new GuideJsonRepository("/database/guide.json");
-        userJsonRepository = new UserJsonRepository("/database/user.json");
-        tripJsonRepository = new TripJsonRepository("/database/trip.json");
+        guideJsonRepository = new GuideJsonRepository();
+        userJsonRepository = new UserJsonRepository();
+        tripJsonRepository = new TripJsonRepository();
+        adminJsonRepository = new AdminJsonRepository();
 
     }
 
@@ -45,6 +48,7 @@ public class AdminFunctionsTest {
         }
         assertFalse(isProfileInIdList);
     }
+
     @Test
     public void adminCanDeleteUserTest() {
         User createdUser = userJsonRepository.createUser("User", "User", "User", "User", "User", null);
@@ -62,7 +66,7 @@ public class AdminFunctionsTest {
 
     @Test
     public void adminCanDeleteTripTest() {
-        Trip createdTrip = tripJsonRepository.addTrip("Trip", "Trip", "Trip", null, 1000, 100, null, null);
+        Trip createdTrip = tripJsonRepository.addTrip("Trip", "Trip", "Trip", null, 1000, 100, null);
         boolean isTripIdInList = false;
         tripJsonRepository.deleteTrip(createdTrip.getTripId());
         for (Trip trip : tripJsonRepository.getTrips()) {
@@ -75,23 +79,29 @@ public class AdminFunctionsTest {
     }
 
 
-
     @Test
-    public void adminCanViewAllUsers(){
+    public void adminCanViewAllUsers() {
         ArrayList<User> users = userJsonRepository.getUsers();
         assertArrayEquals(users.toArray(), userJsonRepository.getUsers().toArray());
     }
-  @Test
+
+    @Test
     public void adminCanViewAllGuides() {
         ArrayList<Guide> guides = guideJsonRepository.getGuides();
         assertArrayEquals(guides.toArray(), guideJsonRepository.getGuides().toArray());
 
-}
+    }
 
-@Test
-    public void adminCanViewAllTrips(){
+    @Test
+    public void adminCanViewAllTrips() {
         ArrayList<Trip> trips = tripJsonRepository.getTrips();
         assertArrayEquals(trips.toArray(), tripJsonRepository.getTrips().toArray());
+    }
+
+    @Test
+    public void adminExists(){
+        assertEquals(adminJsonRepository.checkAdminExistansReturnProfileId("Admin"), 1);
+    }
 }
-}
+
 

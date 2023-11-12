@@ -10,7 +10,6 @@ public class Trip {
     private double price;
     private int duration, tripId;
     private LocalDate date;
-    private ArrayList<String> reviews;
 
     public Trip() {
     }
@@ -20,7 +19,7 @@ public class Trip {
         this.price = price;
     }
 
-    public Trip(int tripId, String title, String location, String description, Guide guide, double price, int duration, LocalDate date, ArrayList<String> reviews) {
+    public Trip(int tripId, String title, String location, String description, Guide guide, double price, int duration, LocalDate date) {
         this.tripId = tripId;
         this.title = title;
         this.location = location;
@@ -29,7 +28,6 @@ public class Trip {
         this.price = price;
         this.duration = duration;
         this.date = date;
-        this.reviews = reviews;
     }
 
     public String getLocation() {
@@ -80,14 +78,6 @@ public class Trip {
         this.date = date;
     }
 
-    public ArrayList<String> getReviews() {
-        return reviews;
-    }
-
-    public void setReviews(ArrayList<String> reviews) {
-        this.reviews = reviews;
-    }
-
     public String getTitle() {
         return title;
     }
@@ -107,6 +97,6 @@ public class Trip {
 
     @Override
     public String toString() {
-        return "Location: " + location + ", Price: " + price + "kr, Description: " + description + ", Guide: " + guide.getFirstname() + " " + guide.getLastname();
+        return "Title: " + getTitle() + ", Location: " + location + ", Price: " + price + "kr, Description: " + description + ", Guide: " + guide.getFirstname() + " " + guide.getLastname();
     }
 }

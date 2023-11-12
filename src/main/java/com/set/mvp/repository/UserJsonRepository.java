@@ -7,10 +7,7 @@ import com.set.mvp.models.Trip;
 import com.set.mvp.models.User;
 import com.set.mvp.repository.interfaces.UserRepository;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -18,10 +15,9 @@ public class UserJsonRepository implements UserRepository {
 
     private ArrayList<User> userArrayList = new ArrayList<>();
 
-    public UserJsonRepository(String filename) {
-        readFromJsonFile(filename);
+    public UserJsonRepository() {
+        readFromUserJsonFile();
     }
-
     @Override
     public ArrayList<User> getUsers() {
         ArrayList<User> users = new ArrayList<>(userArrayList);
@@ -29,14 +25,28 @@ public class UserJsonRepository implements UserRepository {
     }
 
     @Override
+    public User getLoggedInUser() {
+        int profileId = LoggedInProfile.getProfile().getLoggedInProfileId();
+
+        for (User user : userArrayList) {
+            if (user.getProfileId() == profileId)
+                return user;
+        }
+        return null;
+    }
+
+    @Override
     public User createUser(String username, String password, String firstname, String lastname, String email, ArrayList<Trip> trips) {
-        User newUser = new User(username, password, firstname, lastname, email, generateUnicProfileId(), trips);
+        User newUser = null;
 
-        userArrayList.add(newUser);
-
-        writeToJsonFile("/src/main/resources/database/user.json");
-
-        System.out.println("User successfully created");
+        if (!username.isEmpty() && !password.isEmpty() && !firstname.isEmpty() && !lastname.isEmpty() && !email.isEmpty()){
+            newUser = new User(username, password, firstname, lastname, email, generateUnicUserProfileId(), trips);
+            userArrayList.add(newUser);
+            writeToUserJsonFile();
+            System.out.println("User successfully created");
+        } else {
+            System.out.println("Failed to create guide. Fields can not be empty");
+        }
 
         return newUser;
     }
@@ -45,8 +55,11 @@ public class UserJsonRepository implements UserRepository {
     public void deleteUser(int profileId) {
 
         User userToDelete = null;
+
         for (User user : userArrayList) {
+
             if (user.getProfileId() == profileId) {
+
                 userToDelete = user;
                 break;
             }
@@ -54,7 +67,7 @@ public class UserJsonRepository implements UserRepository {
 
         if (userToDelete != null) {
             userArrayList.remove(userToDelete);
-            writeToJsonFile("/src/main/resources/database/user.json");
+            writeToUserJsonFile();
             System.out.println("User with ID " + profileId + " was successfully deleted");
         } else {
             System.out.println("User with ID " + profileId + " not found.");
@@ -64,97 +77,87 @@ public class UserJsonRepository implements UserRepository {
     @Override
     public void editUserInfo(String username, String password, String firstname, String lastname, String email) {
 
-        int profileId = LoggedInProfile.getProfile().getLoggedInProfileId();
+        if (!username.isEmpty())
+            getLoggedInUser().setUsername(username);
 
-        for (User user : userArrayList) {
-            if (user.getProfileId() == profileId){
-                if (!username.isEmpty())
-                    user.setUsername(username);
-                if (!password.isEmpty())
-                    user.setPassword(password);
-                if (!firstname.isEmpty())
-                    user.setFirstname(firstname);
-                if (!lastname.isEmpty())
-                    user.setLastname(lastname);
-                if (!email.isEmpty())
-                    user.setEmail(email);
+        if (!password.isEmpty())
+            getLoggedInUser().setPassword(password);
 
-                writeToJsonFile("/src/main/resources/database/user.json");
+        if (!firstname.isEmpty())
+            getLoggedInUser().setFirstname(firstname);
 
-                System.out.println("User info successfully edited");
-            }
+        if (!lastname.isEmpty())
+            getLoggedInUser().setLastname(lastname);
+
+        if (!email.isEmpty())
+            getLoggedInUser().setEmail(email);
+
+
+        writeToUserJsonFile();
+        System.out.println("User info successfully edited");
+
         }
-    }
 
     @Override
     public void bookTrip(Trip trip) {
-        int profileId = LoggedInProfile.getProfile().getLoggedInProfileId();
-
-        for (User user : userArrayList) {
-            if (user.getProfileId() == profileId){
-                user.addTrip(trip);
-
-                writeToJsonFile("/src/main/resources/database/user.json");
-
-                System.out.println("The trip: " + trip.getTitle() + " was successfully added to your trips");
-            }
-        }
+        getLoggedInUser().getTrips().add(trip);
+        writeToUserJsonFile();
+        System.out.println("The trip: " + trip.getTitle() + " was successfully added to your trips");
     }
+
 
     @Override
     public ArrayList<Trip> getTrips(int profileId) {
-        ArrayList<Trip> trips = new ArrayList<>();
-        for (User user : userArrayList) {
-            if (user.getProfileId() == profileId){
-                trips.addAll(user.getTrips());
-            }
-        }
-        return trips;
+        return getLoggedInUser().getTrips();
     }
 
     @Override
     public void unbookTrip(Trip trip) {
-        int profileId = LoggedInProfile.getProfile().getLoggedInProfileId();
-
-        for (User user : userArrayList) {
-            if (user.getProfileId() == profileId){
-                user.getTrips().remove(trip);
-
-                writeToJsonFile("/src/main/resources/database/user.json");
-
-                System.out.println("The trip: " + trip.getTitle() + " was successfully unbooked");
-            }
-        }
+        getLoggedInUser().getTrips().remove(trip);
+        writeToUserJsonFile();
+        System.out.println("The trip: " + trip.getTitle() + " was successfully unbooked");
     }
 
-
-    public int generateUnicProfileId() {
+    public int generateUnicUserProfileId() {
         int newID = 0;
+
         for (User user : userArrayList) {
+
             if (user.getProfileId() > newID) {
+
                 newID = user.getProfileId();
             }
         }
 
         newID++;
 
-        while (idExists(newID)){
+        while (userProfileIdExists(newID)){
             newID++;
         }
         return newID;
     }
 
-    private boolean idExists(int id) {
+    private boolean userProfileIdExists(int id) {
+
         for (User user : userArrayList) {
+
             if (user.getProfileId() == id) {
+
                 return true;
             }
         }
+
         return false;
     }
-    public int checkUserExistans(String username) {
+
+    public int checkUserExistansReturnProfileId(String username) {
+
+        readFromUserJsonFile();
+
         for (User user : userArrayList) {
+
             if (user.getUsername().equals(username)){
+
                 return user.getProfileId();
             }
         }
@@ -162,22 +165,12 @@ public class UserJsonRepository implements UserRepository {
         return 0;
     }
 
-    public ArrayList<User> readFromJsonFile(String filename) {
+    public void writeToUserJsonFile() {
+
+        String filename = "/src/main/resources/database/user.json";
+
         ObjectMapper objectMapper = new ObjectMapper().registerModule(new JavaTimeModule());
 
-        try (InputStream input = getClass().getResourceAsStream(filename)) {
-            if (input == null) {
-                throw new FileNotFoundException("Could not find file " + filename);
-            }
-            User[] userArray = objectMapper.readValue(input, User[].class);
-            userArrayList.addAll(Arrays.asList(userArray));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return userArrayList;
-    }
-    private void writeToJsonFile(String filename) {
-        ObjectMapper objectMapper = new ObjectMapper().registerModule(new JavaTimeModule());
         try {
             String projectPath = new File(".").getAbsolutePath();
             String fullPath = projectPath + filename;
@@ -186,8 +179,19 @@ public class UserJsonRepository implements UserRepository {
             e.printStackTrace();
         }
     }
+    public void readFromUserJsonFile() {
 
+        String filename = "src/main/resources/database/user.json";
 
+        ObjectMapper objectMapper = new ObjectMapper().registerModule(new JavaTimeModule());
 
+        userArrayList.clear();
 
+        try (InputStream input = new FileInputStream(filename)) {
+            User[] userArray = objectMapper.readValue(input, User[].class);
+            userArrayList.addAll(Arrays.asList(userArray));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

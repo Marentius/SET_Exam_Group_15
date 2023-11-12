@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="com.set.mvp.panels.StartPanelLogIn">
-  <grid id="27dc6" binding="mainPanel" layout-manager="GridLayoutManager" row-count="6" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+  <grid id="27dc6" binding="mainPanel" layout-manager="GridLayoutManager" row-count="8" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
-      <xy x="20" y="20" width="500" height="400"/>
+      <xy x="20" y="20" width="609" height="400"/>
     </constraints>
     <properties>
       <foreground color="-4933445"/>
+      <toolTipText value=""/>
     </properties>
     <border type="none"/>
     <children>
@@ -33,7 +34,7 @@
           </grid>
         </constraints>
         <properties>
-          <text value=""/>
+          <text value="Check instructions below"/>
         </properties>
       </component>
       <component id="5b4a7" class="javax.swing.JLabel">
@@ -50,7 +51,9 @@
             <preferred-size width="150" height="-1"/>
           </grid>
         </constraints>
-        <properties/>
+        <properties>
+          <text value=""/>
+        </properties>
       </component>
       <component id="b09dc" class="javax.swing.JButton" binding="logInAsAdminButton" default-binding="true">
         <constraints>
@@ -58,14 +61,6 @@
         </constraints>
         <properties>
           <text value="Log In As Admin"/>
-        </properties>
-      </component>
-      <component id="a282a" class="javax.swing.JButton" binding="runTestsButton" default-binding="true">
-        <constraints>
-          <grid row="4" column="3" row-span="2" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="Run tests"/>
         </properties>
       </component>
       <component id="bfc4f" class="javax.swing.JButton" binding="logInAsUserButton" default-binding="true">
@@ -84,6 +79,14 @@
           <text value="Create User"/>
         </properties>
       </component>
+      <component id="34ee2" class="javax.swing.JButton" binding="logInAsGuideButton" default-binding="true">
+        <constraints>
+          <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Log In As Guide"/>
+        </properties>
+      </component>
       <component id="afafc" class="javax.swing.JButton" binding="createGuideButton" default-binding="true">
         <constraints>
           <grid row="4" column="2" row-span="2" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
@@ -92,12 +95,36 @@
           <text value="Create Guide"/>
         </properties>
       </component>
-      <component id="34ee2" class="javax.swing.JButton" binding="logInAsGuideButton" default-binding="true">
+      <component id="4fab7" class="javax.swing.JLabel">
         <constraints>
-          <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Log In As Guide"/>
+          <text value="For User login use &quot;Test&quot;"/>
+        </properties>
+      </component>
+      <component id="ee95f" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="6" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="For Guide login use &quot;Test&quot;"/>
+        </properties>
+      </component>
+      <component id="674d8" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="6" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="For Admin login use &quot;Admin&quot;"/>
+        </properties>
+      </component>
+      <component id="30c2" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="7" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Password is not necessary"/>
         </properties>
       </component>
     </children>

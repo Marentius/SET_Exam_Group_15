@@ -4,10 +4,7 @@ import com.set.mvp.panels.admin.MainPageAdmin;
 import com.set.mvp.panels.admin.ViewGuidesAdmin;
 import com.set.mvp.panels.admin.ViewTripsAdmin;
 import com.set.mvp.panels.admin.ViewUsersAdmin;
-import com.set.mvp.panels.guide.AddTripPage;
-import com.set.mvp.panels.guide.CreateGuide;
-import com.set.mvp.panels.guide.EditGuidePage;
-import com.set.mvp.panels.guide.MainPageGuide;
+import com.set.mvp.panels.guide.*;
 import com.set.mvp.panels.user.*;
 
 import javax.swing.*;
@@ -23,6 +20,15 @@ public class InitApp extends JFrame {
         setContentPane(mainPanel);
         setVisible(true);
         setTitle("SET MVP");
+    }
+
+    public void refreshGUI(JPanel currentPanel){
+        if (currentPanel != null) {
+            remove(currentPanel);
+        }
+        setContentPane(currentPanel);
+        revalidate();
+        repaint();
     }
 
     public void new_panel(StartPanelLogIn old, MainPageUser neww){
@@ -172,6 +178,18 @@ public class InitApp extends JFrame {
         neww.setVisible(true);
     }
     public void new_panel(ViewAndManageUserTrips old, MainPageUser neww){
+        old.setVisible(false);
+        neww.setVisible(true);
+    }
+    public void new_panel(MainPageGuide old, ViewAndManageGuideTrips neww){
+        old.setVisible(false);
+        neww.setVisible(true);
+    }
+    public void new_panel(ViewAndManageGuideTrips old, MainPageGuide neww){
+        old.setVisible(false);
+        neww.setVisible(true);
+    }
+    public void new_panel(ViewAndManageGuideTrips old, StartPanelLogIn neww){
         old.setVisible(false);
         neww.setVisible(true);
     }

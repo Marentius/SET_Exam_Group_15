@@ -1,4 +1,4 @@
-package com.set.mvp.panels.admin;
+package com.set.mvp.panels.guide;
 
 import com.set.mvp.models.LoggedInProfile;
 import com.set.mvp.models.Trip;
@@ -11,7 +11,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-public class ViewTripsAdmin extends InitApp {
+public class ViewAndManageGuideTrips extends InitApp {
     private JList<Trip> tripJList;
     private JPanel mainPanel;
     private JButton deleteTripButton;
@@ -20,7 +20,7 @@ public class ViewTripsAdmin extends InitApp {
     private DefaultListModel<Trip> listModel;
     private TripJsonRepository tripJsonRepository;
 
-    public ViewTripsAdmin(String title) {
+    public ViewAndManageGuideTrips(String title) {
         super(title);
         start_gui(mainPanel, 1500, 600);
 
@@ -29,18 +29,18 @@ public class ViewTripsAdmin extends InitApp {
         listModel = new DefaultListModel<>();
         tripJList.setModel(listModel);
 
-        updateTripList();
+        updateGuideTripList(LoggedInProfile.getProfile().getLoggedInProfileId());
 
         homeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new_panel(ViewTripsAdmin.this, new MainPageAdmin("Main Page"));
+                new_panel(ViewAndManageGuideTrips.this, new MainPageGuide("Main Page Guide"));
             }
         });
         logOutButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new_panel(ViewTripsAdmin.this, new StartPanelLogIn("Log In"));
+                new_panel(ViewAndManageGuideTrips.this, new StartPanelLogIn("Log In"));
                 LoggedInProfile.getProfile().logOut();
             }
         });
@@ -52,20 +52,23 @@ public class ViewTripsAdmin extends InitApp {
                 if (selectedTrip != null){
                     tripJsonRepository.deleteTrip(selectedTrip.getTripId());
                     tripJsonRepository.deleteTripFromAllUserTripLists(selectedTrip.getTripId());
-                    JOptionPane.showMessageDialog(mainPanel, "The trip: " + tripJList.getSelectedValue().getTitle() + " was successfully deleted, and in all users tripslist who has booked the trip.");
+                    JOptionPane.showMessageDialog(mainPanel, "The trip: " + tripJList.getSelectedValue().getTitle() + " was successfully deleted in your trips, and in all users tripslist who has booked the trip.");
 
-                    updateTripList();
+
+                    updateGuideTripList(LoggedInProfile.getProfile().getLoggedInProfileId());
                 } else {
                     JOptionPane.showMessageDialog(mainPanel, "Please select a trip to delete");
                 }
             }
         });
     }
-    private void updateTripList() {
-        ArrayList<Trip> trips = tripJsonRepository.getTrips();
+    private void updateGuideTripList(int specificGuideID) {
+        ArrayList<Trip> allTrips = tripJsonRepository.getTrips();
         listModel.clear();
-        for (Trip trip : trips) {
-            listModel.addElement(trip);
+        for (Trip trip : allTrips) {
+            if (trip.getGuide().getProfileId() == specificGuideID) {
+                listModel.addElement(trip);
+            }
         }
     }
 

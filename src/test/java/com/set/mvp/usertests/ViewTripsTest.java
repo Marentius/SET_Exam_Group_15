@@ -15,7 +15,7 @@ public class ViewTripsTest {
 
     @BeforeEach
     public void init(){
-        tripJsonRepository = new TripJsonRepository("/database/trip.json");
+        tripJsonRepository = new TripJsonRepository();
     }
     @Test
     public void user_can_view_all_trips(){

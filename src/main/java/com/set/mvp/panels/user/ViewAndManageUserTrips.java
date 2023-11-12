@@ -17,14 +17,15 @@ public class ViewAndManageUserTrips extends InitApp {
     private JButton unbookTripButton;
     private JButton homeButton;
     private JButton logOutButton;
+    private JButton payTripButton;
     private DefaultListModel<Trip> listModel;
     private UserJsonRepository userJsonRepository;
 
     public ViewAndManageUserTrips(String title) {
         super(title);
-        start_gui(mainPanel, 1500,400);
+        start_gui(mainPanel, 1500,600);
 
-        userJsonRepository = new UserJsonRepository("/database/user.json");
+        userJsonRepository = new UserJsonRepository();
 
         listModel = new DefaultListModel<>();
         userTripList.setModel(listModel);
@@ -33,9 +34,15 @@ public class ViewAndManageUserTrips extends InitApp {
         unbookTripButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                userJsonRepository.unbookTrip(userTripList.getSelectedValue());
-                JOptionPane.showMessageDialog(ViewAndManageUserTrips.this, "The trip: " + userTripList.getSelectedValue().getTitle() + " was successfully unbooked");
-                updateTripList();
+                Trip selectedTrip = userTripList.getSelectedValue();
+
+                if (selectedTrip != null){
+                    userJsonRepository.unbookTrip(userTripList.getSelectedValue());
+                    JOptionPane.showMessageDialog(ViewAndManageUserTrips.this, "The trip: " + userTripList.getSelectedValue().getTitle() + " was successfully unbooked");
+                    updateTripList();
+                } else {
+                    JOptionPane.showMessageDialog(mainPanel,"Please select a trip to unbook");
+                }
             }
         });
         homeButton.addActionListener(new ActionListener() {
@@ -49,6 +56,17 @@ public class ViewAndManageUserTrips extends InitApp {
             public void actionPerformed(ActionEvent e) {
                 new_panel(ViewAndManageUserTrips.this, new StartPanelLogIn("Log in"));
                 LoggedInProfile.getProfile().logOut();
+            }
+        });
+        payTripButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Trip selectedTrip = userTripList.getSelectedValue();
+                if (selectedTrip != null)
+                    JOptionPane.showMessageDialog(mainPanel, "The trip " + selectedTrip.getTitle() + " was successfully payed and the cost was " + selectedTrip.getPrice() + " kr. ");
+                else{
+                    JOptionPane.showMessageDialog(mainPanel,"Please select a trip to pay.");
+                }
             }
         });
     }

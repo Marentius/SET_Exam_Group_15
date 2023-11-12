@@ -32,10 +32,10 @@ public class AddTripPage extends InitApp {
 
     public AddTripPage(String title) {
         super(title);
-        start_gui(mainPanel,800,400);
+        start_gui(mainPanel,800,450);
 
-        tripJsonRepository = new TripJsonRepository("/database/trip.json");
-        guideJsonRepository = new GuideJsonRepository("/database/guide.json");
+        tripJsonRepository = new TripJsonRepository();
+        guideJsonRepository = new GuideJsonRepository();
 
         homeButton.addActionListener(new ActionListener() {
             @Override
@@ -47,6 +47,7 @@ public class AddTripPage extends InitApp {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new_panel(AddTripPage.this, new StartPanelLogIn("Log In"));
+                LoggedInProfile.getProfile().logOut();
             }
         });
         addTripButton.addActionListener(new ActionListener() {
@@ -64,19 +65,19 @@ public class AddTripPage extends InitApp {
                                 || "".equals(dayComboBox.getSelectedItem())){
                             JOptionPane.showMessageDialog(mainPanel, "All fields must be provided and cannot be empty or null.");
                             return;
+                        } else {
+                            tripJsonRepository.addTrip(txtTitle.getText(),
+                                    txtLocation.getText(),
+                                    txtDescription.getText(),
+                                    guide,
+                                    Double.parseDouble((String) priceComboBox.getSelectedItem()),
+                                    Integer.parseInt((String) durationComboBox.getSelectedItem()),
+                                    LocalDate.of(Integer.parseInt((String) yearComboBox.getSelectedItem()), Integer.parseInt((String) MonthComboBox.getSelectedItem()), Integer.parseInt((String) dayComboBox.getSelectedItem())));
+
+                            JOptionPane.showMessageDialog(mainPanel, "The trip: " + txtTitle.getText() + " was successfully added.");
+
+                            new_panel(AddTripPage.this, new MainPageGuide("Main Page Guide"));
                         }
-                        tripJsonRepository.addTrip(txtTitle.getText(),
-                                txtLocation.getText(),
-                                txtDescription.getText(),
-                                guide,
-                                Double.parseDouble((String) priceComboBox.getSelectedItem()),
-                                Integer.parseInt((String) durationComboBox.getSelectedItem()),
-                                LocalDate.of(Integer.parseInt((String) yearComboBox.getSelectedItem()), Integer.parseInt((String) MonthComboBox.getSelectedItem()), Integer.parseInt((String) dayComboBox.getSelectedItem())),
-                                new ArrayList<>());
-
-                        JOptionPane.showMessageDialog(mainPanel, "The trip: " + txtTitle.getText() + " was successfully added.");
-
-                        new_panel(AddTripPage.this, new MainPageGuide("Main Page Guide"));
                     }
                 }
             }
