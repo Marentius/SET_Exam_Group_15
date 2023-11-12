@@ -16,10 +16,10 @@
   "trips" : [ ]
 }, {
   "firstname" : "Test",
-  "lastname" : "Test",
+  "lastname" : "Testesen",
   "email" : "Test@Test.com",
   "username" : "Test",
-  "password" : "Test",
+  "password" : "Test987",
   "profileId" : 6,
   "trips" : [ ]
 }, {

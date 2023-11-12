@@ -3,8 +3,6 @@ package com.set.mvp.panels.user;
 import com.set.mvp.models.LoggedInProfile;
 import com.set.mvp.panels.InitApp;
 import com.set.mvp.panels.StartPanelLogIn;
-import com.set.mvp.panels.guide.EditGuidePage;
-import com.set.mvp.panels.guide.MainPageGuide;
 import com.set.mvp.repository.UserJsonRepository;
 
 import javax.swing.*;
@@ -21,13 +19,25 @@ public class EditUserPage extends InitApp {
     private JTextField txtNewLastName;
     private JTextField txtNewEmail;
     private JPanel mainPanel;
+    private JLabel username;
+    private JLabel password;
+    private JLabel firstName;
+    private JLabel lastName;
+    private JLabel email;
     private UserJsonRepository userJsonRepository;
 
     public EditUserPage(String title) {
         super(title);
-        start_gui(mainPanel, 800, 400);
+        start_gui(mainPanel, 800, 500);
 
         userJsonRepository = new UserJsonRepository();
+
+        username.setText(userJsonRepository.getLoggedInUser().getUsername());
+        password.setText(userJsonRepository.getLoggedInUser().getPassword());
+        firstName.setText(userJsonRepository.getLoggedInUser().getFirstname());
+        lastName.setText(userJsonRepository.getLoggedInUser().getLastname());
+        email.setText(userJsonRepository.getLoggedInUser().getEmail());
+
         homeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

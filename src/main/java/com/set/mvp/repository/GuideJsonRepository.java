@@ -16,6 +16,19 @@ public class GuideJsonRepository implements GuideRepository {
     public GuideJsonRepository() {
         readFromGuideJsonFile();
     }
+
+    @Override
+    public Guide getLoggedInGuide() {
+        int profileId = LoggedInProfile.getProfile().getLoggedInProfileId();
+
+        for (Guide guide : guideArrayList) {
+            if (guide.getProfileId() == profileId){
+                return guide;
+            }
+        }
+        return null;
+    }
+
     @Override
     public ArrayList<Guide> getGuides() {
         ArrayList<Guide> guides = new ArrayList<>(guideArrayList);
@@ -23,21 +36,28 @@ public class GuideJsonRepository implements GuideRepository {
     }
     @Override
     public Guide createGuide(String username, String password, String firstname, String lastname, String email) {
-        Guide newGuide = new Guide(username, password, firstname, lastname, email, generateUnicGuideProfileId());
+        Guide newGuide = null;
 
-        guideArrayList.add(newGuide);
-
-        writeToGuideJsonFile();
-
-        System.out.println("Guide successfully created");
+        if (!username.isEmpty() && !password.isEmpty() && !firstname.isEmpty() && !lastname.isEmpty() && !email.isEmpty()){
+            newGuide = new Guide(username, password, firstname, lastname, email, generateUnicGuideProfileId());
+            guideArrayList.add(newGuide);
+            writeToGuideJsonFile();
+            System.out.println("Guide successfully created");
+        } else {
+            System.out.println("Failed to create guide. Fields can not be empty");
+        }
 
         return newGuide;
     }
     @Override
     public void deleteGuide(int profileId) {
+
         Guide guideToDelete = null;
+
         for (Guide guide : guideArrayList) {
+
             if (guide.getProfileId() == profileId) {
+
                 guideToDelete = guide;
                 break;
             }
@@ -53,31 +73,33 @@ public class GuideJsonRepository implements GuideRepository {
     }
     @Override
     public void editGuideInfo(String username, String password, String firstname, String lastname, String email) {
-        int profileId = LoggedInProfile.getProfile().getLoggedInProfileId();
 
-        for (User user : guideArrayList) {
-            if (user.getProfileId() == profileId){
-                if (!username.isEmpty())
-                    user.setUsername(username);
-                if (!password.isEmpty())
-                    user.setPassword(password);
-                if (!firstname.isEmpty())
-                    user.setFirstname(firstname);
-                if (!lastname.isEmpty())
-                    user.setLastname(lastname);
-                if (!email.isEmpty())
-                    user.setEmail(email);
+        if (!username.isEmpty())
+            getLoggedInGuide().setUsername(username);
 
-                writeToGuideJsonFile();
+        if (!password.isEmpty())
+            getLoggedInGuide().setPassword(password);
 
-                System.out.println("User info successfully edited");
-            }
-        }
+        if (!firstname.isEmpty())
+            getLoggedInGuide().setFirstname(firstname);
+
+        if (!lastname.isEmpty())
+            getLoggedInGuide().setLastname(lastname);
+
+        if (!email.isEmpty())
+            getLoggedInGuide().setEmail(email);
+
+
+        writeToGuideJsonFile();
+        System.out.println("User info successfully edited");
     }
     public int generateUnicGuideProfileId() {
         int newID = 0;
+
         for (Guide guide : guideArrayList) {
+
             if (guide.getProfileId() > newID) {
+
                 newID = guide.getProfileId();
             }
         }
@@ -90,17 +112,24 @@ public class GuideJsonRepository implements GuideRepository {
         return newID;
     }
     private boolean guideProfileIdExists(int id) {
+
         for (User user : guideArrayList) {
+
             if (user.getProfileId() == id) {
+
                 return true;
             }
         }
         return false;
     }
     public int checkGuideExistansReturnProfileId(String username) {
+
         readFromGuideJsonFile();
+
         for (User user : guideArrayList) {
+
             if (user.getUsername().equals(username)){
+
                 return user.getProfileId();
             }
         }
@@ -108,9 +137,11 @@ public class GuideJsonRepository implements GuideRepository {
         return 0;
     }
     private void writeToGuideJsonFile() {
+
         String filename = "/src/main/resources/database/guide.json";
 
         ObjectMapper objectMapper = new ObjectMapper().registerModule(new JavaTimeModule());
+
         try {
             String projectPath = new File(".").getAbsolutePath();
             String fullPath = projectPath + filename;
@@ -120,8 +151,11 @@ public class GuideJsonRepository implements GuideRepository {
         }
     }
     public ArrayList<Guide> readFromGuideJsonFile() {
+
         String filename = "src/main/resources/database/guide.json";
+
         ObjectMapper objectMapper = new ObjectMapper().registerModule(new JavaTimeModule());
+
         guideArrayList.clear();
 
         try (InputStream input = new FileInputStream(filename)){

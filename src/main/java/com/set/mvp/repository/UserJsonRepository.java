@@ -25,14 +25,28 @@ public class UserJsonRepository implements UserRepository {
     }
 
     @Override
+    public User getLoggedInUser() {
+        int profileId = LoggedInProfile.getProfile().getLoggedInProfileId();
+
+        for (User user : userArrayList) {
+            if (user.getProfileId() == profileId)
+                return user;
+        }
+        return null;
+    }
+
+    @Override
     public User createUser(String username, String password, String firstname, String lastname, String email, ArrayList<Trip> trips) {
-        User newUser = new User(username, password, firstname, lastname, email, generateUnicProfileId(), trips);
+        User newUser = null;
 
-        userArrayList.add(newUser);
-
-        writeToUserJsonFile();
-
-        System.out.println("User successfully created");
+        if (!username.isEmpty() && !password.isEmpty() && !firstname.isEmpty() && !lastname.isEmpty() && !email.isEmpty()){
+            newUser = new User(username, password, firstname, lastname, email, generateUnicUserProfileId(), trips);
+            userArrayList.add(newUser);
+            writeToUserJsonFile();
+            System.out.println("User successfully created");
+        } else {
+            System.out.println("Failed to create guide. Fields can not be empty");
+        }
 
         return newUser;
     }
@@ -41,8 +55,11 @@ public class UserJsonRepository implements UserRepository {
     public void deleteUser(int profileId) {
 
         User userToDelete = null;
+
         for (User user : userArrayList) {
+
             if (user.getProfileId() == profileId) {
+
                 userToDelete = user;
                 break;
             }
@@ -60,73 +77,53 @@ public class UserJsonRepository implements UserRepository {
     @Override
     public void editUserInfo(String username, String password, String firstname, String lastname, String email) {
 
-        int profileId = LoggedInProfile.getProfile().getLoggedInProfileId();
+        if (!username.isEmpty())
+            getLoggedInUser().setUsername(username);
 
-        for (User user : userArrayList) {
-            if (user.getProfileId() == profileId){
-                if (!username.isEmpty())
-                    user.setUsername(username);
-                if (!password.isEmpty())
-                    user.setPassword(password);
-                if (!firstname.isEmpty())
-                    user.setFirstname(firstname);
-                if (!lastname.isEmpty())
-                    user.setLastname(lastname);
-                if (!email.isEmpty())
-                    user.setEmail(email);
+        if (!password.isEmpty())
+            getLoggedInUser().setPassword(password);
 
-                writeToUserJsonFile();
+        if (!firstname.isEmpty())
+            getLoggedInUser().setFirstname(firstname);
 
-                System.out.println("User info successfully edited");
-            }
+        if (!lastname.isEmpty())
+            getLoggedInUser().setLastname(lastname);
+
+        if (!email.isEmpty())
+            getLoggedInUser().setEmail(email);
+
+
+        writeToUserJsonFile();
+        System.out.println("User info successfully edited");
+
         }
-    }
 
     @Override
     public void bookTrip(Trip trip) {
-        int profileId = LoggedInProfile.getProfile().getLoggedInProfileId();
-
-        for (User user : userArrayList) {
-            if (user.getProfileId() == profileId){
-                user.addTrip(trip);
-
-                writeToUserJsonFile();
-
-                System.out.println("The trip: " + trip.getTitle() + " was successfully added to your trips");
-            }
-        }
+        getLoggedInUser().getTrips().add(trip);
+        writeToUserJsonFile();
+        System.out.println("The trip: " + trip.getTitle() + " was successfully added to your trips");
     }
 
     @Override
     public ArrayList<Trip> getTrips(int profileId) {
-        ArrayList<Trip> trips = new ArrayList<>();
-        for (User user : userArrayList) {
-            if (user.getProfileId() == profileId){
-                trips.addAll(user.getTrips());
-            }
-        }
-        return trips;
+        return getLoggedInUser().getTrips();
     }
 
     @Override
     public void unbookTrip(Trip trip) {
-        int profileId = LoggedInProfile.getProfile().getLoggedInProfileId();
-
-        for (User user : userArrayList) {
-            if (user.getProfileId() == profileId){
-                user.getTrips().remove(trip);
-
-                writeToUserJsonFile();
-
-                System.out.println("The trip: " + trip.getTitle() + " was successfully unbooked");
-            }
-        }
+        getLoggedInUser().getTrips().remove(trip);
+        writeToUserJsonFile();
+        System.out.println("The trip: " + trip.getTitle() + " was successfully unbooked");
     }
 
-    public int generateUnicProfileId() {
+    public int generateUnicUserProfileId() {
         int newID = 0;
+
         for (User user : userArrayList) {
+
             if (user.getProfileId() > newID) {
+
                 newID = user.getProfileId();
             }
         }
@@ -140,18 +137,26 @@ public class UserJsonRepository implements UserRepository {
     }
 
     private boolean userProfileIdExists(int id) {
+
         for (User user : userArrayList) {
+
             if (user.getProfileId() == id) {
+
                 return true;
             }
         }
+
         return false;
     }
 
     public int checkUserExistansReturnProfileId(String username) {
+
         readFromUserJsonFile();
+
         for (User user : userArrayList) {
+
             if (user.getUsername().equals(username)){
+
                 return user.getProfileId();
             }
         }
@@ -164,6 +169,7 @@ public class UserJsonRepository implements UserRepository {
         String filename = "/src/main/resources/database/user.json";
 
         ObjectMapper objectMapper = new ObjectMapper().registerModule(new JavaTimeModule());
+
         try {
             String projectPath = new File(".").getAbsolutePath();
             String fullPath = projectPath + filename;
@@ -173,8 +179,11 @@ public class UserJsonRepository implements UserRepository {
         }
     }
     public ArrayList<User> readFromUserJsonFile() {
+
         String filename = "src/main/resources/database/user.json";
+
         ObjectMapper objectMapper = new ObjectMapper().registerModule(new JavaTimeModule());
+
         userArrayList.clear();
 
         try (InputStream input = new FileInputStream(filename)) {

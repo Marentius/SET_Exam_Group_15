@@ -50,8 +50,14 @@ public class BookTripUser extends InitApp {
         bookTripButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                userJsonRepository.bookTrip(tripJlist.getSelectedValue());
-                JOptionPane.showMessageDialog(BookTripUser.this, "The trip: " + tripJlist.getSelectedValue().getTitle() + " was successfully added to your trips");
+                Trip selectedTrip = tripJlist.getSelectedValue();
+
+                if (selectedTrip != null){
+                    userJsonRepository.bookTrip(tripJlist.getSelectedValue());
+                    JOptionPane.showMessageDialog(BookTripUser.this, "The trip: " + tripJlist.getSelectedValue().getTitle() + " was successfully added to your trips");
+                } else {
+                    JOptionPane.showMessageDialog(mainPanel,"Please select a trip to book.");
+                }
             }
         });
     }

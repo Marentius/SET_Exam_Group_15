@@ -32,11 +32,19 @@ public class CreateGuide extends InitApp {
         createGuideButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Guide guide = guideJsonRepository.createGuide(txtUsername.getText(), txtPassword.getText(), txtFirstName.getText(), txtLastName.getText(), txtEmail.getText());
-                JOptionPane.showMessageDialog(mainPanel, "The user: " + guide.getUsername() + " was successfully created.");
-                int userId = guideJsonRepository.checkGuideExistansReturnProfileId(txtUsername.getText());
-                LoggedInProfile.getProfile().logIn(userId);
-                new_panel(CreateGuide.this, new MainPageGuide("Main Page Guide"));
+                if (txtFirstName.getText().isEmpty()
+                        || txtUsername.getText().isEmpty()
+                        || txtEmail.getText().isEmpty()
+                        || txtLastName.getText().isEmpty()
+                        || txtPassword.getText().isEmpty()){
+                    JOptionPane.showMessageDialog(mainPanel, "Failed to create guide. Fields can not be empty");
+                } else {
+                    Guide guide = guideJsonRepository.createGuide(txtUsername.getText(), txtPassword.getText(), txtFirstName.getText(), txtLastName.getText(), txtEmail.getText());
+                    JOptionPane.showMessageDialog(mainPanel, "The user: " + guide.getUsername() + " was successfully created.");
+                    int userId = guideJsonRepository.checkGuideExistansReturnProfileId(txtUsername.getText());
+                    LoggedInProfile.getProfile().logIn(userId);
+                    new_panel(CreateGuide.this, new MainPageGuide("Main Page Guide"));
+                }
             }
         });
         logOutButton.addActionListener(new ActionListener() {

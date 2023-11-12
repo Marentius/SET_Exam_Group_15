@@ -56,6 +56,7 @@ public class TripJsonRepository implements TripRepository {
             System.out.println("Trip with ID " + tripId + " was not found.");
         }
     }
+
     public void deleteTripFromAllUserTripLists(int tripId){
         userJsonRepository = new UserJsonRepository();
 
@@ -71,9 +72,13 @@ public class TripJsonRepository implements TripRepository {
         userJsonRepository.writeToUserJsonFile();
     }
     private int generateUnicTripId() {
+
         int newID = 0;
+
         for (Trip trip : tripArrayList) {
+
             if (trip.getTripId() > newID) {
+
                 newID = trip.getTripId();
             }
         }
@@ -87,17 +92,22 @@ public class TripJsonRepository implements TripRepository {
         return newID;
     }
     private boolean tripProfileIdExsists(int id) {
+
         for (Trip trip : tripArrayList) {
+
             if (trip.getTripId() == id) {
+
                 return true;
             }
         }
         return false;
     }
     private void writeToTripJsonFile() {
+
         String filename = "/src/main/resources/database/trip.json";
 
         ObjectMapper objectMapper = new ObjectMapper().registerModule(new JavaTimeModule());
+
         try {
             String projectPath = new File(".").getAbsolutePath();
             String fullPath = projectPath + filename;
@@ -107,8 +117,11 @@ public class TripJsonRepository implements TripRepository {
         }
     }
     public ArrayList<Trip> readFromTripJsonFile() {
+
         String filename = "src/main/resources/database/trip.json";
+
         ObjectMapper objectMapper = new ObjectMapper().registerModule(new JavaTimeModule());
+
         tripArrayList.clear();
 
         try (InputStream input = new FileInputStream(filename)) {

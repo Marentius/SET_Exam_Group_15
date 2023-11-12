@@ -15,8 +15,11 @@ public class AdminJsonRepository {
         readFromGuideJsonFile();
     }
     public ArrayList<Admin> readFromGuideJsonFile() {
+
         String filename = "src/main/resources/database/admin.json";
+
         ObjectMapper objectMapper = new ObjectMapper().registerModule(new JavaTimeModule());
+
         adminArrayList.clear();
 
         try (InputStream input = new FileInputStream(filename)){
@@ -28,8 +31,11 @@ public class AdminJsonRepository {
         return adminArrayList;
     }
     public int checkAdminExistansReturnProfileId(String username) {
+
         for (Admin admin : adminArrayList) {
+
             if (admin.getUsername().equals(username)){
+
                 return admin.getProfileId();
             }
         }

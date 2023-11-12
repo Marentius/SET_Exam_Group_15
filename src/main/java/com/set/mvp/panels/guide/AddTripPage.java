@@ -65,18 +65,19 @@ public class AddTripPage extends InitApp {
                                 || "".equals(dayComboBox.getSelectedItem())){
                             JOptionPane.showMessageDialog(mainPanel, "All fields must be provided and cannot be empty or null.");
                             return;
+                        } else {
+                            tripJsonRepository.addTrip(txtTitle.getText(),
+                                    txtLocation.getText(),
+                                    txtDescription.getText(),
+                                    guide,
+                                    Double.parseDouble((String) priceComboBox.getSelectedItem()),
+                                    Integer.parseInt((String) durationComboBox.getSelectedItem()),
+                                    LocalDate.of(Integer.parseInt((String) yearComboBox.getSelectedItem()), Integer.parseInt((String) MonthComboBox.getSelectedItem()), Integer.parseInt((String) dayComboBox.getSelectedItem())));
+
+                            JOptionPane.showMessageDialog(mainPanel, "The trip: " + txtTitle.getText() + " was successfully added.");
+
+                            new_panel(AddTripPage.this, new MainPageGuide("Main Page Guide"));
                         }
-                        tripJsonRepository.addTrip(txtTitle.getText(),
-                                txtLocation.getText(),
-                                txtDescription.getText(),
-                                guide,
-                                Double.parseDouble((String) priceComboBox.getSelectedItem()),
-                                Integer.parseInt((String) durationComboBox.getSelectedItem()),
-                                LocalDate.of(Integer.parseInt((String) yearComboBox.getSelectedItem()), Integer.parseInt((String) MonthComboBox.getSelectedItem()), Integer.parseInt((String) dayComboBox.getSelectedItem())));
-
-                        JOptionPane.showMessageDialog(mainPanel, "The trip: " + txtTitle.getText() + " was successfully added.");
-
-                        new_panel(AddTripPage.this, new MainPageGuide("Main Page Guide"));
                     }
                 }
             }

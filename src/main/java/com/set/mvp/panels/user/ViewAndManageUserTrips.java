@@ -33,9 +33,15 @@ public class ViewAndManageUserTrips extends InitApp {
         unbookTripButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                userJsonRepository.unbookTrip(userTripList.getSelectedValue());
-                JOptionPane.showMessageDialog(ViewAndManageUserTrips.this, "The trip: " + userTripList.getSelectedValue().getTitle() + " was successfully unbooked");
-                updateTripList();
+                Trip selectedTrip = userTripList.getSelectedValue();
+
+                if (selectedTrip != null){
+                    userJsonRepository.unbookTrip(userTripList.getSelectedValue());
+                    JOptionPane.showMessageDialog(ViewAndManageUserTrips.this, "The trip: " + userTripList.getSelectedValue().getTitle() + " was successfully unbooked");
+                    updateTripList();
+                } else {
+                    JOptionPane.showMessageDialog(mainPanel,"Please select a trip to unbook");
+                }
             }
         });
         homeButton.addActionListener(new ActionListener() {

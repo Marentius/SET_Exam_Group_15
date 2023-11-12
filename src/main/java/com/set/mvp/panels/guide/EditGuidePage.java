@@ -19,6 +19,11 @@ public class EditGuidePage extends InitApp {
     private JTextField txtNewFirstnameGuide;
     private JTextField txtNewLastnameGuide;
     private JTextField txtNewEmailGuide;
+    private JLabel username;
+    private JLabel password;
+    private JLabel firstName;
+    private JLabel lastName;
+    private JLabel email;
     private GuideJsonRepository guideJsonRepository;
 
     public EditGuidePage(String title) {
@@ -26,6 +31,13 @@ public class EditGuidePage extends InitApp {
         start_gui(mainPanel, 800, 400);
 
         guideJsonRepository = new GuideJsonRepository();
+
+        username.setText(guideJsonRepository.getLoggedInGuide().getUsername());
+        password.setText(guideJsonRepository.getLoggedInGuide().getPassword());
+        firstName.setText(guideJsonRepository.getLoggedInGuide().getFirstname());
+        lastName.setText(guideJsonRepository.getLoggedInGuide().getLastname());
+        email.setText(guideJsonRepository.getLoggedInGuide().getEmail());
+
         homeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

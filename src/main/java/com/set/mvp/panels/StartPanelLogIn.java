@@ -114,7 +114,6 @@ public class StartPanelLogIn extends InitApp {
 
             @Override
             public void focusLost(FocusEvent e) {
-
             }
         });
     }
