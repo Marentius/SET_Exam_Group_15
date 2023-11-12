@@ -23,9 +23,9 @@ public class BookTripTest {
 
     @BeforeEach
     public void init(){
-    userJsonRepository = new UserJsonRepository();
-    tripJsonRepository = new TripJsonRepository();
-    guideJsonRepository = new GuideJsonRepository();
+        userJsonRepository = new UserJsonRepository();
+        tripJsonRepository = new TripJsonRepository();
+        guideJsonRepository = new GuideJsonRepository();
     }
 
     @Test
@@ -38,7 +38,7 @@ public class BookTripTest {
         Trip trip2 = tripJsonRepository.addTrip("Trip2", "location,", "desc", null, 100, 100, null);
 
         LoggedInProfile.getProfile().logIn(user.getProfileId());
-      
+
         userJsonRepository.bookTrip(trip1);
         userJsonRepository.bookTrip(trip2);
 
