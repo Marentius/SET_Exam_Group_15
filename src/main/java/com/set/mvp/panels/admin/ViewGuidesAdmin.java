@@ -22,7 +22,7 @@ public class ViewGuidesAdmin extends InitApp {
 
     public ViewGuidesAdmin(String title) {
         super(title);
-        start_gui(mainPanel, 800, 400);
+        start_gui(mainPanel, 800, 600);
 
         guideJsonRepository = new GuideJsonRepository();
 

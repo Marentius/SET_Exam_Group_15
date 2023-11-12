@@ -24,7 +24,7 @@ public class BookTripUser extends InitApp {
 
     public BookTripUser(String title) {
         super(title);
-        start_gui(mainPanel, 1500, 800);
+        start_gui(mainPanel, 1500, 600);
 
         tripJsonRepository = new TripJsonRepository();
         userJsonRepository = new UserJsonRepository();

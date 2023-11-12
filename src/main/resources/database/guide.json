@@ -16,7 +16,7 @@
   "trips" : [ ]
 }, {
   "firstname" : "Test",
-  "lastname" : "Testesen",
+  "lastname" : "Tester",
   "email" : "Test@Test.com",
   "username" : "Test",
   "password" : "Test987",
@@ -25,7 +25,7 @@
 }, {
   "firstname" : "Guide",
   "lastname" : "Guide",
-  "email" : "Guide",
+  "email" : "Guide@email.com",
   "username" : "Guide",
   "password" : "Guide",
   "profileId" : 7,

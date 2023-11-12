@@ -32,7 +32,7 @@ public class AddTripPage extends InitApp {
 
     public AddTripPage(String title) {
         super(title);
-        start_gui(mainPanel,800,400);
+        start_gui(mainPanel,800,450);
 
         tripJsonRepository = new TripJsonRepository();
         guideJsonRepository = new GuideJsonRepository();

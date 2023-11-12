@@ -22,7 +22,7 @@ public class ViewTripsAdmin extends InitApp {
 
     public ViewTripsAdmin(String title) {
         super(title);
-        start_gui(mainPanel, 1500, 800);
+        start_gui(mainPanel, 1500, 600);
 
         tripJsonRepository = new TripJsonRepository();
 

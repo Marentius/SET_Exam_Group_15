@@ -25,7 +25,7 @@ public class CreateUser extends InitApp {
 
     public CreateUser(String title) {
         super(title);
-        start_gui(mainPanel,800,400);
+        start_gui(mainPanel,800,450);
 
         userJsonRepository = new UserJsonRepository();
         createUserButton.addActionListener(new ActionListener() {

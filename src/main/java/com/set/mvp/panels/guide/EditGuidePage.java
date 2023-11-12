@@ -28,7 +28,7 @@ public class EditGuidePage extends InitApp {
 
     public EditGuidePage(String title) {
         super(title);
-        start_gui(mainPanel, 800, 400);
+        start_gui(mainPanel, 800, 550);
 
         guideJsonRepository = new GuideJsonRepository();
 

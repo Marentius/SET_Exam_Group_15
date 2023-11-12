@@ -22,7 +22,7 @@ public class ViewUsersAdmin extends InitApp {
 
     public ViewUsersAdmin(String title) {
         super(title);
-        start_gui(mainPanel, 800, 400);
+        start_gui(mainPanel, 800, 600);
 
         userJsonRepository = new UserJsonRepository();
 

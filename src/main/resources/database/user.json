@@ -50,7 +50,7 @@
   } ]
 }, {
   "firstname" : "Test",
-  "lastname" : "Testesen",
+  "lastname" : "Tester",
   "email" : "Test@test.com",
   "username" : "Test",
   "password" : "Test258",
@@ -124,12 +124,4 @@
     "tripId" : 2,
     "date" : [ 2023, 7, 10 ]
   } ]
-}, {
-  "firstname" : "Robin",
-  "lastname" : "Enerhaugen",
-  "email" : "Robin.enerhaugen@hotmail.com",
-  "username" : "Robene",
-  "password" : "123",
-  "profileId" : 10,
-  "trips" : [ ]
 } ]

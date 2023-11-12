@@ -3,6 +3,7 @@ package com.set.mvp.panels.guide;
 import com.set.mvp.models.LoggedInProfile;
 import com.set.mvp.panels.InitApp;
 import com.set.mvp.panels.StartPanelLogIn;
+import com.set.mvp.repository.GuideJsonRepository;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -14,10 +15,17 @@ public class MainPageGuide extends InitApp {
     private JButton addTripButton;
     private JButton editUserButton;
     private JButton viewAndManageYourButton;
+    private JLabel welcome;
+    private GuideJsonRepository guideJsonRepository;
 
     public MainPageGuide(String title) {
         super(title);
         start_gui(mainPanel, 800, 400);
+
+        guideJsonRepository = new GuideJsonRepository();
+
+        welcome.setText(guideJsonRepository.getLoggedInGuide().getFirstname() + " " + guideJsonRepository.getLoggedInGuide().getLastname());
+
         logOutButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

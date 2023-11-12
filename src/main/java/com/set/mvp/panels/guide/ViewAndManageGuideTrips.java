@@ -22,7 +22,7 @@ public class ViewAndManageGuideTrips extends InitApp {
 
     public ViewAndManageGuideTrips(String title) {
         super(title);
-        start_gui(mainPanel, 1500, 400);
+        start_gui(mainPanel, 1500, 600);
 
         tripJsonRepository = new TripJsonRepository();
 

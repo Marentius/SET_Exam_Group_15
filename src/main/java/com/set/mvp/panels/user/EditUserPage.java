@@ -28,7 +28,7 @@ public class EditUserPage extends InitApp {
 
     public EditUserPage(String title) {
         super(title);
-        start_gui(mainPanel, 800, 500);
+        start_gui(mainPanel, 800, 550);
 
         userJsonRepository = new UserJsonRepository();
 

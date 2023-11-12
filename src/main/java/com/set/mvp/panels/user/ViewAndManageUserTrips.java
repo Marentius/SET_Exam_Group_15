@@ -22,7 +22,7 @@ public class ViewAndManageUserTrips extends InitApp {
 
     public ViewAndManageUserTrips(String title) {
         super(title);
-        start_gui(mainPanel, 1500,400);
+        start_gui(mainPanel, 1500,600);
 
         userJsonRepository = new UserJsonRepository();
 
