@@ -18,8 +18,8 @@ public class UserCanGetTrips {
 
     @BeforeEach
     public void init(){
-        userJsonRepository = new UserJsonRepository("/database/user.json");
-        tripJsonRepository = new TripJsonRepository("/database/trip.json");
+        userJsonRepository = new UserJsonRepository();
+        tripJsonRepository = new TripJsonRepository();
     }
 
     @Test
@@ -28,7 +28,7 @@ public class UserCanGetTrips {
         ArrayList<Trip> trips = new ArrayList<>();
         User user = userJsonRepository.createUser("user", "user", "user", "user", "user", trips);
 
-        Trip trip = tripJsonRepository.addTrip("trip", "loc", "desc", null, 100, 100, null, null);
+        Trip trip = tripJsonRepository.addTrip("trip", "loc", "desc", null, 100, 100, null);
 
         user.addTrip(trip);
 

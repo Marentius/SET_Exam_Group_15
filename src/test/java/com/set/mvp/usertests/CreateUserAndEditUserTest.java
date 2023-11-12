@@ -77,7 +77,7 @@ public class CreateUserAndEditUserTest {
     public void userExists(){
         User createdUser = userJsonRepository.createUser("TestIfUserExists", "user", "user", "user", "user", null);
 
-        assertEquals(userJsonRepository.checkUserExistans("TestIfUserExists"), createdUser.getProfileId());
+        assertEquals(userJsonRepository.checkUserExistansReturnProfileId("TestIfUserExists"), createdUser.getProfileId());
 
         userJsonRepository.deleteUser(createdUser.getProfileId());
 
