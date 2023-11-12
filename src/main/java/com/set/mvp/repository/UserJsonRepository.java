@@ -105,6 +105,7 @@ public class UserJsonRepository implements UserRepository {
         System.out.println("The trip: " + trip.getTitle() + " was successfully added to your trips");
     }
 
+
     @Override
     public ArrayList<Trip> getTrips(int profileId) {
         return getLoggedInUser().getTrips();
@@ -178,7 +179,7 @@ public class UserJsonRepository implements UserRepository {
             e.printStackTrace();
         }
     }
-    public ArrayList<User> readFromUserJsonFile() {
+    public void readFromUserJsonFile() {
 
         String filename = "src/main/resources/database/user.json";
 
@@ -192,6 +193,5 @@ public class UserJsonRepository implements UserRepository {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return userArrayList;
     }
 }

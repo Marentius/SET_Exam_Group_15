@@ -150,7 +150,7 @@ public class GuideJsonRepository implements GuideRepository {
             e.printStackTrace();
         }
     }
-    public ArrayList<Guide> readFromGuideJsonFile() {
+    public void readFromGuideJsonFile() {
 
         String filename = "src/main/resources/database/guide.json";
 
@@ -164,7 +164,6 @@ public class GuideJsonRepository implements GuideRepository {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return guideArrayList;
     }
 
 }

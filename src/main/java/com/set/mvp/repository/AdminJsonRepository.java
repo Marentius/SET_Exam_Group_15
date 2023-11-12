@@ -14,7 +14,7 @@ public class AdminJsonRepository {
     public AdminJsonRepository() {
         readFromGuideJsonFile();
     }
-    public ArrayList<Admin> readFromGuideJsonFile() {
+    public void readFromGuideJsonFile() {
 
         String filename = "src/main/resources/database/admin.json";
 
@@ -28,7 +28,6 @@ public class AdminJsonRepository {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return adminArrayList;
     }
     public int checkAdminExistansReturnProfileId(String username) {
 

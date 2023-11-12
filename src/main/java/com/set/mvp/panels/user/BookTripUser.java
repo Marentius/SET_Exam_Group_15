@@ -1,6 +1,7 @@
 package com.set.mvp.panels.user;
 
 import com.set.mvp.models.LoggedInProfile;
+import com.set.mvp.models.User;
 import com.set.mvp.panels.InitApp;
 import com.set.mvp.panels.StartPanelLogIn;
 import com.set.mvp.models.Trip;
@@ -50,13 +51,33 @@ public class BookTripUser extends InitApp {
         bookTripButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
                 Trip selectedTrip = tripJlist.getSelectedValue();
 
-                if (selectedTrip != null){
-                    userJsonRepository.bookTrip(tripJlist.getSelectedValue());
-                    JOptionPane.showMessageDialog(BookTripUser.this, "The trip: " + tripJlist.getSelectedValue().getTitle() + " was successfully added to your trips");
-                } else {
+                if (selectedTrip == null){
                     JOptionPane.showMessageDialog(mainPanel,"Please select a trip to book.");
+                    return;
+                }
+
+                //Should have the implementation below in the bookTrip method, but I left it here for simplicity.
+                //JOptionPane.showMessageDialog generated unnecessary popups in the test classes.
+
+                User loggedInUser = userJsonRepository.getLoggedInUser();
+                boolean tripAlreadyBooked = false;
+
+                for (Trip userTrip : loggedInUser.getTrips()) {
+                    if (userTrip.getTripId() == selectedTrip.getTripId()) {
+                        tripAlreadyBooked = true;
+                        break;
+                    }
+                }
+
+                if (!tripAlreadyBooked) {
+                    userJsonRepository.bookTrip(selectedTrip);
+                    JOptionPane.showMessageDialog(mainPanel, "The trip: " + selectedTrip.getTitle() + " was successfully added to your trips");
+                } else {
+                    System.out.println("Trip already booked");
+                    JOptionPane.showMessageDialog(mainPanel, "Trip already booked");
                 }
             }
         });

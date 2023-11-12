@@ -116,7 +116,7 @@ public class TripJsonRepository implements TripRepository {
             e.printStackTrace();
         }
     }
-    public ArrayList<Trip> readFromTripJsonFile() {
+    public void readFromTripJsonFile() {
 
         String filename = "src/main/resources/database/trip.json";
 
@@ -130,6 +130,5 @@ public class TripJsonRepository implements TripRepository {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return tripArrayList;
     }
 }

@@ -7,7 +7,7 @@
   "profileId" : 4,
   "trips" : [ ]
 }, {
-  "firstname" : "Vetle Marentius",
+  "firstname" : "Stavros",
   "lastname" : "Nilsen",
   "email" : "Vetlenilseen@hotmail.com",
   "username" : "Vetle",
@@ -123,5 +123,22 @@
     "duration" : 2,
     "tripId" : 2,
     "date" : [ 2023, 7, 10 ]
+  }, {
+    "guide" : {
+      "firstname" : "Test",
+      "lastname" : "Test",
+      "email" : "Test@Test.com",
+      "username" : "Test",
+      "password" : "Test",
+      "profileId" : 6,
+      "trips" : [ ]
+    },
+    "title" : "Spektakulært nordlys",
+    "location" : "Alta",
+    "description" : "Opplev det spektakulære nordlyset i Alta.",
+    "price" : 800.0,
+    "duration" : 2,
+    "tripId" : 5,
+    "date" : [ 2023, 11, 25 ]
   } ]
 } ]

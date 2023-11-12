@@ -3,6 +3,7 @@ package com.set.mvp.repository.interfaces;
 import com.set.mvp.models.Trip;
 import com.set.mvp.models.User;
 
+import javax.swing.*;
 import java.util.ArrayList;
 
 public interface UserRepository {
