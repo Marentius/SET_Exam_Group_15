@@ -1,10 +1,12 @@
 package com.set.mvp.usertests;
 
+
 import com.set.mvp.models.Guide;
 import com.set.mvp.models.LoggedInProfile;
 import com.set.mvp.models.Trip;
 import com.set.mvp.models.User;
 import com.set.mvp.repository.GuideJsonRepository;
+
 import com.set.mvp.repository.TripJsonRepository;
 import com.set.mvp.repository.UserJsonRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -16,6 +18,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class UnbookTripTest {
+
     private GuideJsonRepository guideJsonRepository;
     private UserJsonRepository userJsonRepository;
     private TripJsonRepository tripJsonRepository;
@@ -50,4 +53,5 @@ public class UnbookTripTest {
         tripJsonRepository.deleteTrip(trip1.getTripId());
         tripJsonRepository.deleteTrip(trip2.getTripId());
     }
+
 }

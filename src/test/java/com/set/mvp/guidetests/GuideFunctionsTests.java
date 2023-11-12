@@ -5,6 +5,7 @@ import com.set.mvp.models.LoggedInProfile;
 import com.set.mvp.models.Trip;
 
 import com.set.mvp.models.User;
+
 import com.set.mvp.repository.GuideJsonRepository;
 import com.set.mvp.repository.TripJsonRepository;
 import com.set.mvp.repository.UserJsonRepository;
@@ -54,6 +55,7 @@ public class GuideFunctionsTests {
 
         Guide guide = guideJsonRepository.createGuide("Guide12421", "Guide", "Guide", "Guide", "Guide");
         Trip trip = tripJsonRepository.addTrip("Guide", "Guide", "Guide", guide, 1000, 100, null);
+
         guide.addTrip(trip);
         boolean isTripInTripList = false;
 
@@ -110,7 +112,7 @@ public class GuideFunctionsTests {
         assertFalse(LoggedInProfile.getProfile().getLoggedInProfileId() == createdGuideId);
         guideJsonRepository.deleteGuide(createdGuideId);
     }
-
+  
     @Test
     public void guide_can_edit_profile(){
         Guide createdGuide = guideJsonRepository.createGuide("Guide", "Guide", "Guide", "Guide", "Guide");
@@ -122,7 +124,9 @@ public class GuideFunctionsTests {
         String oldEmail = createdGuide.getEmail();
 
         LoggedInProfile.getProfile().logIn(createdGuide.getProfileId());
+
         guideJsonRepository.editGuideInfo("New Username", "New password", "New firstname", "New lastname", "New email");
+
         assertFalse(createdGuide.getUsername().equals(oldUsername));
         assertFalse(createdGuide.getPassword().equals(oldPassword));
         assertFalse(createdGuide.getFirstname().equals(oldFirstname));
@@ -132,6 +136,7 @@ public class GuideFunctionsTests {
         LoggedInProfile.getProfile().logOut();
         guideJsonRepository.deleteGuide(createdGuide.getProfileId());
     }
+
 
 
    /* @Test
@@ -163,6 +168,7 @@ public class GuideFunctionsTests {
         guideJsonRepository.deleteGuide(createdGuide.getProfileId());
 
     }
+
 
 
 }

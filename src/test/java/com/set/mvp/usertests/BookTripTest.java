@@ -1,6 +1,8 @@
 package com.set.mvp.usertests;
 
+
 import com.set.mvp.models.Guide;
+
 import com.set.mvp.models.LoggedInProfile;
 import com.set.mvp.models.Trip;
 import com.set.mvp.models.User;
@@ -30,12 +32,13 @@ public class BookTripTest {
     public void userCanBookTripTest(){
         ArrayList<Trip> trips = new ArrayList<>();
         User user = userJsonRepository.createUser("user", "user", "user", "user", "user", trips);
+
         Guide guide = guideJsonRepository.createGuide("guide", "guide", "guide", "guide", "guide");
         Trip trip1 = tripJsonRepository.addTrip("Trip1", "location,", "desc", null, 100, 100, null);
         Trip trip2 = tripJsonRepository.addTrip("Trip2", "location,", "desc", null, 100, 100, null);
 
         LoggedInProfile.getProfile().logIn(user.getProfileId());
-
+      
         userJsonRepository.bookTrip(trip1);
         userJsonRepository.bookTrip(trip2);
 
@@ -47,7 +50,9 @@ public class BookTripTest {
         userJsonRepository.deleteUser(user.getProfileId());
         tripJsonRepository.deleteTrip(trip1.getTripId());
         tripJsonRepository.deleteTrip(trip2.getTripId());
+
         guideJsonRepository.deleteGuide(guide.getProfileId());
+
     }
 
 
