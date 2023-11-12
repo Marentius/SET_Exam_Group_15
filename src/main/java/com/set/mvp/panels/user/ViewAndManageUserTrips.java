@@ -17,6 +17,7 @@ public class ViewAndManageUserTrips extends InitApp {
     private JButton unbookTripButton;
     private JButton homeButton;
     private JButton logOutButton;
+    private JButton payTripButton;
     private DefaultListModel<Trip> listModel;
     private UserJsonRepository userJsonRepository;
 
@@ -55,6 +56,17 @@ public class ViewAndManageUserTrips extends InitApp {
             public void actionPerformed(ActionEvent e) {
                 new_panel(ViewAndManageUserTrips.this, new StartPanelLogIn("Log in"));
                 LoggedInProfile.getProfile().logOut();
+            }
+        });
+        payTripButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Trip selectedTrip = userTripList.getSelectedValue();
+                if (selectedTrip != null)
+                    JOptionPane.showMessageDialog(mainPanel, "The trip " + selectedTrip.getTitle() + " was successfully payed and the cost was " + selectedTrip.getPrice() + " kr. ");
+                else{
+                    JOptionPane.showMessageDialog(mainPanel,"Please select a trip to pay.");
+                }
             }
         });
     }
