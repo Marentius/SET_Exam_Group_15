@@ -12,6 +12,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -29,7 +30,6 @@ public class AdminFunctionsTest {
         userJsonRepository = new UserJsonRepository();
         tripJsonRepository = new TripJsonRepository();
         adminJsonRepository = new AdminJsonRepository();
-
     }
 
     @Test
@@ -51,7 +51,7 @@ public class AdminFunctionsTest {
 
     @Test
     public void adminCanDeleteUserTest() {
-        User createdUser = userJsonRepository.createUser("User", "User", "User", "User", "User", null);
+        User createdUser = userJsonRepository.createUser("User", "User", "User", "User", "User", new ArrayList<>());
         boolean isProfileInIdList = false;
         userJsonRepository.deleteUser(createdUser.getProfileId());
 
@@ -66,7 +66,7 @@ public class AdminFunctionsTest {
 
     @Test
     public void adminCanDeleteTripTest() {
-        Trip createdTrip = tripJsonRepository.addTrip("Trip", "Trip", "Trip", null, 1000, 100, null);
+        Trip createdTrip = tripJsonRepository.addTrip("Trip", "Trip", "Trip", null, 1000, 100, LocalDate.of(2024,01,01));
         boolean isTripIdInList = false;
         tripJsonRepository.deleteTrip(createdTrip.getTripId());
         for (Trip trip : tripJsonRepository.getTrips()) {

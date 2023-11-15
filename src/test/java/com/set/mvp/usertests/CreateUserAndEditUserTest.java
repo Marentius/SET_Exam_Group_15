@@ -39,7 +39,7 @@ public class CreateUserAndEditUserTest {
 
     @Test
     public void user_can_edit_user_info() {
-        User createdUser = userJsonRepository.createUser("User","User","User","User","User", null);
+        User createdUser = userJsonRepository.createUser("User","User","User","User","User", new ArrayList<>());
         int createdUserProfileID = createdUser.getProfileId();
         String oldUsername = createdUser.getUsername();
         String oldPasword = createdUser.getPassword();
@@ -63,7 +63,7 @@ public class CreateUserAndEditUserTest {
 
     @Test
     public void user_can_change_passoword(){
-        User createdUser = userJsonRepository.createUser("User", "User", "User", "User","User", null);
+        User createdUser = userJsonRepository.createUser("User", "User", "User", "User","User", new ArrayList<>());
         int createdUserProfileId = createdUser.getProfileId();
         LoggedInProfile.getProfile().logIn(createdUserProfileId);
         String oldPassword = createdUser.getPassword();
@@ -75,7 +75,7 @@ public class CreateUserAndEditUserTest {
 
     @Test
     public void userExists(){
-        User createdUser = userJsonRepository.createUser("TestIfUserExists", "user", "user", "user", "user", null);
+        User createdUser = userJsonRepository.createUser("TestIfUserExists", "user", "user", "user", "user", new ArrayList<>());
 
         assertEquals(userJsonRepository.checkUserExistansReturnProfileId("TestIfUserExists"), createdUser.getProfileId());
 

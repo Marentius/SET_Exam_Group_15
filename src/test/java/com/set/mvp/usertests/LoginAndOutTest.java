@@ -5,6 +5,8 @@ import com.set.mvp.repository.UserJsonRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class LoginAndOutTest {
@@ -15,7 +17,7 @@ public class LoginAndOutTest {
     }
     @Test
     public void user_can_log_in(){
-        User createduser = userJsonRepository.createUser("user", "user", "user", "user", "user", null);
+        User createduser = userJsonRepository.createUser("user", "user", "user", "user", "user", new ArrayList<>());
         int createdUserId = createduser.getProfileId();
         LoggedInProfile.getProfile().logIn(createdUserId);
         assertTrue(LoggedInProfile.getProfile().getLoggedInProfileId() == createdUserId);
@@ -26,7 +28,7 @@ public class LoginAndOutTest {
 
     @Test
     public void user_can_log_out(){
-        User createduser = userJsonRepository.createUser("user", "user", "user", "user", "user", null);
+        User createduser = userJsonRepository.createUser("user", "user", "user", "user", "user", new ArrayList<>());
         int createdUserId = createduser.getProfileId();
         LoggedInProfile.getProfile().logIn(createdUserId);
         assertTrue(LoggedInProfile.getProfile().getLoggedInProfileId() == createdUserId);

@@ -12,6 +12,7 @@ import com.set.mvp.repository.UserJsonRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -35,8 +36,8 @@ public class UnbookTripTest {
         Guide guide = guideJsonRepository.createGuide("guide", "guide", "guide", "guide", "guide");
         User user = userJsonRepository.createUser("User", "User", "User", "User", "User", trip);
 
-        Trip trip1 = tripJsonRepository.addTrip("Trip1", "Trip", "Trip", guide, 100, 100, null);
-        Trip trip2 = tripJsonRepository.addTrip("Trip2", "Trip", "Trip", guide, 100, 100, null);
+        Trip trip1 = tripJsonRepository.addTrip("Trip1", "Trip", "Trip", guide, 100, 100, LocalDate.of(2024,01,01));
+        Trip trip2 = tripJsonRepository.addTrip("Trip2", "Trip", "Trip", guide, 100, 100, LocalDate.of(2024,01,01));
 
         LoggedInProfile.getProfile().logIn(user.getProfileId());
 

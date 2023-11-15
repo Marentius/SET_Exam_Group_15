@@ -1,42 +1,51 @@
-# SoftwareEngineeringTestingEksamen
+# SoftwareEngineeringTestingEksamen 
+
+https://github.com/Marentius/SoftwareEngineeringTestingEksamen/tree/master
+https://github.com/Marentius/SoftwareEngineeringTestingEksamen/actions
+
+
 Eksamensoppgave SET Gruppe 15
 
-Følgende funksjonalitet er lagt til i prosjektet:
+The following functionality has been added to the project:
 
-Admin: 
-- Admin kan se liste over brukere, og slette de.
-- Admin kan se liste over guider, og slette de.
-- Admin kan se liste over turer, og slette de. 
-- Når Admin sletter en tur vil turen også bli slettet i turlisten til en bruker dersom brukeren har booked turen
+Admin:
 
-Bruker:
-- Bruker kan opprette en bruker.
-- Bruker kan redigere brukerinformasjon.
-- Bruker kan se en oversikt over turer.
-- Bruker kan booke en tur.
-- Bruker kan se liste over bookede turer
-- Bruker kan unbooke turer
+- Admin can view a list of users and delete them.
+- Admin can view a list of guides and delete them.
+- Admin can view a list of trips and delete them.
+- When Admin deletes a trip, the trip will also be deleted from the user's trip list if the user has booked the trip.
 
-Guide: 
-- Guide kan opprette en Guide.
-- Guide kan redigere brukerinformasjon.
-- Guide kan legge til en tur
-- Guide kan nå se en liste over alle turer h*n arrangerer 
-- Guide kan slette en tur h*n arrangerer. Denne turen vil da også bli slettet i turlisten til en bruker dersom brukeren har booked turen
+User:
 
+- User can create an account.
+- User can edit user information.
+- User can view an overview of trips.
+- User can book a trip.
+- User can view a list of booked trips.
+- User can unbook trips.
 
-Systemet: 
-- Alle brukere kan logge inn og ut
-- Systemet husker hvilken profil som er innlogget.
-- Systemet krever at du har et brukernavn for å kunne logge inn som Guide, Bruker eller admin, og ber deg opprette bruker dersom du ikke har et brukernavn som stemmer overens med informasjonen i databasen. 
-- Systemet viser feilmeldinger dersom du har gjort noe feil/systemet ikke klarer å håndtere. 
-  - f.eks:
-  - Dersom du prøver å booke en tur uten å velge en tur
-  - Dersom du prøver å booke en tur som allerede er booket
-  - Dersom du prøver å unnbooke en tur uten å velge en tur 
-  - Dersom du prøver å slette en profil(Guide, User) uten å velge en profil
-  - Dersom du prøver å opprette en profil(Guide, User) uten å fylle ut alle feltene
-  - Dersom du prøver å legge til en tur som guide uten å fylle ut alle feltene. 
+Guide:
 
-Improvments: 
-- When Admin deletes a Guide, the guides trips should also be deleted.
+- Guide can create a guide profile.
+- Guide can edit user information.
+- Guide can add a trip.
+- Guide can view a list of all trips they organize.
+- Guide can delete a trip they organize. This trip will also be deleted from the user's trip list if the user has booked the trip.
+
+System:
+
+- All users can log in and out.
+- The system remembers the logged-in profile.
+- The system requires a username to log in as a Guide, User, or admin and prompts you to create a username if it does not match the information in the database.
+- The system displays error messages if you have made a mistake or if the system cannot handle the request.
+- For example:
+  - Trying to book a trip without selecting one.
+  - Trying to book a trip that is already booked.
+  - Trying to unbook a trip without selecting one.
+  - Trying to delete a profile (Guide, User) without selecting a profile.
+  - Trying to create a profile (Guide, User) without filling out all the fields.
+  - Trying to add a trip as a guide without filling out all the fields.
+
+Improvements:
+
+- When Admin deletes a Guide, the guide's trips should also be deleted.

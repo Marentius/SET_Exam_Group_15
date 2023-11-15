@@ -1,8 +1,10 @@
 package com.set.mvp.usertests;
 
 
+import com.set.mvp.models.Guide;
 import com.set.mvp.models.Trip;
 import com.set.mvp.models.User;
+import com.set.mvp.repository.GuideJsonRepository;
 import com.set.mvp.repository.TripJsonRepository;
 import com.set.mvp.repository.UserJsonRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -13,8 +15,8 @@ import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class UserCanGetTrips {
-    UserJsonRepository userJsonRepository;
-    TripJsonRepository tripJsonRepository;
+    private UserJsonRepository userJsonRepository;
+    private TripJsonRepository tripJsonRepository;
 
     @BeforeEach
     public void init(){
@@ -28,7 +30,8 @@ public class UserCanGetTrips {
         ArrayList<Trip> trips = new ArrayList<>();
         User user = userJsonRepository.createUser("user", "user", "user", "user", "user", trips);
 
-        Trip trip = tripJsonRepository.addTrip("trip", "loc", "desc", null, 100, 100, null);
+        Trip trip = tripJsonRepository.addTrip("trip", "loc", "desc", new Guide("Guide", "Guide", "Guide", "Guide", "Guide", 100), 100, 100, null);
+
 
         user.addTrip(trip);
 
@@ -39,39 +42,5 @@ public class UserCanGetTrips {
 
         userJsonRepository.deleteUser(user.getProfileId());
         tripJsonRepository.deleteTrip(trip.getTripId());
-
-
-        /*
-
-
-        ArrayList<Trip> tripsList = new ArrayList<>();
-        User user = userJsonRepository.createUser("user", "user", "user", "user", "user", tripsList);
-        LoggedInProfile.getProfile().logIn(user.getProfileId());
-
-        Trip trip1 = tripJsonRepository.addTrip("Trip1", "location,", "desc", null, 100, 100, null, null);
-        Trip trip2 = tripJsonRepository.addTrip("Trip2", "location,", "desc", null, 100, 100, null, null);
-        ArrayList<Trip> oldUserTrips = user.getTrips();
-
-        assertFalse(oldUserTrips.contains(trip1));
-        assertFalse(oldUserTrips.contains(trip2));
-
-        userJsonRepository.bookTrip(trip1);
-        userJsonRepository.bookTrip(trip2);
-
-        ArrayList<Trip> newUserTrips = user.getTrips();
-
-        assertTrue(newUserTrips.contains(trip1));
-        assertTrue(newUserTrips.contains(trip2));
-
-        assertArrayEquals(user.getTrips().toArray(), newUserTrips.toArray());
-
-        LoggedInProfile.getProfile().logOut();
-        tripJsonRepository.deleteTrip(trip1.getTripId());
-        tripJsonRepository.deleteTrip(trip2.getTripId());
-        userJsonRepository.deleteUser(user.getProfileId());
-    */
-
-
-
     }
 }

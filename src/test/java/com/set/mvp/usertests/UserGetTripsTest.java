@@ -10,6 +10,7 @@ import com.set.mvp.repository.UserJsonRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 
@@ -32,7 +33,7 @@ public class UserGetTripsTest {
         ArrayList<Trip> trips = new ArrayList<>();
         Guide guide = guideJsonRepository.createGuide("guide", "guide", "guide", "guide", "guide");
         User user = userJsonRepository.createUser("UserCanGetTripsTest", "User", "user", "user", "user", trips);
-        Trip trip1 = tripJsonRepository.addTrip("Triptriptrip", "trip", "trip", guide, 100, 100, null);
+        Trip trip1 = tripJsonRepository.addTrip("Triptriptrip", "trip", "trip", guide, 100, 100, LocalDate.of(2024,01,01));
         LoggedInProfile.getProfile().logIn(user.getProfileId());
         userJsonRepository.bookTrip(trip1);
 
