@@ -1,12 +1,28 @@
-# SoftwareEngineeringTestingEksamen 
+# SoftwareEngineeringTestingExam
 
 https://github.com/Marentius/SoftwareEngineeringTestingEksamen/tree/master
 https://github.com/Marentius/SoftwareEngineeringTestingEksamen/actions
 
+Exam Assignment SET Group 15
 
-Eksamensoppgave SET Gruppe 15
+Instructions for the Prototype:
 
-The following functionality has been added to the project:
+Downloading:
+Right-click on the .zip file and select "Extract All".
+Open the extracted folder, and move the project to a desired local location.
+Open IntelliJ (or another preferred IDE), click on open project, and find the project where you saved it.
+Select the folder, and press OK/open.
+
+Running the Prototype:
+Navigate to src/main/java/com.set.mvp/Application
+Right-click on "Application" and select "Run 'Application.main()'" (shortcut Ctrl+Shift+F10)
+
+Running Tests:
+Navigate to src/test/java/com.set.mvp
+Right-click on the folder "com.set.mvp" and select "Run 'Tests in 'com.set.mvp'"
+
+
+The following functionality is available in the prototype:
 
 Admin:
 
