@@ -1,15 +1,15 @@
 package com.set.mvp.usertests;
 
-import com.set.mvp.models.LoggedInProfile;
-import com.set.mvp.models.User;
-import com.set.mvp.repository.UserJsonRepository;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+        import com.set.mvp.models.LoggedInProfile;
+        import com.set.mvp.models.User;
+        import com.set.mvp.repository.UserJsonRepository;
+        import org.junit.jupiter.api.BeforeEach;
+        import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.Arrays;
+        import java.util.ArrayList;
+        import java.util.Arrays;
 
-import static org.junit.jupiter.api.Assertions.*;
+        import static org.junit.jupiter.api.Assertions.*;
 
 public class CreateUserAndEditUserTest {
     private UserJsonRepository userJsonRepository;

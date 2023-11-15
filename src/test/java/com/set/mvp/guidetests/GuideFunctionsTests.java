@@ -4,7 +4,6 @@ import com.set.mvp.models.Guide;
 import com.set.mvp.models.LoggedInProfile;
 import com.set.mvp.models.Trip;
 
-import com.set.mvp.models.User;
 
 import com.set.mvp.repository.GuideJsonRepository;
 import com.set.mvp.repository.TripJsonRepository;
@@ -12,7 +11,6 @@ import com.set.mvp.repository.UserJsonRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -23,12 +21,12 @@ public class GuideFunctionsTests {
     private TripJsonRepository tripJsonRepository;
     private UserJsonRepository userJsonRepository;
     @BeforeEach
-        public void init(){
-           guideJsonRepository = new GuideJsonRepository();
-           userJsonRepository = new UserJsonRepository();
-           tripJsonRepository = new TripJsonRepository();
+    public void init(){
+        guideJsonRepository = new GuideJsonRepository();
+        userJsonRepository = new UserJsonRepository();
+        tripJsonRepository = new TripJsonRepository();
 
-        }
+    }
 
 
     @Test
@@ -112,7 +110,7 @@ public class GuideFunctionsTests {
         assertFalse(LoggedInProfile.getProfile().getLoggedInProfileId() == createdGuideId);
         guideJsonRepository.deleteGuide(createdGuideId);
     }
-  
+
     @Test
     public void guide_can_edit_profile(){
         Guide createdGuide = guideJsonRepository.createGuide("Guide", "Guide", "Guide", "Guide", "Guide");

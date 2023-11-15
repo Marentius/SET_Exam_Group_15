@@ -32,6 +32,7 @@ public class UserCanGetTrips {
 
         Trip trip = tripJsonRepository.addTrip("trip", "loc", "desc", new Guide("Guide", "Guide", "Guide", "Guide", "Guide", 100), 100, 100, null);
 
+
         user.addTrip(trip);
 
         ArrayList<Trip> getTrips = userJsonRepository.getTrips(user.getProfileId());
