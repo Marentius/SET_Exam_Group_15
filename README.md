@@ -1,4 +1,9 @@
-# SoftwareEngineeringTestingEksamen
+# SoftwareEngineeringTestingEksamen 
+
+https://github.com/Marentius/SoftwareEngineeringTestingEksamen/tree/master
+https://github.com/Marentius/SoftwareEngineeringTestingEksamen/actions
+
+
 Eksamensoppgave SET Gruppe 15
 
 The following functionality has been added to the project:
