@@ -66,7 +66,7 @@ public class AdminFunctionsTest {
 
     @Test
     public void adminCanDeleteTripTest() {
-        Trip createdTrip = tripJsonRepository.addTrip("Trip", "Trip", "Trip", null, 1000, 100, LocalDate.of(2024,01,01));
+        Trip createdTrip = tripJsonRepository.addTrip("Trip", "Trip", "Trip", null, 1000, 100, LocalDate.of(2024,1,1));
         boolean isTripIdInList = false;
         tripJsonRepository.deleteTrip(createdTrip.getTripId());
         for (Trip trip : tripJsonRepository.getTrips()) {

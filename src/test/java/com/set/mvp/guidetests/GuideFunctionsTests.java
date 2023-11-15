@@ -5,12 +5,14 @@ import com.set.mvp.models.LoggedInProfile;
 import com.set.mvp.models.Trip;
 
 
+import com.set.mvp.models.User;
 import com.set.mvp.repository.GuideJsonRepository;
 import com.set.mvp.repository.TripJsonRepository;
 import com.set.mvp.repository.UserJsonRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -52,7 +54,7 @@ public class GuideFunctionsTests {
     public void guide_can_create_trip(){
 
         Guide guide = guideJsonRepository.createGuide("Guide12421", "Guide", "Guide", "Guide", "Guide");
-        Trip trip = tripJsonRepository.addTrip("Guide", "Guide", "Guide", guide, 1000, 100, LocalDate.of(2024,01,01));
+        Trip trip = tripJsonRepository.addTrip("Guide", "Guide", "Guide", guide, 1000, 100, LocalDate.of(2024,1,1));
 
         guide.addTrip(trip);
         boolean isTripInTripList = false;
@@ -141,7 +143,7 @@ public class GuideFunctionsTests {
     public void deleteTripFromAllUsersTest(){
         User createdUser = userJsonRepository.createUser("DummyUser", "password", "firstname", "lastname", "email", new ArrayList<>());
         Guide createdGuide = guideJsonRepository.createGuide("DummyGuide", "guide", "guide", "test", "email");
-        Trip trip = tripJsonRepository.addTrip("DummyTrip", "loc", "desc", createdGuide, 100, 100, LocalDate.of(2024, 01,01));
+        Trip trip = tripJsonRepository.addTrip("DummyTrip", "loc", "desc", createdGuide, 100, 100, LocalDate.of(2024, 1,1));
 
         LoggedInProfile.getProfile().logIn(createdUser.getProfileId());
         userJsonRepository.bookTrip(trip);

@@ -33,7 +33,7 @@ public class UserGetTripsTest {
         ArrayList<Trip> trips = new ArrayList<>();
         Guide guide = guideJsonRepository.createGuide("guide", "guide", "guide", "guide", "guide");
         User user = userJsonRepository.createUser("UserCanGetTripsTest", "User", "user", "user", "user", trips);
-        Trip trip1 = tripJsonRepository.addTrip("Triptriptrip", "trip", "trip", guide, 100, 100, LocalDate.of(2024,01,01));
+        Trip trip1 = tripJsonRepository.addTrip("Triptriptrip", "trip", "trip", guide, 100, 100, LocalDate.of(2024,1,1));
         LoggedInProfile.getProfile().logIn(user.getProfileId());
         userJsonRepository.bookTrip(trip1);
 
