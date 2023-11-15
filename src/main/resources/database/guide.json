@@ -30,12 +30,4 @@
   "password" : "Guide",
   "profileId" : 7,
   "trips" : [ ]
-}, {
-  "firstname" : "Stavros",
-  "lastname" : "Stavros",
-  "email" : "Stavros",
-  "username" : "Stavros",
-  "password" : "Stavros",
-  "profileId" : 8,
-  "trips" : [ ]
 } ]

@@ -5,6 +5,8 @@ import com.set.mvp.repository.UserJsonRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class UserExistsTest {
@@ -17,7 +19,7 @@ public class UserExistsTest {
 
     @Test
     public void userExists(){
-        User createdUser = userJsonRepository.createUser("UserExistsTest", "User", "Fnmae",  "lname", "email", null);
+        User createdUser = userJsonRepository.createUser("UserExistsTest", "User", "Fnmae",  "lname", "email", new ArrayList<>());
         assertEquals(userJsonRepository.checkUserExistansReturnProfileId(createdUser.getUsername()),createdUser.getProfileId());
 
         userJsonRepository.deleteUser(createdUser.getProfileId());
