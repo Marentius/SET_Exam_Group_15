@@ -5,6 +5,8 @@ https://github.com/Marentius/SoftwareEngineeringTestingEksamen/actions
 
 **Exam Assignment SET Group 15**
 
+This project uses Java JDK 19
+
 **Instructions for the Prototype:**
 
 **Downloading:**
