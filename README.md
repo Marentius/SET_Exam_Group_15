@@ -11,7 +11,7 @@ https://github.com/Marentius/SoftwareEngineeringTestingEksamen/actions
 
 Right-click on the .zip file and select "Extract All".
 Open the extracted folder, and move the project to a desired local location.
-Open IntelliJ (or another preferred IDE), click on open project, and find the project where you saved it.
+Open IntelliJ, click on open project, and find the project where you saved it.
 Select the folder, and press OK/open.
 
 **Running the Prototype:**
